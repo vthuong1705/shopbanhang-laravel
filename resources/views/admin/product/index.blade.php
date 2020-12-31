@@ -57,7 +57,7 @@
                             <td>{{$value->desc}}</td>
                             <td>
                                 <a href="{{route('product.edit',$value->id)}}" class="btn btn-success">sửa</a>
-                                <a href="" data-url="{{route('product.update',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
+                                <a href="" data-url="{{route('product.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
                             </td>
                         </tr>
                         @endforeach

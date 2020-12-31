@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <label for="">tên sản phẩm</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                placeholder="nhập tên danh mục">
+                                placeholder="nhập tên sản phẩm">
                             @error('name')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
