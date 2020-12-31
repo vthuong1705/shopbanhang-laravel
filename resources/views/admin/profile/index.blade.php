@@ -22,7 +22,19 @@
             <!-- end page-title -->
 
             <div class="row">
-                <h1>1</h1>
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">thông tin cá nhân</h3>
+                      </div>
+                      <div class="panel-body">
+                          <p>{{$admin->id}}</p>
+                            <p>username: {{$admin->name}}</p>
+                            <p>email: {{$admin->email}}</p>
+                            <p>phone: {{$admin->phone}}</p>
+                            <a href="{{route('profile.edit',$admin->id)}}" class="btn btn-success">chỉnh sửa thông tin cá nhân</a>
+                      </div>
+                </div>
+
             </div>
 
 

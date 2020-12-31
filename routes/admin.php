@@ -28,6 +28,10 @@ Route::prefix('admin')->group(function(){
             'as'=>'profile.index',
             'uses'=>'admins\ProfileController@index'
         ]);
+        Route::get('edit/{id}',[
+            'as'=>'profile.edit',
+            'uses'=>'admins\ProfileController@edit'
+        ]);
     });
 
     Route::prefix('category')->middleware('logged')->group(function(){
