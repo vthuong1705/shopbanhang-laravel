@@ -23,6 +23,13 @@ Route::prefix('admin')->group(function(){
         'uses'=>'admins\HomeController@logout'
     ]);
 
+    Route::prefix('profile')->group(function(){
+        Route::get('',[
+            'as'=>'profile.index',
+            'uses'=>'admins\ProfileController@index'
+        ]);
+    });
+
     Route::prefix('category')->middleware('logged')->group(function(){
         Route::get('',[
             'as'=>'category.index',
