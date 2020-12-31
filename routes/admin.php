@@ -32,6 +32,18 @@ Route::prefix('admin')->group(function(){
             'as'=>'profile.edit',
             'uses'=>'admins\ProfileController@edit'
         ]);
+        Route::post('update/{id}',[
+            'as'=>'profile.update',
+            'uses'=>'admins\ProfileController@update'
+        ]);
+        Route::get('edit-password/{id}',[
+            'as'=>'profile.edit_password',
+            'uses'=>'admins\ProfileController@edit_password'
+        ]);
+        Route::post('update-password/{id}',[
+            'as'=>'profile.update_password',
+            'uses'=>'admins\ProfileController@update_password'
+        ]);
     });
 
     Route::prefix('category')->middleware('logged')->group(function(){

@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\DB;
 class admin extends Model
 {
     use HasFactory;
+    protected $fillable = ['name','email','phone','password'];
 
     public static function get_email($email){
         return DB::table('admins')->where('email',$email)->first();
     }
+
 }

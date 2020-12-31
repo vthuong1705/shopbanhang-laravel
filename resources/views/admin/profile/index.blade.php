@@ -20,19 +20,26 @@
                 <!-- end row -->
             </div>
             <!-- end page-title -->
-
+            @if (session()->has('success'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>{{session('success')}}</strong>
+            </div>
+            @endif
             <div class="row">
+
                 <div class="panel panel-info">
-                      <div class="panel-heading">
-                            <h3 class="panel-title">thông tin cá nhân</h3>
-                      </div>
-                      <div class="panel-body">
-                          <p>{{$admin->id}}</p>
-                            <p>username: {{$admin->name}}</p>
-                            <p>email: {{$admin->email}}</p>
-                            <p>phone: {{$admin->phone}}</p>
-                            <a href="{{route('profile.edit',$admin->id)}}" class="btn btn-success">chỉnh sửa thông tin cá nhân</a>
-                      </div>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">thông tin cá nhân</h3>
+                    </div>
+                    <div class="panel-body">
+                        {{-- <p>{{$admin->id}}</p> --}}
+                        <p>username: {{$admin->name}}</p>
+                        <p>email: {{$admin->email}}</p>
+                        <p>phone: {{$admin->phone}}</p>
+                        <a href="{{route('profile.edit',$admin->id)}}" class="btn btn-success">chỉnh sửa thông tin cá
+                            nhân</a>
+                    </div>
                 </div>
 
             </div>
@@ -42,4 +49,4 @@
         <!-- container-fluid -->
 
     </div>
-@endsection
+    @endsection

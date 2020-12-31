@@ -124,6 +124,7 @@
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->
                                 <a class="dropdown-item" href="{{route('profile.index')}}"><i class="mdi mdi-account-circle"></i> Profile</a>
+                                <a class="dropdown-item" href="{{route('profile.edit_password',(session()->get('admin')->id))}}"><i class="mdi mdi-settings"></i> đổi mật khẩu</a>
                                 <a class="dropdown-item text-danger" href="{{route('admin.logout')}}"><i class="mdi mdi-power text-danger"></i> đăng xuất</a>
                             </div>
                         </div>

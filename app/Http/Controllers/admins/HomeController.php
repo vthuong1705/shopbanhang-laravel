@@ -27,6 +27,7 @@ class HomeController extends Controller
         if($check_email){
             if(Hash::check($request->password, $check_email->password)){
                 session()->put('admin',$check_email);
+                // dd(session()->get('admin'));
                 return redirect()->route('admin.dashboard');
             }else{
                 return redirect()->back()->with('password_err','mật khẩu không chính xác');
