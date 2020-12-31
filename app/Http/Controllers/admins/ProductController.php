@@ -23,30 +23,33 @@ class ProductController extends Controller
         $this->product_image = $product_image;
     }
 
-    public function index(){
+    public function index()
+    {
 
         // dd($pro);
         $product = Product::get_info_product();
         // dd($product);
-        return view('admin.product.index',compact('product'));
+        return view('admin.product.index', compact('product'));
     }
 
-    public function create(){
+    public function create()
+    {
         $cate = Category::all();
         $brand = brand::all();
-        return view('admin.product.add',compact('cate','brand'));
+        return view('admin.product.add', compact('cate', 'brand'));
     }
 
-    public function store(AddProductRequest $request){
-        $dataUpload = $this->uploadImage($request,'product','avatar');
+    public function store(AddProductRequest $request)
+    {
+        $dataUpload = $this->uploadImage($request, 'product', 'avatar');
         $dataInsert = [
-            'name'=>$request->name,
-            'price'=>$request->price,
-            'sale_price'=>(!empty($request->sale_price)) ? $request->sale_price:0,
+            'name' => $request->name,
+            'price' => $request->price,
+            'sale_price' => (!empty($request->sale_price)) ? $request->sale_price : 0,
             'cat_id' => $request->cat_id,
             'brand_id' => $request->brand_id,
             'desc' => $request->desc,
-            'slug'=> Str::slug($request->name, '-')
+            'slug' => Str::slug($request->name, '-')
         ];
 
         $dataInsert['avatar'] = $dataUpload;
@@ -55,43 +58,45 @@ class ProductController extends Controller
 
         //insert to img_pro
 
-        if($request->hasFile('image')){
-            foreach($request->image as $value){
-                $UploadMuiple = $this->uploadImageMutiple($value,'product');
+        if ($request->hasFile('image')) {
+            foreach ($request->image as $value) {
+                $UploadMuiple = $this->uploadImageMutiple($value, 'product');
                 Product_image::create([
-                    'image'=>$UploadMuiple,
-                    'id_pro'=>$product->id
+                    'image' => $UploadMuiple,
+                    'id_pro' => $product->id
                 ]);
             }
         }
-        return redirect()->route('product.index')->with('success','thêm mới thành công');
+        return redirect()->route('product.index')->with('success', 'thêm mới thành công');
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $cate = Category::all();
         $brand = brand::all();
         $product = Product::find($id);
         $img_pro = Product::get_image($id);
         // dd($img);
-        return view('admin.product.edit',compact('cate','brand','product','img_pro'));
+        return view('admin.product.edit', compact('cate', 'brand', 'product', 'img_pro'));
     }
 
-    public function update($id,Request $request){
-        $dataUpload = $this->uploadImage($request,'product','avatar');
+    public function update($id, Request $request)
+    {
+        $dataUpload = $this->uploadImage($request, 'product', 'avatar');
         $pro = Product::find($id);
         $dataUpdate = [
-            'name'=>$request->name,
-            'price'=>$request->price,
-            'sale_price'=>(!empty($request->sale_price)) ? $request->sale_price:0,
+            'name' => $request->name,
+            'price' => $request->price,
+            'sale_price' => (!empty($request->sale_price)) ? $request->sale_price : 0,
             'cat_id' => $request->cat_id,
             'brand_id' => $request->brand_id,
             'desc' => $request->desc,
-            'slug'=> Str::slug($request->name, '-')
+            'slug' => Str::slug($request->name, '-')
         ];
 
-        if($request->file('avatar') == null){
+        if ($request->file('avatar') == null) {
             $dataUpdate['avatar'] = $pro->avatar;
-        }else{
+        } else {
             File::delete($pro->avatar);
             $dataUpdate['avatar'] = $dataUpload;
         }
@@ -100,27 +105,29 @@ class ProductController extends Controller
 
         //insert to img_pro
 
-        if($request->hasFile('image')){
+
+        if ($request->hasFile('image')) {
             Product_image::delete_image($id);
-            foreach($request->image as $value){
-                $UploadMuiple = $this->uploadImageMutiple($value,'product');
+            foreach ($request->image as $value) {
+                $UploadMuiple = $this->uploadImageMutiple($value, 'product');
                 $pro = Product_image::create([
-                    'image'=>$UploadMuiple,
-                    'id_pro'=>$product->id
+                    'image' => $UploadMuiple,
+                    'id_pro' => $product->id
                 ]);
             }
         }
-        return redirect()->route('product.index')->with('success','sửa thành công');
+        return redirect()->route('product.index')->with('success', 'sửa thành công');
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         Product_image::delete_image($id);
         $product = Product::find($id)->delete();
-        if($product){
+        if ($product) {
             return response()->json([
-                'code'=>200,
-                'message'=>'success'
-            ],200);
+                'code' => 200,
+                'message' => 'success'
+            ], 200);
         }
     }
 }
