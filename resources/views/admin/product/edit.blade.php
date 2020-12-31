@@ -93,7 +93,7 @@
                             @enderror
                         </div>
                         @foreach ($img_pro as $value)
-                            <img src="{{asset($value->image)}}" alt="">
+                            <img src="{{asset($value->image)}}" style="width:120px;height:150px" alt="">
                         @endforeach
 
                         <div class="form-group">

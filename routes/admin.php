@@ -110,7 +110,7 @@ Route::prefix('admin')->group(function(){
             'uses'=> 'admins\ProductController@update'
         ]);
         Route::get('delete/{id}',[
-            'as'=>'product.update',
+            'as'=>'product.delete',
             'uses'=> 'admins\ProductController@delete'
         ]);
     });
