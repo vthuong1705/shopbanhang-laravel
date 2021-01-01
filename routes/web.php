@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 require_once('admin.php');
+require_once('client.php');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admins;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditAdminRequest;
 use App\Http\Requests\EditProfileRequest;
 use App\Models\admin;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class ProfileController extends Controller
         return view('admin.profile.edit',compact('admin'));
     }
 
-    public function update(Request $request,$id){
+    public function update(EditAdminRequest $request,$id){
         admin::find($id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
