@@ -22,19 +22,6 @@
                 <div class="row flex-row-reverse">
                     <div class="col-lg-9">
                         <div class="shop-top-bar">
-                            <div class="shop-top-bar-left">
-                                <div class="shop-top-show">
-                                    <span>Showing 1–12 of 39 results</span>
-                                </div>
-                                <div class="shop-page-list">
-                                    <ul>
-                                        <li>Show</li>
-                                        <li class="active"><a href="#">12</a></li>
-                                        <li><a href="#">15</a></li>
-                                        <li><a href="#">30</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                             <div class="shop-top-bar-right">
                                 <div class="shop-filter">
                                     <a class="shop-filter-active" href="#">Filters <i class="fa fa-angle-down angle-down"></i> <i class="fa fa-angle-up angle-up"></i></a>
