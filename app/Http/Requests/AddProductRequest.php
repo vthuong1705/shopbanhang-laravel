@@ -27,6 +27,7 @@ class AddProductRequest extends FormRequest
             'name'=>'required',
             'price'=>'required',
             'avatar'=>'required',
+            'quantity'=>'required',
             'image'=>'required',
             'desc'=>'required'
         ];
@@ -38,6 +39,7 @@ class AddProductRequest extends FormRequest
             'name.required' => 'nhập tên sản phẩm',
             'price.required' => 'nhập giá sản phẩm',
             'avatar.required' => 'nhập ảnh đại diện',
+            'quantity.required' => 'nhập số lượng sản phẩm',
             'image.required' => 'nhập ảnh mô tả',
             'desc.required' => 'nhập mô tả sản phẩm',
         ];

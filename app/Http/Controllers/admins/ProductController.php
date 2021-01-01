@@ -7,7 +7,9 @@ use App\Http\Requests\AddProductRequest;
 use App\Models\brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\product_detail;
 use App\Models\Product_image;
+use App\Models\Size;
 use App\Traits\UploadFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -17,10 +19,12 @@ class ProductController extends Controller
 {
     use UploadFile;
     private $product_image;
+    private $product_detail;
 
-    public function __construct(Product_image $product_image)
+    public function __construct(Product_image $product_image,product_detail $product_detail)
     {
         $this->product_image = $product_image;
+        $this->product_detail = $product_detail;
     }
 
     public function index()
@@ -36,25 +40,32 @@ class ProductController extends Controller
     {
         $cate = Category::all();
         $brand = brand::all();
-        return view('admin.product.add', compact('cate', 'brand'));
+        $size = Size::all();
+        return view('admin.product.add', compact('cate', 'brand','size'));
     }
 
-    public function store(AddProductRequest $request)
+    public function store(Request $request)
     {
+        // dd($this->product_detail->insert_size($request->size));
         $dataUpload = $this->uploadImage($request, 'product', 'avatar');
         $dataInsert = [
             'name' => $request->name,
-            'price' => $request->price,
-            'sale_price' => (!empty($request->sale_price)) ? $request->sale_price : 0,
             'cat_id' => $request->cat_id,
             'brand_id' => $request->brand_id,
             'desc' => $request->desc,
             'slug' => Str::slug($request->name, '-')
         ];
 
+        // 'price' => $request->price,
+        //     'sale_price' => (!empty($request->sale_price)) ? $request->sale_price : 0,
+
         $dataInsert['avatar'] = $dataUpload;
         // dd($dataInsert);
         $product = Product::create($dataInsert);
+
+        //insert to pro_detail
+
+        $this->product_detail->insert_size($request->size,$request,$product->id);
 
         //insert to img_pro
 

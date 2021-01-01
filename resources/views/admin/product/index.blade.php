@@ -38,8 +38,8 @@
                             <th>thương hiệu</th>
                             <th>giá sản phẩm</th>
                             <th>giá khuyễn mãi</th>
+                            <th>số lượng</th>
                             <th>ảnh đại diện</th>
-                            <th>ảnh mô tả</th>
                             <th>mô tả</th>
                             <th></th>
                         </tr>
@@ -52,7 +52,8 @@
                             <td>{{$value->cateName}}</td>
                             <td>{{$value->brandName}}</td>
                             <td>{{number_format($value->price)}} VND</td>
-                            <td>{{$value->sale_price}}%</td>
+                            <td>{{$value->discount}}%</td>
+                            <td>{{$value->quantity}}</td>
                             <td><img src="{{asset($value->avatar)}}" alt="" style="width:50px"></td>
                             <td>{{$value->desc}}</td>
                             <td>

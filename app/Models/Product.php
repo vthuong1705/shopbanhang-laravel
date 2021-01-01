@@ -16,7 +16,8 @@ class Product extends Model
         return DB::table('products')
             ->join('brands', 'products.brand_id', '=', 'brands.id')
             ->join('categories', 'products.cat_id', '=', 'categories.id')
-            ->select('products.*', 'brands.name as brandName', 'categories.name as cateName')
+            ->join('product_details', 'products.id', '=', 'product_details.id_pro')
+            ->select('products.*', 'brands.name as brandName', 'categories.name as cateName','product_details.*')
             ->get();
     }
 

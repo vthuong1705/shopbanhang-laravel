@@ -39,25 +39,35 @@
 
                         <div class="form-group">
                             <label for="">giá sản phẩm</label>
-                            <input type="number" min="1" class="form-control @error('price') is-invalid @enderror" name="price"
-                                placeholder="nhập giá sản phẩm">
+                            <input type="number" min="1" class="form-control @error('price') is-invalid @enderror"
+                                name="price" placeholder="nhập giá sản phẩm">
                             @error('price')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="">giá khuyến mại</label>
-                            <input type="number" min="0" max="100" class="form-control @error('sale_price') is-invalid @enderror"
-                                name="sale_price" placeholder="nhập giá khuyến mại">
-                            @error('sale_price')
+                            <label for="">discount</label>
+                            <input type="number" min="0" max="100"
+                                class="form-control @error('discount') is-invalid @enderror" name="discount"
+                                placeholder="nhập giá khuyến mại">
+                            @error('discount')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">số lượng</label>
+                            <input type="number" min="1" class="form-control @error('quantity') is-invalid @enderror"
+                                name="quantity" placeholder="nhập giá khuyến mại">
+                            @error('quantity')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="">danh mục sản phẩm</label>
-                            <select name="cat_id" id="input" class="form-control" required="required">
+                            <select name="cat_id" id="input" class="form-control">
                                 @foreach ($cate as $value)
                                 <option value="{{$value->id}}">{{$value->name}}</option>
                                 @endforeach
@@ -67,7 +77,7 @@
 
                         <div class="form-group">
                             <label for="">thương hiệu</label>
-                            <select name="brand_id" id="input" class="form-control" required="required">
+                            <select name="brand_id" id="input" class="form-control">
                                 @foreach ($brand as $value)
                                 <option value="{{$value->id}}">{{$value->name}}</option>
                                 @endforeach
@@ -76,8 +86,7 @@
 
                         <div class="form-group">
                             <label for="">ảnh đại diện</label>
-                            <input type="file" class="form-control @error('avatar') is-invalid @enderror"
-                                name="avatar">
+                            <input type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar">
                             @error('avatar')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -101,7 +110,53 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary">thêm mới</button>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+
+                        <div class="card">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" class="checkbox_wrapper">
+                                    size
+                                </label>
+                            </div>
+                            <div class="checkbox">
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        @foreach ($size as $value)
+                                        <label>
+                                            <input type="checkbox" name="size[]" value="{{$value->id}}" class="checkbox_childrent">
+                                            {{$value->name}}
+                                        </label>
+                                        @endforeach
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>trạng thái</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="status" id="input" value="1" checked="checked">
+                                hiện
+                            </label>
+                            <label>
+                                <input type="radio" name="status" id="input" value="0">
+                                ẩn
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">thêm mới</button>
                     </form>
                 </div>
 
@@ -112,4 +167,10 @@
         <!-- container-fluid -->
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $('.checkbox_wrapper').on('click',function(){
+            $(this).parents('.card').find('.checkbox_childrent').prop('checked',$(this).prop('checked'));
+        });
+    </script>
     @endsection
