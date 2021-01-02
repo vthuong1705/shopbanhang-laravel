@@ -20,11 +20,13 @@ class ProductController extends Controller
     use UploadFile;
     private $product_image;
     private $product_detail;
+    private $product;
 
-    public function __construct(Product_image $product_image,product_detail $product_detail)
+    public function __construct(Product_image $product_image,product_detail $product_detail,Product $product)
     {
         $this->product_image = $product_image;
         $this->product_detail = $product_detail;
+        $this->product = $product;
     }
 
     public function index()
@@ -66,7 +68,6 @@ class ProductController extends Controller
         //insert to pro_detail
 
         $this->product_detail->insert_size($request->size,$request,$product->id);
-
         //insert to img_pro
 
         if ($request->hasFile('image')) {
@@ -85,10 +86,15 @@ class ProductController extends Controller
     {
         $cate = Category::all();
         $brand = brand::all();
-        $product = Product::find($id);
-        $img_pro = Product::get_image($id);
+        $product_detail = product_detail::find($id);
+        // dd($product->id_pro);
+        $product = Product::find($product_detail->id_pro);
+        // dd($product);
+        // dd($info_product);
+        $img_pro = Product::get_image($product_detail->id_pro);
+        // dd($img_pro);
         // dd($img);
-        return view('admin.product.edit', compact('cate', 'brand', 'product', 'img_pro'));
+        return view('admin.product.edit', compact('cate', 'brand', 'product', 'img_pro','product_detail'));
     }
 
     public function update($id, Request $request)

@@ -14,6 +14,7 @@ class HomeController extends Controller
         if(session()->get('admin')){
             return view('home-admin');
         }else{
+            // dd(Hash::make('123'));
             return view('admin.login.login_admin');
         }
     }

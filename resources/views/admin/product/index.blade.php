@@ -56,7 +56,21 @@
                             <td>{{$value->discount}}%</td>
                             <td>{{$value->quantity}}</td>
                             <td><img src="{{asset($value->avatar)}}" alt="" style="width:50px"></td>
-                            <td>{{$value->size}}</td>
+                            <td>
+                                @switch($value->id_size)
+                                    @case(1)
+                                        L
+                                        @break
+                                    @case(2)
+                                        M
+                                        @break
+                                    @case(3)
+                                        X
+                                        @break
+                                    @default
+                                        XL
+                                @endswitch
+                            </td>
                             <td>{{$value->desc}}</td>
                             <td>
                                 <a href="{{route('product.edit',$value->id)}}" class="btn btn-success">sửa</a>

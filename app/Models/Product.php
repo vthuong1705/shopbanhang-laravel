@@ -25,8 +25,7 @@ class Product extends Model
         return DB::table('product_images')->where('id_pro',$id)->get();
     }
 
-    // public static function get_img(){
-    //     $pro = $this->belongsTo(Product_image::class, 'id_pro','id');
-    //     return ;
-    // }
+    public function find_info_product(){
+        return $this->belongsTo(product_detail::class,'id_pro','id');
+    }
 }
