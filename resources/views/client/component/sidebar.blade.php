@@ -4,13 +4,9 @@
             <h4 class="pro-sidebar-title">Categories </h4>
             <div class="sidebar-widget-list mt-50">
                 <ul>
-                    <li><a href="#">Bags</a> <span>(16)</span></li>
-                    <li><a href="#">Cosmetic</a> <span>(13)</span></li>
-                    <li><a href="#">Fashions</a> <span>(39)</span></li>
-                    <li><a href="#">Flower</a> <span>(16)</span></li>
-                    <li><a href="#">Furniture</a> <span>(15)</span></li>
-                    <li><a href="#">Uncategorized</a> <span>(0)</span></li>
-                    <li><a href="#">Watch</a> <span>(23)</span></li>
+                    @foreach($category as $value)
+                    <li><a href="#">{{$value->name}}</a> <span>(16)</span></li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -30,23 +26,9 @@
             <h4 class="pro-sidebar-title">Size</h4>
             <div class="sidebar-widget-size mt-55">
                 <ul>
-                    <li><a href="#">L</a></li>
-                    <li><a href="#">M</a></li>
-                    <li><a href="#">X</a></li>
-                    <li><a href="#">XL</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="sidebar-widget sw-overflow mb-65">
-            <h4 class="pro-sidebar-title">Color</h4>
-            <div class="sidebar-widget-color mt-50">
-                <ul>
-                    <li><a href="#"><span title="Blue" class="swatch-anchor blue">Blue</span></a></li>
-                    <li><a href="#"><span title="Brown" class="swatch-anchor brown">Brown</span></a></li>
-                    <li><a href="#"><span title="Green" class="swatch-anchor green">Green</span></a></li>
-                    <li><a href="#"><span title="Pink" class="swatch-anchor pink">Pink</span></a></li>
-                    <li><a href="#"><span title="Violet" class="swatch-anchor violet">Violet</span></a></li>
-                    <li><a href="#"><span title="White" class="swatch-anchor white">White</span></a></li>
+                    @foreach ($size as $value)
+                    <li><a href="#">{{$value->name}}</a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -54,14 +36,9 @@
             <h4 class="pro-sidebar-title">Brands</h4>
             <div class="sidebar-widget-brand mt-50">
                 <ul>
-                    <li><a href="#">Airi</a> <span>(16)</span></li>
-                    <li><a href="#">Helas</a> <span>(13)</span></li>
-                    <li><a href="#">Mango</a> <span>(39)</span></li>
-                    <li><a href="#">Payna</a> <span>(16)</span></li>
-                    <li><a href="#">Toro</a> <span>(15)</span></li>
-                    <li><a href="#">Valention</a> <span>(0)</span></li>
-                    <li><a href="#">Veera</a> <span>(23)</span></li>
-                    <li><a href="#">Zara</a> <span>(23)</span></li>
+                    @foreach($brand as $value)
+                    <li><a href="#">{{$value->name}}</a> <span>(16)</span></li>
+                    @endforeach
                 </ul>
             </div>
         </div>
