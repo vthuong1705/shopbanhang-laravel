@@ -14,7 +14,7 @@ class product_detail extends Model
     public function insert_size($data_insert,$request,$id){
         $insert = [];
         foreach($data_insert as $value){
-            product_detail::create([
+            $insert = [
                 'id_pro' => $id,
                 'price' => $request->price,
                 'discount' => (!empty($request->discount)) ? $request->discount : 0,
@@ -22,8 +22,10 @@ class product_detail extends Model
                 'quantity' => $request->quantity,
                 'status'=>$request->status,
                 'id_size'=>$value
-            ]);
-        }
+            ];
+            $pro_detail = product_detail::create($insert);
+        };
+        return $insert;
         // dd($insert);
         // DB::table('product_details')->insert($insert);
     }
