@@ -20,19 +20,18 @@ class ProductController extends Controller
     use UploadFile;
     private $product_image;
     private $product_detail;
+    private $product;
 
-    public function __construct(Product_image $product_image,product_detail $product_detail)
+    public function __construct(Product_image $product_image,product_detail $product_detail,Product $product)
     {
         $this->product_image = $product_image;
         $this->product_detail = $product_detail;
+        $this->product = $product;
     }
 
     public function index()
     {
-
-        // dd($pro);
         $product = Product::get_info_product();
-        // dd($product);
         return view('admin.product.index', compact('product'));
     }
 
@@ -85,10 +84,13 @@ class ProductController extends Controller
     {
         $cate = Category::all();
         $brand = brand::all();
-        $product = Product::find($id);
-        $img_pro = Product::get_image($id);
-        // dd($img);
-        return view('admin.product.edit', compact('cate', 'brand', 'product', 'img_pro'));
+        $product_detail = product_detail::find($id);
+        // dd($product_detail);
+        $product = Product::find($product_detail->id_pro);
+        // dd($product);
+        $img_pro = Product::get_image($product_detail->id_pro);
+        // dd($get_image);
+        return view('admin.product.edit', compact('cate', 'brand', 'product', 'img_pro','product_detail'));
     }
 
     public function update($id, Request $request)

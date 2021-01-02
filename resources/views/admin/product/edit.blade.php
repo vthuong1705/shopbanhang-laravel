@@ -40,7 +40,7 @@
                         <div class="form-group">
                             <label for="">giá sản phẩm</label>
                             <input type="number" min="1" class="form-control @error('price') is-invalid @enderror" name="price"
-                                placeholder="nhập giá sản phẩm" value="{{$product->price}}">
+                                placeholder="nhập giá sản phẩm" value="{{$product_detail->price}}">
                             @error('price')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="">giá khuyến mại</label>
                             <input type="number" min="0" max="100" class="form-control @error('sale_price') is-invalid @enderror"
-                                name="sale_price" placeholder="nhập giá khuyến mại" value="{{$product->sale_price}}">
+                                name="sale_price" placeholder="nhập giá khuyến mại" value="{{$product_detail->discount}}">
                             @error('sale_price')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
