@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','thêm danh mục')
-@section('name_page','add category')
+@section('title','sửa sản phẩm')
+@section('name_page','edit product')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -26,12 +26,12 @@
                 <div class="col-md-6">
                     <form action="{{route('product.update',$product->id)}}" method="POST" role="form" enctype="multipart/form-data">
                         @csrf
-                        <legend>thêm mới danh mục</legend>
+                        <legend>sửa sản phẩm</legend>
 
                         <div class="form-group">
-                            <label for="">tên danh mục</label>
+                            <label for="">tên sản phẩm</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                placeholder="nhập tên danh mục" value="{{$product->name}}">
+                                placeholder="nhập tên sản phâm" value="{{$product->name}}">
                             @error('name')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
