@@ -40,6 +40,7 @@
                             <th>giá khuyễn mãi</th>
                             <th>số lượng</th>
                             <th>ảnh đại diện</th>
+                            <th>size</th>
                             <th>mô tả</th>
                             <th></th>
                         </tr>
@@ -55,6 +56,7 @@
                             <td>{{$value->discount}}%</td>
                             <td>{{$value->quantity}}</td>
                             <td><img src="{{asset($value->avatar)}}" alt="" style="width:50px"></td>
+                            <td>{{$value->size}}</td>
                             <td>{{$value->desc}}</td>
                             <td>
                                 <a href="{{route('product.edit',$value->id)}}" class="btn btn-success">sửa</a>

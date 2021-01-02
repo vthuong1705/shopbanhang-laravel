@@ -23,7 +23,7 @@ class CreateProductDetailsTable extends Migration
             $table->integer('quantity');
             $table->tinyInteger('status');
             $table->unsignedBigInteger('id_size');
-            $table->foreign('id_size')->references('id')->on('sizes');
+            // $table->foreign('id_size')->references('id')->on('sizes');
             $table->timestamps();
         });
     }

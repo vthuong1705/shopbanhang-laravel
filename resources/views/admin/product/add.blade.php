@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','thêm danh mục')
-@section('name_page','add category')
+@section('title','thêm sản phẩm')
+@section('name_page','add product')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -30,37 +30,28 @@
 
                         <div class="form-group">
                             <label for="">tên sản phẩm</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                placeholder="nhập tên sản phẩm">
-                            @error('name')
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="nhập tên sản phẩm"> @error('name')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="">giá sản phẩm</label>
-                            <input type="number" min="1" class="form-control @error('price') is-invalid @enderror"
-                                name="price" placeholder="nhập giá sản phẩm">
-                            @error('price')
+                            <input type="number" min="1" class="form-control @error('price') is-invalid @enderror" name="price" placeholder="nhập giá sản phẩm"> @error('price')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="">discount</label>
-                            <input type="number" min="0" max="100"
-                                class="form-control @error('discount') is-invalid @enderror" name="discount"
-                                placeholder="nhập giá khuyến mại">
-                            @error('discount')
+                            <label for="">discount (~%)</label>
+                            <input type="number" min="0" max="100" class="form-control @error('discount') is-invalid @enderror" name="discount" placeholder="nhập giá khuyến mại"> @error('discount')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="">số lượng</label>
-                            <input type="number" min="1" class="form-control @error('quantity') is-invalid @enderror"
-                                name="quantity" placeholder="nhập giá khuyến mại">
-                            @error('quantity')
+                            <input type="number" min="1" class="form-control @error('quantity') is-invalid @enderror" name="quantity" placeholder="nhập số lượng sản phẩm"> @error('quantity')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
@@ -86,79 +77,73 @@
 
                         <div class="form-group">
                             <label for="">ảnh đại diện</label>
-                            <input type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar">
-                            @error('avatar')
+                            <input type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar"> @error('avatar')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="">ảnh mô tả</label>
-                            <input type="file" multiple class="form-control @error('image') is-invalid @enderror"
-                                name="image[]">
-                            @error('image')
+                            <input type="file" multiple class="form-control @error('image') is-invalid @enderror" name="image[]"> @error('image')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="">mô tả</label>
-                            <textarea type="text" class="form-control @error('desc') is-invalid @enderror" name="desc"
-                                placeholder="mô tả" rows="4"></textarea>
-                            @error('desc')
+                            <textarea type="text" class="form-control @error('desc') is-invalid @enderror" name="desc" placeholder="mô tả" rows="4"></textarea> @error('desc')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
-                </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
 
-                <div class="col-md-12">
-                    <div class="form-group">
-
-                        <div class="card">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="" class="checkbox_wrapper">
-                                    size
-                                </label>
-                            </div>
-                            <div class="checkbox">
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        @foreach ($size as $value)
+                                <div class="card">
+                                    <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="size[]" value="{{$value->id}}" class="checkbox_childrent">
-                                            {{$value->name}}
+                                            <input type="checkbox" value="" class="checkbox_wrapper">
+                                            size
                                         </label>
-                                        @endforeach
+                                    </div>
+                                    <div class="checkbox">
 
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                @foreach ($size as $value)
+                                                <label>
+                                                    <input type="checkbox" name="size[]" value="{{$value->id}}" class="checkbox_childrent">
+                                                    {{$value->name}}
+                                                </label> @endforeach
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
-
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>trạng thái</label>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="status" id="input" value="1" checked="checked">
-                                hiện
-                            </label>
-                            <label>
-                                <input type="radio" name="status" id="input" value="0">
-                                ẩn
-                            </label>
-                        </div>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>trạng thái</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="status" id="input" value="1" checked="checked">
+                                        hiện
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="status" id="input" value="0">
+                                        ẩn
+                                    </label>
+                                </div>
+                            </div>
 
 
-                    <button type="submit" class="btn btn-primary">thêm mới</button>
+                            <button type="submit" class="btn btn-primary">thêm mới</button>
                     </form>
+                    </div>
                 </div>
+
 
             </div>
 
@@ -169,8 +154,8 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-        $('.checkbox_wrapper').on('click',function(){
-            $(this).parents('.card').find('.checkbox_childrent').prop('checked',$(this).prop('checked'));
+        $('.checkbox_wrapper').on('click', function() {
+            $(this).parents('.card').find('.checkbox_childrent').prop('checked', $(this).prop('checked'));
         });
     </script>
     @endsection
