@@ -40,8 +40,8 @@
                             <th>giá khuyễn mãi</th>
                             <th>số lượng</th>
                             <th>ảnh đại diện</th>
-                            <th>size</th>
                             <th>mô tả</th>
+                            <th>size</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -56,8 +56,22 @@
                             <td>{{$value->discount}}%</td>
                             <td>{{$value->quantity}}</td>
                             <td><img src="{{asset($value->avatar)}}" alt="" style="width:50px"></td>
-                            {{-- <td>{{$value->size}}</td> --}}
                             <td>{{$value->desc}}</td>
+                            <td>
+                                @switch($value->id_size)
+                                    @case(1)
+                                        M
+                                        @break
+                                    @case(2)
+                                        L
+                                        @break
+                                    @case(3)
+                                        M
+                                        @break
+                                    @default
+                                        XL
+                                @endswitch
+                            </td>
                             <td>
                                 <a href="{{route('product.edit',$value->id)}}" class="btn btn-success">sửa</a>
                                 <a href="" data-url="{{route('product.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
