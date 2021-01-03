@@ -16,7 +16,7 @@ class ClientController extends Controller
         $size = Size::all();
         $category = Category::all();
         $brand = brand::all();
-        $product = Product::paginate(1);
+        $product = Product::paginate(10);
         return view('home-client',compact('category','brand','size','product'));
     }
 }

@@ -16,8 +16,7 @@ class Product extends Model
         return DB::table('products')
             ->join('brands', 'products.brand_id', '=', 'brands.id')
             ->join('categories', 'products.cat_id', '=', 'categories.id')
-            ->join('product_details', 'products.id', '=', 'product_details.id_pro')
-            ->select('products.*', 'brands.name as brandName', 'categories.name as cateName','product_details.*')
+            ->select('products.*', 'brands.name as brandName', 'categories.name as cateName')
             ->get();
     }
 
@@ -28,8 +27,12 @@ class Product extends Model
     public function find_info_product(){
         return $this->belongsTo(product_detail::class,'id_pro','id');
     }
-    // public static function get_img(){
-    //     $pro = $this->belongsTo(Product_image::class, 'id_pro','id');
-    //     return ;
-    // }
+
+    public static function product_details($id)
+	{
+        return DB::table('product_details')->where('id_pro', $id)->orderBy('created_at', 'desc')->get();
+    }
+    public static function get_pro_detail(){
+        return DB::table('products')->where('status',1)->orderBy('created_at','desc')->get();
+    }
 }
