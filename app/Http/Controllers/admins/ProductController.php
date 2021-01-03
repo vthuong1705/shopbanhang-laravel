@@ -96,15 +96,16 @@ class ProductController extends Controller
     public function update($id, Request $request)
     {
         $dataUpload = $this->uploadImage($request, 'product', 'avatar');
-        $pro = Product::find($id);
+        $pro_detail = product_detail::find($id);
+        $pro = Product::find($pro_detail->id_pro);
+        // dd($pro->id);
         $dataUpdate = [
             'name' => $request->name,
-            'price' => $request->price,
-            'sale_price' => (!empty($request->sale_price)) ? $request->sale_price : 0,
             'cat_id' => $request->cat_id,
             'brand_id' => $request->brand_id,
             'desc' => $request->desc,
-            'slug' => Str::slug($request->name, '-')
+            'slug' => Str::slug($request->name, '-'),
+            'status'=>$request->status
         ];
 
         if ($request->file('avatar') == null) {
@@ -113,14 +114,25 @@ class ProductController extends Controller
             File::delete($pro->avatar);
             $dataUpdate['avatar'] = $dataUpload;
         }
-        Product::find($id)->update($dataUpdate);
-        $product = Product::find($id);
+        Product::find($pro_detail->id_pro)->update($dataUpdate);
+        $product = Product::find($pro_detail->id_pro);
+
+        //update into pro_detail
+
+        product_detail::find($id)->update([
+            'id_pro'=>$pro_detail->id_pro,
+            'price'=>$request->price,
+            'discount'=>(!empty($request->discount)) ? $request->discount : 0,
+            'sale_price'=> $request->price + ($request->price * $request->discount),
+            'quantity'=>$request->quantity,
+            'id_size'=>$pro_detail->id_size
+        ]);
 
         //insert to img_pro
 
 
         if ($request->hasFile('image')) {
-            Product_image::delete_image($id);
+            Product_image::delete_image($pro_detail->id_pro);
             foreach ($request->image as $value) {
                 $UploadMuiple = $this->uploadImageMutiple($value, 'product');
                 $pro = Product_image::create([

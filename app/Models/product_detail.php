@@ -31,3 +31,4 @@ class product_detail extends Model
     }
 
 }
+

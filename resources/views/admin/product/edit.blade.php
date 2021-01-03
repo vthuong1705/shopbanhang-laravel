@@ -24,7 +24,7 @@
             <div class="row">
 
                 <div class="col-md-6">
-                    <form action="{{route('product.update',$product->id)}}" method="POST" role="form" enctype="multipart/form-data">
+                    <form action="{{route('product.update',$product_detail->id)}}" method="POST" role="form" enctype="multipart/form-data">
                         @csrf
                         <legend>sửa sản phẩm</legend>
 
@@ -47,9 +47,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">giá khuyến mại</label>
+                            <label for="">discount</label>
                             <input type="number" min="0" max="100" class="form-control @error('sale_price') is-invalid @enderror"
-                                name="sale_price" placeholder="nhập giá khuyến mại" value="{{$product_detail->discount}}">
+                                name="discount" placeholder="nhập giá khuyến mại" value="{{$product_detail->discount}}">
+                            @error('sale_price')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">số lượng</label>
+                            <input type="number" min="0" max="100" class="form-control @error('sale_price') is-invalid @enderror"
+                                name="quantity" placeholder="nhập giá khuyến mại" value="{{$product_detail->quantity}}">
                             @error('sale_price')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -104,7 +112,18 @@
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-
+                        <div class="form-group">
+                            <label>trạng thái</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="status" id="input" value="1" {{$product->status==1?'checked':''}}>
+                                    hiện
+                                </label>
+                                <label>
+                                    <input type="radio" name="status" id="input" value="0" {{$product->status==0?'checked':''}}>
+                                    ẩn
+                                </label>
+                            </div>
                         <button type="submit" class="btn btn-primary">thêm mới</button>
                     </form>
                 </div>
