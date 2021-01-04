@@ -153,4 +153,27 @@ Route::prefix('admin')->group(function(){
             'uses'=> 'admins\ProductController@delete'
         ]);
     });
+
+    Route::prefix('product-detail')->group(function(){
+        Route::get('/{id}',[
+            'as' => 'product_detail.index',
+            'uses' => 'admins\ProductDetailController@index'
+        ]);
+        Route::post('store/{id}',[
+            'as' => 'product_detail.store',
+            'uses' => 'admins\ProductDetailController@store'
+        ]);
+        Route::get('edit/{id}',[
+            'as' => 'product_detail.edit',
+            'uses' => 'admins\ProductDetailController@edit'
+        ]);
+        Route::post('update/{id}',[
+            'as' => 'product_detail.update',
+            'uses' => 'admins\ProductDetailController@update'
+        ]);
+        Route::get('delete/{id}',[
+            'as' => 'product_detail.delete',
+            'uses' => 'admins\ProductDetailController@delete'
+        ]);
+    });
 });

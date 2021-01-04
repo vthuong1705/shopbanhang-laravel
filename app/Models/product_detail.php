@@ -18,7 +18,7 @@ class product_detail extends Model
                 'id_pro' => $id,
                 'price' => $request->price,
                 'discount' => (!empty($request->discount)) ? $request->discount : 0,
-                'sale_price' => $request->price + ($request->price * $request->discount),
+                'sale_price' => $request->price - ($request->price * ($request->discount/100)),
                 'quantity' => $request->quantity,
                 'status'=>$request->status,
                 'id_size'=>$value
@@ -30,5 +30,9 @@ class product_detail extends Model
         // DB::table('product_details')->insert($insert);
     }
 
+
+    public static function get_product_detail($id){
+        return DB::table('product_details')->where('id_pro',$id)->get();
+    }
 }
 

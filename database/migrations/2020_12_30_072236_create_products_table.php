@@ -16,6 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->String('sku');
             $table->string('avatar');
             $table->string('slug');
             $table->unsignedBigInteger('cat_id');
@@ -23,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->text('desc');
+            $table->tinyInteger('stauts');
             $table->timestamps();
         });
     }

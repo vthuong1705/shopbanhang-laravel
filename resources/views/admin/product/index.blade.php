@@ -34,14 +34,12 @@
                         <tr>
                             <th>#</th>
                             <th>tên sản phẩm</th>
+                            <th>Mã sản phẩm</th>
                             <th>danh mục</th>
                             <th>thương hiệu</th>
-                            <th>giá sản phẩm</th>
-                            <th>giá khuyễn mãi</th>
-                            <th>số lượng</th>
                             <th>ảnh đại diện</th>
                             <th>mô tả</th>
-                            <th>size</th>
+                            <th>trạng thái</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -52,27 +50,11 @@
                             <td>{{$value->name}}</td>
                             <td>{{$value->cateName}}</td>
                             <td>{{$value->brandName}}</td>
-                            <td>{{number_format($value->price)}} VND</td>
-                            <td>{{$value->discount}}%</td>
-                            <td>{{$value->quantity}}</td>
                             <td><img src="{{asset($value->avatar)}}" alt="" style="width:50px"></td>
                             <td>{{$value->desc}}</td>
+                            <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>
-                                @switch($value->id_size)
-                                    @case(1)
-                                        M
-                                        @break
-                                    @case(2)
-                                        L
-                                        @break
-                                    @case(3)
-                                        M
-                                        @break
-                                    @default
-                                        XL
-                                @endswitch
-                            </td>
-                            <td>
+                                <a href="{{route('product_detail.index',$value->id)}}"><i class="mdi mdi-eye btn-info btn"></i></a>
                                 <a href="{{route('product.edit',$value->id)}}" class="btn btn-success">sửa</a>
                                 <a href="" data-url="{{route('product.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
                             </td>

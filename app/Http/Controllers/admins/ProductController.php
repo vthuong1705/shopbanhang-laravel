@@ -49,10 +49,12 @@ class ProductController extends Controller
         $dataUpload = $this->uploadImage($request, 'product', 'avatar');
         $dataInsert = [
             'name' => $request->name,
+            'sku'=>$request->sku,
             'cat_id' => $request->cat_id,
             'brand_id' => $request->brand_id,
             'desc' => $request->desc,
-            'slug' => Str::slug($request->name, '-')
+            'slug' => Str::slug($request->name, '-'),
+            'status'=>$request->status
         ];
 
         // 'price' => $request->price,
@@ -64,7 +66,7 @@ class ProductController extends Controller
 
         //insert to pro_detail
 
-        $this->product_detail->insert_size($request->size,$request,$product->id);
+        // $this->product_detail->insert_size($request->size,$request,$product->id);
 
         //insert to img_pro
 
@@ -84,20 +86,18 @@ class ProductController extends Controller
     {
         $cate = Category::all();
         $brand = brand::all();
-        $product_detail = product_detail::find($id);
         // dd($product_detail);
-        $product = Product::find($product_detail->id_pro);
+        $product = Product::find($id);
         // dd($product);
-        $img_pro = Product::get_image($product_detail->id_pro);
+        $img_pro = Product::get_image($id);
         // dd($get_image);
-        return view('admin.product.edit', compact('cate', 'brand', 'product', 'img_pro','product_detail'));
+        return view('admin.product.edit', compact('cate', 'brand', 'product', 'img_pro'));
     }
 
     public function update($id, Request $request)
     {
         $dataUpload = $this->uploadImage($request, 'product', 'avatar');
-        $pro_detail = product_detail::find($id);
-        $pro = Product::find($pro_detail->id_pro);
+        $pro = Product::find($id);
         // dd($pro->id);
         $dataUpdate = [
             'name' => $request->name,
@@ -114,25 +114,15 @@ class ProductController extends Controller
             File::delete($pro->avatar);
             $dataUpdate['avatar'] = $dataUpload;
         }
-        Product::find($pro_detail->id_pro)->update($dataUpdate);
-        $product = Product::find($pro_detail->id_pro);
+        Product::find($id)->update($dataUpdate);
+        $product = Product::find($id);
 
-        //update into pro_detail
-
-        product_detail::find($id)->update([
-            'id_pro'=>$pro_detail->id_pro,
-            'price'=>$request->price,
-            'discount'=>(!empty($request->discount)) ? $request->discount : 0,
-            'sale_price'=> $request->price + ($request->price * $request->discount),
-            'quantity'=>$request->quantity,
-            'id_size'=>$pro_detail->id_size
-        ]);
 
         //insert to img_pro
 
 
         if ($request->hasFile('image')) {
-            Product_image::delete_image($pro_detail->id_pro);
+            Product_image::delete_image($id);
             foreach ($request->image as $value) {
                 $UploadMuiple = $this->uploadImageMutiple($value, 'product');
                 $pro = Product_image::create([
@@ -151,7 +141,7 @@ class ProductController extends Controller
         if ($product) {
             return response()->json([
                 'code' => 200,
-                'message' => 'success'
+                'message' => 'success',
             ], 200);
         }
     }
