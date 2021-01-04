@@ -25,14 +25,14 @@ class Product extends Model
     }
 
     public function find_info_product(){
-        return $this->belongsTo(product_detail::class,'id_pro','id');
+        return $this->hasMany(product_detail::class,'id_pro','id');
     }
 
     public static function product_details($id)
 	{
         return DB::table('product_details')->where('id_pro', $id)->orderBy('created_at', 'desc')->get();
     }
-    public static function get_pro_detail(){
+    public static function get_product(){
         return DB::table('products')->where('status',1)->orderBy('created_at','desc')->get();
     }
 }

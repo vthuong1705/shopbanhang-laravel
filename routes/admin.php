@@ -127,7 +127,7 @@ Route::prefix('admin')->group(function(){
         ]);
     });
 
-    Route::prefix('product-detail')->group(function(){
+    Route::prefix('product-detail')->middleware('logged')->group(function(){
         Route::get('/{id}',[
             'as' => 'product_detail.index',
             'uses' => 'admins\ProductDetailController@index'

@@ -34,5 +34,9 @@ class product_detail extends Model
     public static function get_product_detail($id){
         return DB::table('product_details')->where('id_pro',$id)->get();
     }
+
+    public function product(){
+        return $this->belongsTo(Product::class,'id_pro','id');
+    }
 }
 

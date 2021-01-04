@@ -95,6 +95,10 @@
                                                 src="{{asset($value->avatar)}}" alt="">
                                             <img class="hover-img"
                                                 src="{{asset('clients/images/product/hm-4-pro-1-2.jpg')}}" alt="">
+                                                @if ($value->discount>0)
+
+                                                <span class="price-dec">{{$value->discount}}%</span>
+                                                @endif
                                         </a>
                                         <div class="product-action">
                                             <a data-toggle="modal" data-target="#exampleModal" title="Quick View"
@@ -111,7 +115,13 @@
                                     <div class="product-content">
                                         <h3><a href="product-details.html">{{$value->name}}</a></h3>
                                         <div class="product-price">
-                                            <span>$29.00</span>
+                                            @if ($value->discount>0)
+
+                                            <span >đ {{number_format($value->sale_price)}}</span>
+                                            <span class="old">đ {{number_format($value->price)}} </span>
+                                            @else
+                                            <span>đ {{number_format($value->sale_price)}} </span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +129,7 @@
                             @endforeach
                         </div>
                     </div>
-                    {{$product->links()}}
+                    {{-- {{$product->links()}} --}}
                 </div>
             </div>
             {{-- sidebar --}}
