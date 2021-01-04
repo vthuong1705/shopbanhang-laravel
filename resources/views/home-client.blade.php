@@ -1,18 +1,20 @@
 @extends('client.master')
+@section('title','trang client')
+@section('name_page','')
 @section('content')
 
         <div class="breadcrumb-area breadcrumb-bg-3 section-padding-1 pt-200 pb-120">
             <div class="container-fluid">
                 <div class="breadcrumb-content text-center">
                     <div class="breadcrumb-title">
-                        <h2>Shop Sidebar</h2>
+                        <h2>Shop H&T</h2>
                     </div>
                     <ul>
                         <li>
                             <a href="index.html">Home </a>
                         </li>
                         <li><span> > </span></li>
-                        <li class="active"> shop page</li>
+                        <li class="active">@yield('name_page')</li>
                     </ul>
                 </div>
             </div>
@@ -117,13 +119,12 @@
                         <div class="tab-content jump">
                             <div id="shop-1" class="tab-pane active">
                                 <div class="row">
-                                    @foreach($product as $value)
+                                    @foreach($pro as $value)
                                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                                         <div class="product-wrap mb-40">
                                             <div class="product-img default-overlay mb-20">
                                                 <a href="product-details.html">
-                                                    <img class="default-img" src="{{asset('clients/images/product/hm-4-pro-1.jpg')}}" alt="">
-                                                    <img class="hover-img" src="{{asset('clients/images/product/hm-4-pro-1-2.jpg')}}" alt="">
+                                                    <img class="default-img" style="width: 300px" src="{{asset($value->avatar)}}" alt="">
                                                 </a>
                                                 <div class="product-action">
                                                     <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-zoom-in"></i><span>Quick Shop</span></a>
@@ -137,7 +138,7 @@
                                             <div class="product-content">
                                                 <h3><a href="product-details.html">{{$value->name}}</a></h3>
                                                 <div class="product-price">
-                                                    <span>$29.00</span>
+                                                    <span>300.00$</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +146,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            {{$product->links()}}
+                            {{$pro->links()}}
                         </div>
                     </div>
                     {{-- sidebar --}}

@@ -28,6 +28,13 @@ class Product extends Model
     public function find_info_product(){
         return $this->belongsTo(product_detail::class,'id_pro','id');
     }
+
+    public static function get_pro(){
+        $getpro = DB::table('products')->where('status',1)->paginate(1);
+        // dd($getpro);
+        return $getpro;
+
+    }
     // public static function get_img(){
     //     $pro = $this->belongsTo(Product_image::class, 'id_pro','id');
     //     return ;

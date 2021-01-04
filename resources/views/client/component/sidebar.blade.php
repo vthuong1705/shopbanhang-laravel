@@ -37,7 +37,7 @@
             <div class="sidebar-widget-brand mt-50">
                 <ul>
                     @foreach($brand as $value)
-                    <li><a href="#">{{$value->name}}</a> <span>(16)</span></li>
+                    <li><a href="#">{{$value->name}}</a></li>
                     @endforeach
                 </ul>
             </div>
