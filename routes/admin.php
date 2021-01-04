@@ -37,15 +37,15 @@ Route::prefix('admin')->group(function(){
             'uses'=>'admins\BannerController@store'
         ]);
         Route::get('edit/{id}',[
-            'as'=>'category.edit',
+            'as'=>'banner.edit',
             'uses'=>'admin\BannerController@edit'
         ]);
         Route::post('update/{id}',[
-            'as'=>'category.update',
+            'as'=>'banner.update',
             'uses'=>'admin\BannerController@update'
         ]);
         Route::get('delete/{id}',[
-            'as'=>'category.delete',
+            'as'=>'banner.delete',
             'uses'=>'admin\BannerController@delete'
         ]);
     });
