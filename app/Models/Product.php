@@ -28,11 +28,4 @@ class Product extends Model
         return $this->hasMany(product_detail::class,'id_pro','id');
     }
 
-    public static function product_details($id)
-	{
-        return DB::table('product_details')->where('id_pro', $id)->orderBy('created_at', 'desc')->get();
-    }
-    public static function get_product(){
-        return DB::table('products')->where('status',1)->orderBy('created_at','desc')->get();
-    }
 }

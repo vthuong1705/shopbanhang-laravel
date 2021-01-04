@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\brand;
+use App\Models\Category;
+use App\Models\Size;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,5 +28,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+        view()->composer('*', function ($view) {
+            $view->with([
+                'category' => Category::where('status', 1)->get(),
+                'brand' => brand::where('status', 1)->get(),
+                'size' => Size::where('status', 1)->get()
+            ]);
+        });
     }
 }

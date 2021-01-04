@@ -23,6 +23,33 @@ Route::prefix('admin')->group(function(){
         'uses'=>'admins\HomeController@logout'
     ]);
 
+    Route::prefix('banner')->group(function(){
+        Route::get('',[
+            'as'=>'banner.index',
+            'uses'=>'admins\BannerController@index'
+        ]);
+        Route::get('create',[
+            'as'=>'banner.create',
+            'uses'=>'admins\BannerController@create'
+        ]);
+        Route::post('store',[
+            'as'=>'banner.store',
+            'uses'=>'admins\BannerController@store'
+        ]);
+        Route::get('edit/{id}',[
+            'as'=>'banner.edit',
+            'uses'=>'admin\BannerController@edit'
+        ]);
+        Route::post('update/{id}',[
+            'as'=>'banner.update',
+            'uses'=>'admin\BannerController@update'
+        ]);
+        Route::get('delete/{id}',[
+            'as'=>'banner.delete',
+            'uses'=>'admin\BannerController@delete'
+        ]);
+    });
+
     Route::prefix('profile')->group(function(){
         Route::get('',[
             'as'=>'profile.index',

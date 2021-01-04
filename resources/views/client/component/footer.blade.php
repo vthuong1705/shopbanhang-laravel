@@ -5,7 +5,7 @@
                 <div class="footer-widget mb-40">
                     <div class="footer-about">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="{{asset('clients/images/logo/logo-white.png')}}" alt="logo"></a>
+                            <a href="index.html"><img src="assets/images/logo/logo-white.png" alt="logo"></a>
                         </div>
                         <div class="footer-info">
                             <ul>
@@ -98,14 +98,7 @@
         </div>
     </div>
 </footer>
-<div class="support-lists">
-    <ul>
-        <li><a href="#"><i class=" ti-comments "></i></a></li>
-        <li><a href="#"><i class=" ti-headphone-alt "></i></a></li>
-        <li><a href="#"><i class=" ti-email "></i></a></li>
-    </ul>
-</div>
-
+<!-- Modal end -->
 </div>
 
 <!-- JS
@@ -158,5 +151,4 @@
 
 
 <!-- Mirrored from demo.hasthemes.com/payna-preview/payna/shop-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Nov 2020 08:23:58 GMT -->
-
 </html>

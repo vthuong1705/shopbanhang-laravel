@@ -21,7 +21,7 @@ class ClientController extends Controller
     }
 
     public function index(){
-        $product = Product::where('status',1)->get();
+        $product = Product::where('status',1)->paginate(10);
         foreach($product as $value){
             $product_detail = isset($value->find_info_product)?$value->find_info_product:[];
             if(isset($product_detail[0])){
@@ -34,10 +34,8 @@ class ClientController extends Controller
                 $value->setAttribute('sale_price', 0);
             }
         }
-        // dd($product_detail);
-        $size = Size::all();
-        $category = Category::all();
-        $brand = brand::all();
-        return view('home-client',compact('category','brand','size','product'));
+
+        return view('home-client',compact('product'));
+
     }
 }

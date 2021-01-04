@@ -3,7 +3,6 @@
 
 
 <!-- Mirrored from demo.hasthemes.com/payna-preview/payna/shop-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Nov 2020 08:23:57 GMT -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,7 +11,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('clients/images/favicon.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
 
     <!-- CSS
 	============================================ -->
@@ -40,9 +39,7 @@
 </head>
 
 <body>
-
     <div class="main-wrapper main-wrapper-2">
-        {{-- header --}}
         <header class="header-area header-padding-1">
             <div class="main-header-wrap transparent-bar">
                 <div class="container-fluid">
@@ -50,7 +47,7 @@
                         <div class="col-lg-3">
                             <div class="logo-header-about-wrap">
                                 <div class="logo logo-width">
-                                    <a href="index.html"><img src="{{asset('clients/images/logo/logo.png')}}" alt="logo"></a>
+                                    <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo"></a>
                                 </div>
                                 <div class="header-about-icon ml-35">
                                     <a class="quickinfo-button-active" href="#"><i class=" ti-align-left "></i></a>
@@ -61,12 +58,43 @@
                             <div class="main-menu menu-lh-1">
                                 <nav>
                                     <ul>
-                                        <li><a class="active" href="index.html">Home</a>
+                                        <li><a class="active" href="index.html">Home <i class="fa fa-angle-down"></i></a>
+                                            <ul class="mega-menu mega-menu-width1 menu-negative-mrg1">
+                                                <li><a class="menu-title" href="#">Demo Group 01</a>
+                                                    <ul>
+                                                        <li><a href="index.html">Home 01</a></li>
+                                                        <li><a href="index-2.html">Home 02</a></li>
+                                                        <li><a href="index-3.html">Home 03</a></li>
+                                                        <li><a href="index-4.html">Home 04</a></li>
+                                                        <li><a href="index-5.html">Home 05</a></li>
+                                                        <li><a href="index-6.html">Home 06</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a class="menu-title" href="#">Demo Group 02</a>
+                                                    <ul>
+                                                        <li><a href="index-7.html">Home 07</a></li>
+                                                        <li><a href="index-8.html">Home 08</a></li>
+                                                        <li><a href="index-9.html">Home 09</a></li>
+                                                        <li><a href="index-10.html">Home 10</a></li>
+                                                        <li><a href="index-11.html">Home 11</a></li>
+                                                        <li><a href="index-12.html">Home 12</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a class="menu-title" href="#">Demo Group 03</a>
+                                                    <ul>
+                                                        <li><a href="index-13.html">Home 13</a></li>
+                                                        <li><a href="index-14.html">Home 14</a></li>
+                                                        <li><a href="index-15.html">Home 15</a></li>
+                                                        <li><a href="index-16.html">Home 16</a></li>
+                                                        <li><a href="index-17.html">Home 17</a></li>
+                                                        <li><a href="index-18.html">Home 18</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
                                         </li>
                                         <li><a href="#">Shop <i class="fa fa-angle-down"></i></a>
                                             <ul class="mega-menu mega-menu-width2 menu-negative-mrg2">
-                                                {{-- CAI CU LIN NAY LA TRANG LAYOUT DAY KO PHAI CATEGORY DAU, CATEGORY MINH DUYET TREN SIDEBAR THOI OK K --}}
-                                                {{-- <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Shop Layout</a>
+                                                <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Shop Layout</a>
                                                     <ul>
                                                         <li><a href="shop-fullwide.html">Shop Fullwidth</a></li>
                                                         <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
@@ -78,10 +106,10 @@
                                                         <li><a href="shop-collection-classic.html">Collection Classic</a></li>
                                                         <li><a href="shop-collection-modern.html">Collection Modern</a></li>
                                                     </ul>
-                                                </li> --}}
-                                                {{-- <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Product Layout</a>
+                                                </li>
+                                                <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Product Layout</a>
                                                     <ul>
-                                                        <li><a href="product-details.html">Simple 01</a></li>  CHỖ NÀY LÀ PRODUCT DETAIL NHÉ
+                                                        <li><a href="product-details.html">Simple 01</a></li>
                                                         <li><a href="product-details-2.html">Simple 02</a></li>
                                                         <li><a href="product-details-3.html">Simple 03</a></li>
                                                         <li><a href="product-details-carousel.html">Product Carousel</a></li>
@@ -89,21 +117,36 @@
                                                         <li><a href="product-details-affiliate.html">Product Affiliate</a></li>
                                                         <li><a href="product-details-configurable.html">Product Configurable</a></li>
                                                     </ul>
-                                                </li> --}}
+                                                </li>
                                                 <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Shop Page</a>
                                                     <ul>
                                                         <li><a href="cart.html">Shopping Cart</a></li>
                                                         <li><a href="checkout.html">Check Out</a></li>
                                                         <li><a href="my-account.html">My Account</a></li>
                                                         <li><a href="wishlist.html">Wishlist</a></li>
+                                                        <li><a href="compare.html">Compare</a></li>
+                                                        <li><a href="order-tracking.html">Order Tracking</a></li>
                                                     </ul>
+                                                </li>
+                                                <li class="mega-menu-sub-width37">
+                                                    <div class="banner-menu-content-wrap default-overlay">
+                                                        <a href="product-details.html"><img src="assets/images/banner/banner-menu.jpg" alt="banner"></a>
+                                                        <div class="banner-menu-content">
+                                                            <span>Hello Summer 2019</span>
+                                                            <h2>New <br>arrival</h2>
+                                                        </div>
+                                                    </div>
                                                 </li>
                                             </ul>
                                         </li>
+                                        <li><a href="shop-fullwide.html">Collections </a></li>
                                         <li><a href="#">Pages <i class="fa fa-angle-down"></i></a>
                                             <ul class="sub-menu-width">
                                                 <li><a href="about-us.html">About Us</a></li>
                                                 <li><a href="contact-us.html">Contact Us</a></li>
+                                                <li><a href="faq.html">FAQ</a></li>
+                                                <li><a href="comming-soon.html">Comming Soon</a></li>
+                                                <li><a href="404.html">Page 404</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="blog.html">Blog <i class="fa fa-angle-down"></i></a>
@@ -120,6 +163,7 @@
                                                 </li>
                                             </ul>
                                         </li>
+                                        <li><a href="shop-fullwide.html">New Look </a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -152,7 +196,7 @@
                         <div class="col-6">
                             <div class="mobile-logo logo-width">
                                 <a href="index.html">
-                                    <img alt="" src="{{asset('clients/images/logo/logo.png')}}">
+                                    <img alt="" src="assets/images/logo/logo.png">
                                 </a>
                             </div>
                         </div>
@@ -173,3 +217,261 @@
                 </div>
             </div>
         </header>
+        <div class="quickinfo-wrapper-active quickinfo-toggle-left">
+            <a class="quickinfo-close"><i class=" ti-close"></i></a>
+            <div class="quickinfo-wrap">
+                <div class="quickinfo-menu">
+                    <nav>
+                        <ul>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="quickinfo-banner default-overlay">
+                    <a href="#"><img src="assets/images/banner/quick-info-banner.jpg" alt="quick-info"></a>
+                    <div class="quickinfo-banner-content">
+                        <h3>new</h3>
+                    </div>
+                </div>
+                <div class="quickinfo-address">
+                    <ul>
+                        <li>(+612) 2531 5600 </li>
+                        <li><a href="#">info@example.com </a></li>
+                        <li>PO Box 1622 Colins Street West <br>Victoria 8077 Australia</li>
+                    </ul>
+                </div>
+                <div class="quickinfo-map-link">
+                    <a href="#">Google map</a>
+                </div>
+                <div class="quickinfo-social">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div class="quickinfo-payment">
+                    <img src="assets/images/icon-img/payment-info.png" alt="payment">
+                </div>
+                <div class="quickinfo-copyright">
+                    <p>© 2019 <a href="#">Payna</a> Shop. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-off-canvas-active">
+            <a class="mobile-aside-close"><i class="ti-close"></i></a>
+            <div class="header-mobile-aside-wrap">
+                <div class="mobile-search">
+                    <form class="search-form" action="#">
+                        <input type="text" placeholder="Search entire store…">
+                        <button class="button-search"><i class="ti-search"></i></button>
+                    </form>
+                </div>
+                <div class="mobile-menu-wrap">
+                    <!-- mobile menu start -->
+                    <div class="mobile-navigation">
+                        <!-- mobile menu navigation start -->
+                        <nav>
+                            <ul class="mobile-menu">
+                                <li class="menu-item-has-children"><a href="index.html">Home</a>
+                                    <ul class="dropdown">
+                                        <li class="menu-item-has-children"><a href="#">Demo Group 01</a>
+                                            <ul class="dropdown">
+                                                <li><a href="index.html">Home 01</a></li>
+                                                <li><a href="index-2.html">Home 02</a></li>
+                                                <li><a href="index-3.html">Home 03</a></li>
+                                                <li><a href="index-4.html">Home 04</a></li>
+                                                <li><a href="index-5.html">Home 05</a></li>
+                                                <li><a href="index-6.html">Home 06</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children"><a href="#">Demo Group 02</a>
+                                            <ul class="dropdown">
+                                                <li><a href="index-7.html">Home 07</a></li>
+                                                <li><a href="index-8.html">Home 08</a></li>
+                                                <li><a href="index-9.html">Home 09</a></li>
+                                                <li><a href="index-10.html">Home 10</a></li>
+                                                <li><a href="index-11.html">Home 11</a></li>
+                                                <li><a href="index-12.html">Home 12</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children"><a href="#">Demo Group 03</a>
+                                            <ul class="dropdown">
+                                                <li><a href="index-13.html">Home 13</a></li>
+                                                <li><a href="index-14.html">Home 14</a></li>
+                                                <li><a href="index-15.html">Home 15</a></li>
+                                                <li><a href="index-16.html">Home 16</a></li>
+                                                <li><a href="index-17.html">Home 17</a></li>
+                                                <li><a href="index-18.html">Home 18</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children "><a href="shop-fullwide.html">shop</a>
+                                    <ul class="dropdown">
+                                        <li class="menu-item-has-children"><a href="#">Shop Layout</a>
+                                            <ul class="dropdown">
+                                                <li><a href="shop-fullwide.html">Shop Fullwidth</a></li>
+                                                <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
+                                                <li><a href="shop-3col.html">Shop 03 Column</a></li>
+                                                <li><a href="shop-4col.html">Shop 04 Column</a></li>
+                                                <li><a href="shop-masonry.html">Shop Mansory</a></li>
+                                                <li><a href="shop-metro.html">Shop Metro Layout</a></li>
+                                                <li><a href="shop-instagram.html">Shop Instagram</a></li>
+                                                <li><a href="shop-collection-classic.html">Collection Classic</a></li>
+                                                <li><a href="shop-collection-modern.html">Collection Modern</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children"><a href="#">Product Layout</a>
+                                            <ul class="dropdown">
+                                                <li><a href="product-details.html">Simple 01</a></li>
+                                                <li><a href="product-details-2.html">Simple 02</a></li>
+                                                <li><a href="product-details-3.html">Simple 03</a></li>
+                                                <li><a href="product-details-carousel.html">Product Carousel</a></li>
+                                                <li><a href="product-details-grouped.html">Product Grouped</a></li>
+                                                <li><a href="product-details-affiliate.html">Product Affiliate</a></li>
+                                                <li><a href="product-details-configurable.html">Product Configurable</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children"><a href="#">Shop Page </a>
+                                            <ul class="dropdown">
+                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                <li><a href="checkout.html">Check Out</a></li>
+                                                <li><a href="my-account.html">My Account</a></li>
+                                                <li><a href="wishlist.html">Wishlist</a></li>
+                                                <li><a href="compare.html">Compare</a></li>
+                                                <li><a href="order-tracking.html">Order Tracking</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="contact-us.html">Contact Us</a></li>
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="comming-soon.html">Comming Soon</a></li>
+                                        <li><a href="404.html">Page 404</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children "><a href="blog.html">Blog</a>
+                                    <ul class="dropdown">
+                                        <li><a href="blog.html">Blog Sidebar</a></li>
+                                        <li><a href="blog-no-sidebar.html">Blog No Sidebar</a></li>
+                                        <li><a href="blog-3col.html">Blog 03 Columns</a></li>
+                                        <li><a href="blog-masonry.html">Blog Mansory</a></li>
+                                        <li class="menu-item-has-children"><a href="#">Single Post</a>
+                                            <ul class="dropdown">
+                                                <li><a href="blog-details.html">Single Post 01</a></li>
+                                                <li><a href="blog-details-2.html">Single Post 02</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact-us.html">Contact us</a></li>
+                            </ul>
+                        </nav>
+                        <!-- mobile menu navigation end -->
+                    </div>
+                    <!-- mobile menu end -->
+                </div>
+                <div class="mobile-curr-lang-wrap">
+                    <div class="single-mobile-curr-lang">
+                        <a class="mobile-language-active" href="#">Language <i class="fa fa-angle-down"></i></a>
+                        <div class="lang-curr-dropdown lang-dropdown-active">
+                            <ul>
+                                <li><a href="#">English (US)</a></li>
+                                <li><a href="#">English (UK)</a></li>
+                                <li><a href="#">Spanish</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="single-mobile-curr-lang">
+                        <a class="mobile-currency-active" href="#">Currency <i class="fa fa-angle-down"></i></a>
+                        <div class="lang-curr-dropdown curr-dropdown-active">
+                            <ul>
+                                <li><a href="#">USD</a></li>
+                                <li><a href="#">EUR</a></li>
+                                <li><a href="#">Real</a></li>
+                                <li><a href="#">BDT</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="single-mobile-curr-lang">
+                        <a class="mobile-account-active" href="#">My Account <i class="fa fa-angle-down"></i></a>
+                        <div class="lang-curr-dropdown account-dropdown-active">
+                            <ul>
+                                <li><a href="#">Login</a></li>
+                                <li><a href="#">Creat Account</a></li>
+                                <li><a href="my-account.html">My Account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-social-wrap">
+                    <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+                    <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+                    <a class="pinterest" href="#"><i class="ti-pinterest"></i></a>
+                    <a class="instagram" href="#"><i class="ti-instagram"></i></a>
+                    <a class="google" href="#"><i class="ti-google"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- search start -->
+        <div class="search-content-wrap main-search-active">
+            <a class="search-close"><i class=" ti-close "></i></a>
+            <div class="search-content">
+                <p>Start typing and press Enter to search</p>
+                <form class="search-form" action="#">
+                    <input type="text" placeholder="Search">
+                    <button class="button-search"><i class="ti-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <!-- mini cart start -->
+        <div class="sidebar-cart-active">
+            <div class="sidebar-cart-all">
+                <a class="cart-close" href="#"><i class=" ti-close"></i></a>
+                <div class="cart-content">
+                    <h3>Shopping Cart</h3>
+                    <ul>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">High Collar Jacket</a></h4>
+                                <span>1 × $50.00</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Long shirt dress</a></h4>
+                                <span>2 × $29.00</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cart-total">
+                        <h4>Subtotal: <span>$150.00</span></h4>
+                    </div>
+                    <div class="cart-checkout-btn">
+                        <a class="btn-hover cart-btn-style" href="cart.html">view cart</a>
+                        <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>

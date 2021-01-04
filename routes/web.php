@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', function () {
-//     return view('home-admin');
+//     return view('client.master');
 // });
 
 require_once('admin.php');
