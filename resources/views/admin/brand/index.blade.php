@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($brand as $value)
+                        @foreach ($brands as $value)
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$value->name}}</td>
@@ -58,7 +58,7 @@
             </div>
             <div class="d-felx justify-content-center">
 
-                {{ $brand->links() }}
+                {{ $brands->links() }}
 
             </div>
 

@@ -14,8 +14,8 @@ use Illuminate\Support\Str;
 class BrandController extends Controller
 {
     public function index(){
-        $brand = brand::paginate(10);
-        return view('admin.brand.index',compact('brand'));
+        $brands = brand::paginate(5);
+        return view('admin.brand.index',compact('brands'));
     }
 
     public function create(){

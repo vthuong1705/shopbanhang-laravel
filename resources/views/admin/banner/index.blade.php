@@ -48,11 +48,11 @@
                             <td>{{$value->name}}</td>
                             <td>{{$value->title}}</td>
                             <td>{{$value->content}}</td>
-                            <td><img src="{{$value->img_banner}}" alt=""></td>
+                            <td><img src="{{asset($value->img_banner)}}" alt="" style="width:100px"></td>
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>
-                                <a href="{{route('brand.edit',$value->id)}}" class="btn btn-success">sửa</a>
-                                <a href="" data-url="{{route('brand.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
+                                <a href="{{route('banner.edit',$value->id)}}" class="btn btn-success">sửa</a>
+                                <a href="" data-url="{{route('banner.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
                             </td>
                         </tr>
                         @endforeach

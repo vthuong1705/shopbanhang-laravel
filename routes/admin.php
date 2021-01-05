@@ -38,15 +38,15 @@ Route::prefix('admin')->group(function(){
         ]);
         Route::get('edit/{id}',[
             'as'=>'banner.edit',
-            'uses'=>'admin\BannerController@edit'
+            'uses'=>'admins\BannerController@edit'
         ]);
         Route::post('update/{id}',[
             'as'=>'banner.update',
-            'uses'=>'admin\BannerController@update'
+            'uses'=>'admins\BannerController@update'
         ]);
         Route::get('delete/{id}',[
             'as'=>'banner.delete',
-            'uses'=>'admin\BannerController@delete'
+            'uses'=>'admins\BannerController@delete'
         ]);
     });
 
