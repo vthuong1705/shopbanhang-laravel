@@ -1,4 +1,4 @@
-function deleteItem(event){
+function deleteItem(event) {
     event.preventDefault();
     let url = $(this).data('url');
     let item = $(this);
@@ -11,26 +11,26 @@ function deleteItem(event){
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
                 type: "GET",
                 url: url,
-                success: function (data) {
-                    if(data.code == 200){
+                success: function(data) {
+                    if (data.code == 200) {
                         item.parent().parent().remove();
                     }
                 }
             });
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
         }
-      })
+    })
 }
 
-$(function(){
-    $(document).on('click','.action_delete',deleteItem);
+$(function() {
+    $(document).on('click', '.action_delete', deleteItem);
 });

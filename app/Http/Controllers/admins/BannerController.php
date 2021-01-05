@@ -16,7 +16,7 @@ class BannerController extends Controller
     use UploadFile;
     public function index()
     {
-        $banner = banner::paginate(10);
+        $banner = banner::paginate(5);
         return view('admin.banner.index', compact('banner'));
     }
 
@@ -51,9 +51,8 @@ class BannerController extends Controller
 
     public function update(Request $request, $id)
     {
-        $dataUpload = $this->uploadImage($request, 'banner', 'img_banner');
         $bann = banner::find($id);
-        // dd($banner->id);
+        $dataUpload = $this->uploadImage($request, 'banner', 'img_banner');
         $dataUpdate = [
             'name' => $request->name,
             'title' => $request->title,
@@ -68,27 +67,24 @@ class BannerController extends Controller
             $dataUpdate['img_banner'] = $dataUpload;
         }
         banner::find($id)->update($dataUpdate);
-        $banner = banner::find($id);
+        // dd($bann->img_banner);
+        // $banner = banner::find($id);
 
-
-        //insert to img_pro
-
-
-        if ($request->hasFile('image')) {
-            banner::delete_image($id);
-        }
+        // if ($request->hasFile('img_banner')) {
+        //     banner::delete_image($id);
+        // }
         return redirect()->route('banner.index')->with('success', 'sửa thành công');
     }
 
     public function delete($id)
     {
         try {
-            banner::delete_image($id);
             $banner = banner::find($id)->delete();
+            banner::delete_image($id);
             if ($banner) {
                 return response()->json([
                     'code' => 200,
-                    'message' => 'success'
+                    'success' => 'ok'
                 ], 200);
             }
         } catch (Exception $exception) {

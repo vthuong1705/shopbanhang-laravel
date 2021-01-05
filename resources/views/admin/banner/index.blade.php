@@ -62,7 +62,7 @@
             </div>
             <div class="d-felx justify-content-center">
 
-                {{-- <!-- {{ $brand->links() }} --> --}}
+            {{ $banner->links() }}
 
             </div>
 

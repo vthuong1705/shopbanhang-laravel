@@ -28,7 +28,7 @@
             @endif
             <div class="row">
 
-                <a href="{{route('product.create')}}" class="btn btn-success m-2">thêm danh mục</a>
+                <a href="{{route('product.create')}}" class="btn btn-success m-2">thêm sản phẩm</a>
                 <table class="table table-hover ">
                     <thead>
                         <tr>

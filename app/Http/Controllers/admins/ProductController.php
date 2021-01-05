@@ -115,13 +115,13 @@ class ProductController extends Controller
             $dataUpdate['avatar'] = $dataUpload;
         }
         Product::find($id)->update($dataUpdate);
-        $product = Product::find($id);
 
 
         //insert to img_pro
 
 
         if ($request->hasFile('image')) {
+            $product = Product::find($id);
             Product_image::delete_image($id);
             foreach ($request->image as $value) {
                 $UploadMuiple = $this->uploadImageMutiple($value, 'product');
