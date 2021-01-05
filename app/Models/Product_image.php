@@ -16,7 +16,7 @@ class Product_image extends Model
         return DB::table('product_images')->where('id_pro',$id)->delete();
     }
 
-    public function get_image_detail($id){
+    public static function get_image_detail($id){
         return DB::table('product_images')->where('id_pro',$id)->get();
     }
 

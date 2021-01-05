@@ -15,7 +15,28 @@
     .default-img{
         max-width: 200px;
     }
+    .product{
+        width: 200px !important;
+        height: 280px;
+    }
 </style>
+<div class="breadcrumb-area breadcrumb-bg-3 section-padding-1 pt-200 pb-120">
+    <div class="container-fluid">
+        <div class="breadcrumb-content text-center">
+            <div class="breadcrumb-title">
+                <h2>Shop Sidebar</h2>
+            </div>
+            <ul>
+                <li>
+                    <a href="index.html">Home </a>
+                </li>
+                <li><span> > </span></li>
+                <li class="active"> shop page</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <div class="shop-area section-padding-1 pt-25 pb-80">
     <div class="container-fluid">
         <div class="row flex-row-reverse">
@@ -84,8 +105,8 @@
                             @foreach ($product as $value)
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                                 <div class="product-wrap mb-40">
-                                    <div class="product-img default-overlay mb-20">
-                                        <a href="product-details.html">
+                                    <div class="product-img default-overlay mb-20 product" >
+                                        <a href="{{route('client.product-detail',[$value->slug,$value->id_detail])}}">
                                             <img class="default-img" src="{{asset($value->avatar)}}" alt="">
                                             <img class="hover-img" src="assets/images/product/hm-4-pro-1-2.jpg" alt="">
                                             @if ($value->discount>0)

@@ -27,10 +27,12 @@ class ClientController extends Controller
             if(isset($product_detail[0])){
                 $value->setAttribute('price', $product_detail[0]['price']);
                 $value->setAttribute('discount', $product_detail[0]['discount']);
+                $value->setAttribute('id_detail', $product_detail[0]['id']);
                 $value->setAttribute('sale_price', $product_detail[0]['sale_price']);
             }else{
                 $value->setAttribute('price', 0);
                 $value->setAttribute('discount', 0);
+                $value->setAttribute('id_detail', 0);
                 $value->setAttribute('sale_price', 0);
             }
         }

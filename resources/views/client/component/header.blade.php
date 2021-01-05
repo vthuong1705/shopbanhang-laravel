@@ -58,39 +58,7 @@
                             <div class="main-menu menu-lh-1">
                                 <nav>
                                     <ul>
-                                        <li><a class="active" href="index.html">Home <i class="fa fa-angle-down"></i></a>
-                                            <ul class="mega-menu mega-menu-width1 menu-negative-mrg1">
-                                                <li><a class="menu-title" href="#">Demo Group 01</a>
-                                                    <ul>
-                                                        <li><a href="index.html">Home 01</a></li>
-                                                        <li><a href="index-2.html">Home 02</a></li>
-                                                        <li><a href="index-3.html">Home 03</a></li>
-                                                        <li><a href="index-4.html">Home 04</a></li>
-                                                        <li><a href="index-5.html">Home 05</a></li>
-                                                        <li><a href="index-6.html">Home 06</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a class="menu-title" href="#">Demo Group 02</a>
-                                                    <ul>
-                                                        <li><a href="index-7.html">Home 07</a></li>
-                                                        <li><a href="index-8.html">Home 08</a></li>
-                                                        <li><a href="index-9.html">Home 09</a></li>
-                                                        <li><a href="index-10.html">Home 10</a></li>
-                                                        <li><a href="index-11.html">Home 11</a></li>
-                                                        <li><a href="index-12.html">Home 12</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a class="menu-title" href="#">Demo Group 03</a>
-                                                    <ul>
-                                                        <li><a href="index-13.html">Home 13</a></li>
-                                                        <li><a href="index-14.html">Home 14</a></li>
-                                                        <li><a href="index-15.html">Home 15</a></li>
-                                                        <li><a href="index-16.html">Home 16</a></li>
-                                                        <li><a href="index-17.html">Home 17</a></li>
-                                                        <li><a href="index-18.html">Home 18</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                        <li><a class="active" href="index.html">Home</i></a>
                                         </li>
                                         <li><a href="#">Shop <i class="fa fa-angle-down"></i></a>
                                             <ul class="mega-menu mega-menu-width2 menu-negative-mrg2">
@@ -279,38 +247,6 @@
                         <nav>
                             <ul class="mobile-menu">
                                 <li class="menu-item-has-children"><a href="index.html">Home</a>
-                                    <ul class="dropdown">
-                                        <li class="menu-item-has-children"><a href="#">Demo Group 01</a>
-                                            <ul class="dropdown">
-                                                <li><a href="index.html">Home 01</a></li>
-                                                <li><a href="index-2.html">Home 02</a></li>
-                                                <li><a href="index-3.html">Home 03</a></li>
-                                                <li><a href="index-4.html">Home 04</a></li>
-                                                <li><a href="index-5.html">Home 05</a></li>
-                                                <li><a href="index-6.html">Home 06</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">Demo Group 02</a>
-                                            <ul class="dropdown">
-                                                <li><a href="index-7.html">Home 07</a></li>
-                                                <li><a href="index-8.html">Home 08</a></li>
-                                                <li><a href="index-9.html">Home 09</a></li>
-                                                <li><a href="index-10.html">Home 10</a></li>
-                                                <li><a href="index-11.html">Home 11</a></li>
-                                                <li><a href="index-12.html">Home 12</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children"><a href="#">Demo Group 03</a>
-                                            <ul class="dropdown">
-                                                <li><a href="index-13.html">Home 13</a></li>
-                                                <li><a href="index-14.html">Home 14</a></li>
-                                                <li><a href="index-15.html">Home 15</a></li>
-                                                <li><a href="index-16.html">Home 16</a></li>
-                                                <li><a href="index-17.html">Home 17</a></li>
-                                                <li><a href="index-18.html">Home 18</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="menu-item-has-children "><a href="shop-fullwide.html">shop</a>
                                     <ul class="dropdown">
@@ -475,3 +411,4 @@
                 </div>
             </div>
         </div>
+

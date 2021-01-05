@@ -15,7 +15,15 @@
     .default-img{
         max-width: 200px;
     }
+    .breadcrumb-area{
+        margin-top: 150px
+    }
 </style>
+
+
+<div class="breadcrumb-area border-top-2 pt-50 pb-50">
+
+</div>
 <div class="shop-area section-padding-1 pt-25 pb-80">
     <div class="container-fluid">
         <div class="row flex-row-reverse">

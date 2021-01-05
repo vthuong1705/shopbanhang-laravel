@@ -20,6 +20,18 @@ class Product extends Model
             ->get();
     }
 
+    public static function get_cate($brand_id,$cate_id)
+    {
+        return DB::table('products')
+            ->join('brands', 'products.brand_id', '=', 'brands.id')
+            ->join('categories', 'products.cat_id', '=', 'categories.id')
+            ->select('products.*', 'brands.name as brandName', 'brands.id as brandId', 'brands.slug as brandSlug',
+            'categories.id as cateId' , 'categories.name as cateName', 'categories.slug as cateSlug')
+            ->where('products.brand_id',$brand_id)
+            ->where('products.cat_id',$cate_id)
+            ->first();
+    }
+
     public static function get_image($id){
         return DB::table('product_images')->where('id_pro',$id)->get();
     }

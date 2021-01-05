@@ -11,8 +11,16 @@ Route::prefix('client')->group(function(){
         'as'=>'client.category',
         'uses'=> 'clients\ProductController@get_cate'
     ]);
-    Route::get('/{slug}/{id}.html',[
+    Route::get('brand/{slug}/{id}.html',[
         'as'=>'client.brand',
         'uses'=> 'clients\ProductController@get_brand'
+    ]);
+    Route::get('product-detail/{slug}/{id}.html',[
+        'as'=>'client.product-detail',
+        'uses'=> 'clients\ProductDetailController@index'
+    ]);
+    Route::get('szie/{id}',[
+        'as'=>'client.size',
+        'uses'=>'clients\ProductDetailController@getSize'
     ]);
 });

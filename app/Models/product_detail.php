@@ -30,6 +30,14 @@ class product_detail extends Model
         // DB::table('product_details')->insert($insert);
     }
 
+    public static function get_info_product($id){
+        return DB::table('product_details')
+            ->join('sizes', 'product_details.id_size', '=', 'sizes.id')
+            ->join('products','product_details.id_pro','=','products.id')
+            ->select('product_details.*', 'sizes.name as nameSize','products.slug')
+            ->where('product_details.id_pro',$id)
+            ->get();
+    }
 
     public static function get_product_detail($id){
         return DB::table('product_details')->where('id_pro',$id)->get();
