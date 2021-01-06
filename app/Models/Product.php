@@ -32,6 +32,10 @@ class Product extends Model
             ->first();
     }
 
+    public static function delete_pro_detail($id){
+        return DB::table('product_details')->where('id_pro',$id)->delete();
+    }
+
     public static function get_image($id){
         return DB::table('product_images')->where('id_pro',$id)->get();
     }

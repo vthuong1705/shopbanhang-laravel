@@ -2,6 +2,7 @@
 @section('title','trang client')
 @section('name_page','')
 @section('content')
+@if ($cart)
 <div class="breadcrumb-area bg-gray-2 section-padding-1 pt-200 pb-120">
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
@@ -56,7 +57,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="product-total"><span>$110.00</span></td>
+                                            <td class="product-total"><span>{{number_format($item['price']*$item['quantity'])}} VND</span></td>
                                         </tr>
                                         @endforeach
 
@@ -79,7 +80,7 @@
                                 <h4>Cart totals</h4>
                                 <div class="grand-total-content">
                                     <ul>
-                                        <li>Subtotal <span> $87.00</span></li>
+                                        <li>Subtotal <span>{{number_format($cartHelper->total_price)}} VND</span></li>
                                         <li>Total <span>$87.00</span> </li>
                                     </ul>
                                 </div>
@@ -94,4 +95,7 @@
         </div>
     </div>
 </div>
+@else
+<h1>123</h1>
+@endif
 @endsection

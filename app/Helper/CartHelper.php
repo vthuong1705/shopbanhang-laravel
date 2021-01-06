@@ -4,14 +4,20 @@ namespace App\Helper;
 
 class CartHelper{
 
+    public $total_price = 0;
+    public $total_quantity = 0;
+    public $tax = 10;
+
     public function __construct()
     {
         $this->items = session('cart')?session('cart'):[];
+        $this->total_price = $this->get_total_price();
     }
 
     public function add($product,$quantity = 1){
         // dd($product);
         // session()->forget('cart');
+        // dd(session()->get('cart'));
         $item = [
             'id'=>$product->id,
             'name'=>$product->name,
@@ -26,7 +32,16 @@ class CartHelper{
         }else{
             $this->items[$product->id] = $item;
         }
-
         session()->put('cart',$this->items);
     }
+
+    public function get_total_price(){
+        $total_price = 0;
+        foreach($this->items as $value){
+            $total_price += $value['quantity'] * $value['price'];
+        }
+        return $total_price;
+    }
+
+    // public function get_
 }

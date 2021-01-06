@@ -16,9 +16,9 @@ class CartController extends Controller
         return redirect()->route('client.show_cart');
     }
 
-    public function showCart(){
+    public function showCart(CartHelper $cartHelper){
         $cart = session()->get('cart');
         // dd($cart);
-        return view('client.content.cart',compact('cart'));
+        return view('client.content.cart',compact('cart','cartHelper'));
     }
 }
