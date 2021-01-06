@@ -136,8 +136,8 @@ class ProductController extends Controller
 
     public function delete($id)
     {
-        Product_image::delete_image($id);
         $product = Product::find($id)->delete();
+        Product_image::delete_image($id);
         if ($product) {
             return response()->json([
                 'code' => 200,
