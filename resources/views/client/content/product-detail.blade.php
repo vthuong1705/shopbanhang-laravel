@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="quickview-cart">
-                            <a title="Add to cart" href="#">Add to cart</a>
+                            <a title="Add to cart" href="{{route('client.cart',$detail->id)}}">Add to cart</a>
                         </div>
                         <div class="quickview-wishlist">
                             <a title="Add to wishlist" href="#"><i class=" ti-heart "></i></a>

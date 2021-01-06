@@ -40,11 +40,4 @@ class ProductDetailController extends Controller
         return view('client.content.product-detail',compact('product','pro_detail','img_pro','detail','size','details'));
     }
 
-    public function getSize($id){
-        $product_detail = product_detail::get_info_product($id);
-        dd($product_detail);
-        foreach($product_detail as $value){
-            return redirect()->route('client.product-detail',[$value->slug,$value->id]);
-        }
-    }
 }

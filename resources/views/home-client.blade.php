@@ -119,7 +119,7 @@
                                             <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
                                         </div>
                                         <div class="product-action-2">
-                                            <a title="Buy on Themeforest" href="#">mua hàng</a>
+                                            <a title="Buy on Themeforest" href="{{route('client.cart',$value->id_detail)}}">mua hàng</a>
                                         </div>
                                     </div>
                                     <div class="product-content">

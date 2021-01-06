@@ -19,8 +19,12 @@ Route::prefix('client')->group(function(){
         'as'=>'client.product-detail',
         'uses'=> 'clients\ProductDetailController@index'
     ]);
-    Route::get('szie/{id}',[
-        'as'=>'client.size',
-        'uses'=>'clients\ProductDetailController@getSize'
+    Route::get('cart/{id}.html',[
+        'as'=>'client.cart',
+        'uses'=>'clients\CartController@addCart'
+    ]);
+    Route::get('show-cart',[
+        'as'=>'client.show_cart',
+        'uses'=>'clients\CartController@showCart'
     ]);
 });
