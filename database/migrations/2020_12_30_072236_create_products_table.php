@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->text('desc');
-            $table->tinyInteger('stauts');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

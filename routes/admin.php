@@ -23,7 +23,14 @@ Route::prefix('admin')->group(function(){
         'uses'=>'admins\HomeController@logout'
     ]);
 
-    Route::prefix('banner')->group(function(){
+    Route::prefix('logo')->middleware('logged')->group(function(){
+        Route::get('',[
+            'as'=>'logo.index',
+            'uses'=>'admins\ContactController@index'
+        ]);
+    });
+
+    Route::prefix('banner')->middleware('logged')->group(function(){
         Route::get('',[
             'as'=>'banner.index',
             'uses'=>'admins\BannerController@index'
