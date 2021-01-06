@@ -6,12 +6,15 @@ class CartHelper{
 
     public $total_price = 0;
     public $total_quantity = 0;
+    public $into_money = 0;
     public $tax = 10;
 
     public function __construct()
     {
         $this->items = session('cart')?session('cart'):[];
         $this->total_price = $this->get_total_price();
+        // $this->tax = $tax;
+        $this->into_money = $this->getIntoMoney();
     }
 
     public function add($product,$quantity = 1){
@@ -43,5 +46,18 @@ class CartHelper{
         return $total_price;
     }
 
-    // public function get_
+    public function getIntoMoney(){
+        $into_money = 0;
+       foreach($this->items as $value){
+        $into_money += ($value['quantity'] * $value['price']);
+       }
+       $into_money += ($into_money * ($this->tax / 100));
+        return $into_money;
+    }
+
+    public function update_cart($id,$quantity){
+        $cart =  session()->get('cart');
+        $cart[$id]['quantity'] = $quantity;
+        session()->put('cart',$cart);
+    }
 }

@@ -27,4 +27,12 @@ Route::prefix('client')->group(function(){
         'as'=>'client.show_cart',
         'uses'=>'clients\CartController@showCart'
     ]);
+    Route::Post('update-quantity',[
+        'as'=>'client.update-quantity',
+        'uses'=>'clients\CartController@updateQuantity'
+    ]);
+    Route::Post('update-cart',[
+        'as'=>'client.update-cart',
+        'uses'=>'clients\CartController@updateCart'
+    ]);
 });

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\clients;
 
+use App\Helper\CartHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\product_detail;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -44,4 +46,6 @@ class ProductController extends Controller
         }
         return view('client.content.category',compact('product'));
     }
+
+
 }
