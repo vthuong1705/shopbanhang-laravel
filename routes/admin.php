@@ -25,26 +25,26 @@ Route::prefix('admin')->group(function(){
 
     Route::prefix('blog')->middleware('logged')->group(function(){
         Route::get('',[
-            'as'=>'blog',
+            'as'=>'blog.index',
             'uses'=>'admins\BlogController@index'
         ]);
         Route::get('create',[
-            'as'=>'blog',
+            'as'=>'blog.create',
             'uses'=>'admins\BlogController@create'
         ]);
         Route::post('store',[
-            'as'=>'blog',
+            'as'=>'blog.store',
             'uses'=>'admins\BlogController@store'
         ]);
-        Route::get('edit',[
-            'as'=>'blog',
+        Route::get('edit/{id}',[
+            'as'=>'blog.edit',
             'uses'=>'admins\BlogController@edit'
         ]);
-        Route::post('update',[
-            'as'=>'blog',
+        Route::post('update/{id}',[
+            'as'=>'blog.update',
             'uses'=>'admins\BlogController@update'
         ]);
-        Route::get('delete',[
+        Route::get('delete/{id}',[
             'as'=>'blog.delete',
             'uses'=>'admins\BlogController@delete'
         ]);

@@ -55,6 +55,13 @@
                         <li><a href="{{route('logo.create')}}">thêm logo</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> blog <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <ul class="submenu">
+                        <li><a href="{{route('blog.index')}}">danh sách blog</a></li>
+                        <li><a href="{{route('blog.create')}}">thêm blog</a></li>
+                    </ul>
+                </li>
             </ul>
 
         </div>
