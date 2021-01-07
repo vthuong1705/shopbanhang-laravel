@@ -1,27 +1,46 @@
-<div class="cart-main-area pt-95 pb-100">
+<div class="breadcrumb-area bg-gray-2 section-padding-1 pt-200 pb-120">
+    <div class="container-fluid">
+        <div class="breadcrumb-content text-center">
+            <div class="breadcrumb-title">
+                <h2>Cart</h2>
+            </div>
+            <ul>
+                <li>
+                    <a href="index.html">Home </a>
+                </li>
+                <li><span> > </span></li>
+                <li class="active">Cart</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- cart start -->
+@if ($cart)
+<div class="cart-main-area pt-95 pb-100" data-url="{{route('client.delete-all')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="row">
                     <div class="col-lg-8">
-                        <div class="table-content table-responsive cart-table-content">
-                            <table id="tb">
+                        <div class="table-content table-responsive cart-table-content" data-url="{{route('client.delete-cart')}}">
+                            <table id="tb" class="update-cart-url" data-url="{{route('client.update-cart')}}">
                                 <thead>
                                     <tr>
                                         <th></th>
                                         <th></th>
                                         <th>Product</th>
-                                        <th> Price</th>
+                                        <th>Price</th>
                                         <th>Quantity</th>
                                         <th>total</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody id="body">
                                     @csrf
-                                    @foreach ($cart as $item)
+                                    @foreach ($cart as $id => $item)
                                     <tr>
                                         <td class="product-remove">
-                                            <a href="#"><i class=" ti-close"></i></a>
+                                            <a href="" data-id="{{$id}}" class="delete"><i class=" ti-close"></i></a>
                                         </td>
                                         <td class="product-img">
                                             <a href="#"><img src="{{asset($item['image'])}}" alt=""></a>
@@ -29,25 +48,27 @@
                                         <td class="product-name"><a href="#">{{$item['name']}}</a></td>
                                         <td class="product-price"><span class="amount">{{number_format($item['price'])}}
                                                 VND</span></td>
-                                        <td class="cart-quality">
-                                            <input class="cart-plus-minus-box quantity" type="number" name="qtybutton"
-                                                value="{{$item['quantity']}}" data-id="{{$item['id']}}">
-                                        </td>
+                                                <td class="cart-quality">
+                                                    <div class="quickview-quality quality-height-dec2">
+                                                        <div class="cart-plus-minus">
+                                                            <div class="dec qtybutton">-</div>
+                                                            <input type="hidden" name="id" value="{{$item['id']}}">
+                                                            <input class="cart-plus-minus-box" type="text" name="quantity" value="{{$item['quantity']}}">
+                                                            <div class="inc qtybutton" data-qty="{{$item['total_quantity']}}">+</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                         <td class="product-total">
                                             <span>{{number_format($item['price']*$item['quantity'])}} VND</span></td>
-                                    </tr>
+                                            <td><a href="" class="update" data-id="{{$id}}">Update cart</a></td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <div class="cart-shiping-update-wrapper">
-                            <div class="discount-code">
-                                <input type="text" required="" name="name" placeholder="Coupon code">
-                                <button class="coupon-btn" type="submit">Apply coupon</button>
-                            </div>
                             <div class="cart-clear">
-                                <a href="#">Clear Cart</a>
-                                <a href="#">Update cart</a>
+                                <a href="" class="deleteAll">Clear Cart</a>
                             </div>
                         </div>
                     </div>
@@ -62,7 +83,7 @@
                                 </ul>
                             </div>
                             <div class="grand-btn">
-                                <a href="#">Proceed to checkout</a>
+                                <a href="{{route('client.checkout')}}">Proceed to checkout</a>
                             </div>
                         </div>
                     </div>
@@ -71,3 +92,9 @@
         </div>
     </div>
 </div>
+@else
+<div class="not-cart">
+    <p>Không có sản phẩm nào trong giỏ hàng của bạn.</p>
+    <a href="{{route('client.index')}}">Tiếp tục mua sắm</a>
+</div>
+@endif

@@ -31,11 +31,43 @@ class CartController extends Controller
     }
 
     public function updateCart(Request $request,CartHelper $cartHelper){
-        // $data = $request->all();
-        $data = $cartHelper->update_cart($request->id,$request->quantity);
-        // dd($data);
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]['quantity'] = $request->quantity;
+            // $product_detail = product_detail::find($request->id);
+            session()->put('cart',$cart);
+            // dd($product_detail);
+            $cartComponent = view('client.component.pages.blade-child.cart-component',compact('cart','cartHelper'))->render();
+            return response()->json([
+                'code'=>200,
+                'content'=>$cartComponent
+            ],200);
+        }
+    }
+
+    public function deleteCart(Request $request,CartHelper $cartHelper){
+        if($request->id){
+            $cart = session()->get('cart');
+            unset($cart[$request->id]);
+            session()->put('cart',$cart);
+            $cart = session()->get('cart');
+            $cartComponent = view('client.component.pages.blade-child.cart-component',compact('cart','cartHelper'))->render();
+            return response()->json([
+                'code'=>200,
+                'content'=>$cartComponent
+            ],200);
+        }
+    }
+
+    public function deleteAll(CartHelper $cartHelper){
         $cart = session()->get('cart');
-        $reset_page = view('client.component.pages.blade-child.cart-component',compact('cart','cartHelper'))->render();
-        return response()->json(['data'=>$data,'content'=>$reset_page]);
+        unset($cart);
+        $cart = [];
+        session()->put('cart',$cart);
+        $cartComponent = view('client.component.pages.blade-child.cart-component',compact('cart','cartHelper'))->render();
+        return response()->json([
+            'code'=>200,
+            'content'=>$cartComponent
+        ],200);
     }
 }

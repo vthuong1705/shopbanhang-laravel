@@ -31,8 +31,20 @@ Route::prefix('client')->group(function(){
         'as'=>'client.update-quantity',
         'uses'=>'clients\CartController@updateQuantity'
     ]);
-    Route::Post('update-cart',[
+    Route::get('update-cart',[
         'as'=>'client.update-cart',
         'uses'=>'clients\CartController@updateCart'
+    ]);
+    Route::get('delete-cart',[
+        'as'=>'client.delete-cart',
+        'uses'=>'clients\CartController@deleteCart'
+    ]);
+    Route::get('delete-cart-all',[
+        'as'=>'client.delete-all',
+        'uses'=>'clients\CartController@deleteAll'
+    ]);
+    Route::get('checkout',[
+        'as'=>'client.checkout',
+        'uses'=>'clients\CheckoutController@index'
     ]);
 });

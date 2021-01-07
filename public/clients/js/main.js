@@ -37,7 +37,7 @@
             endTrigger = $('.cart-close'),
             container = $('.sidebar-cart-active'),
             wrapper2 = $('.main-wrapper');
-        
+
         wrapper2.prepend('<div class="body-overlay"></div>');
         navbarTrigger.on('click', function(e) {
             e.preventDefault();
@@ -54,7 +54,7 @@
         });
     };
     miniCart();
-    
+
     /*====== headerLogin ======*/
     function headerLogin() {
         var navbarTrigger = $('.login-button-active'),
@@ -77,8 +77,8 @@
         });
     };
     headerLogin();
-    
-    
+
+
     /* Category slider active */
     $('.category-slider-active').owlCarousel({
         loop: true,
@@ -138,8 +138,8 @@
             }
         }
     })
-    
-    
+
+
     /* Banner slider active */
     $('.banner-slider-active').owlCarousel({
         loop: true,
@@ -164,8 +164,8 @@
             }
         }
     })
-    
-    
+
+
     /* product slider active */
     $('.product-slider-active').owlCarousel({
         loop: true,
@@ -217,7 +217,7 @@
             }
         }
     })
-    
+
     /* quickview slider active */
     $('.quickview-slider-active').owlCarousel({
         loop: true,
@@ -266,7 +266,7 @@
             }
         }
     })
-    
+
     /* shop classic slider active */
     $('.shop-classic-slider').owlCarousel({
         loop: true,
@@ -318,7 +318,7 @@
             }
         }
     })
-    
+
     /* Testimonial active */
     $('.testimonial-active , .testimonial-active-2').owlCarousel({
         loop: true,
@@ -578,9 +578,9 @@
     	Cart Plus Minus Button
     ------------------------------ */
     var CartPlusMinus = $('.cart-plus-minus');
-    CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
-    CartPlusMinus.append('<div class="inc qtybutton">+</div>');
-    $(".qtybutton").on("click", function() {
+    // CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
+    // CartPlusMinus.append('<div class="inc qtybutton">+</div>');
+    $(document).on("click", '.qtybutton',function() {
         var $button = $(this);
         var oldValue = $button.parent().find("input").val();
         if ($button.text() === "+") {
@@ -596,7 +596,24 @@
         $button.parent().find("input").val(newVal);
     });
 
-    
+    $(document).on('click','.inc',function(){
+        var qty = $(this).data('qty');
+        var quantity = $(this).parents('tr').find('input').val();
+        if(quantity > qty){
+            // console.log('123');
+            $(this).parents('tr').find('input').val($(this).data('qty'));
+        }
+    });
+
+    $(document).on('change','.cart-plus-minus-box',function(){
+        var quantity = $(this).val();
+        var qty = $(this).parents('tr').find('.inc').data('qty');
+        if(quantity > qty){
+            // console.log('123');
+            quantity = $(this).val($(this).parents('tr').find('.inc').data('qty'));
+        }
+    });
+
     /*====== quickinfo active ======*/
     function quickInfo() {
         var searchTrigger = $('.quickinfo-button-active , .clickalbe-menu4-active'),
@@ -612,8 +629,8 @@
 
     };
     quickInfo();
-    
-    
+
+
     /*--
         main product slider active
     -----------------------------------*/
@@ -809,21 +826,21 @@
             $('body').removeClass('body-menu-overlay');
         }
     });
-    
+
     /*-----------------------
-        Shop filter active 
+        Shop filter active
     ------------------------- */
     $('.shop-filter-active , .filter-close').on('click', function(e) {
         e.preventDefault();
         $('.product-filter-wrapper').slideToggle();
     })
-    
+
     var shopFiltericon = $('.shop-filter-active , .filter-close');
     shopFiltericon.on('click', function() {
         $('.shop-filter-active').toggleClass('active');
     })
-    
-    
+
+
     /*---------------------
         Price slider
     --------------------- */
@@ -857,10 +874,10 @@
             }
         });
     });
-    
+
     // Instantiate EasyZoom instances
     var $easyzoom = $('.easyzoom').easyZoom();
-    
+
     /*--
     quick view Slick Carousel
     -----------------------------------*/
@@ -901,7 +918,7 @@
             }
         ]
     });
-    
+
     /*---------------------
         Sidebar sticky active
     --------------------- */
@@ -924,7 +941,7 @@
         e.preventDefault();
         $('.checkout-login-info').slideToggle(1000);
     });
-    
+
     /* Tilt active */
     $('.tilt-active').tilt({
         maxTilt: 10,
@@ -935,7 +952,7 @@
         maxGlare: 0.4,
         scale: 1
     });
-    
+
     /*---------------------
         select active
     --------------------- */

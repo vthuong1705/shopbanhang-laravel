@@ -28,7 +28,8 @@ class CartHelper{
             'price'=>$product->sale_price,
             'image'=>$product->avatar,
             'size'=>$product->nameSize,
-            'quantity'=>$quantity
+            'quantity'=>$quantity,
+            'total_quantity'=>$product->quantity
         ];
         if(isset($this->items[$product->id])){
             $this->items[$product->id]['quantity'] += $quantity;
