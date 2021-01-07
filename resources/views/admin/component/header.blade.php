@@ -19,6 +19,7 @@
     <link href="{{asset('admins/css/metismenu.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('admins/css/icons.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('admins/css/style.css')}}" rel="stylesheet" type="text/css">
+    <script src="https://cdn.tiny.cloud/1/7n911a9591bkn5pif0epywc9rve5lcsebttcp927m18ebabh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 </head>
 
