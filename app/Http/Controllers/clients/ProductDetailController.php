@@ -37,6 +37,7 @@ class ProductDetailController extends Controller
                 $value->setAttribute('sale_price', 0);
             }
         }
+        // dd($detail);
         return view('client.content.product-detail',compact('product','pro_detail','img_pro','detail','size','details'));
     }
 

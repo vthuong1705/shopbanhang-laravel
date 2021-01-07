@@ -6,6 +6,20 @@
     .breadcrumb-area{
         margin-top: 150px
     }
+    .add-cart{
+        background-color: #000;
+        padding: 5px 10px;
+        color: #fff;
+        margin: 0
+    }
+    .add-cart:hover{
+        background-color: #fff;
+        color: #000;
+    }
+    .quantity{
+        width: 50%;
+        margin-bottom: 5px
+    }
 </style>
 
 <div class="breadcrumb-area border-top-2 pt-50 pb-50">
@@ -84,15 +98,15 @@
                         @endforeach
                     </div>
                     <div class="quickview-action-wrap">
+                        <form action="{{route('client.update-quantity')}}" method="POST">
                         <div class="quickview-quality">
-                            <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-                            </div>
+                                  @csrf
+                                  <input type="hidden" name="id" value="{{$detail->id}}">
+                                  {{-- <input type="hidden" name="name" value="{{$item->name}}"> --}}
+                                <input class="quantity" type="number" name="quantity" value="2"><br>
+                                <button class="add-cart" title="Add to cart" type="submit">Add to cart</button>
                         </div>
-
-                        <div class="quickview-cart">
-                            <a title="Add to cart" href="{{route('client.cart',$detail->id)}}">Add to cart</a>
-                        </div>
+                    </form>
                         <div class="quickview-wishlist">
                             <a title="Add to wishlist" href="#"><i class=" ti-heart "></i></a>
                         </div>
@@ -393,4 +407,18 @@
         </div>
     </div>
 </div>
+    <script src="{{asset('clients/js/vendor/jquery-3.3.1.min.js')}}"></script>
+<script>
+    $(function(){
+        $('.quantity').on('change',function(){
+            quantity = $(this).val();
+            // alert(quantity);
+            if(quantity < 1){
+                $(this).val(1);
+            }else if(quantity>{{$detail->quantity}}){
+                $(this).val({{$detail->quantity}})
+            }
+        })
+    });
+</script>
 @endsection

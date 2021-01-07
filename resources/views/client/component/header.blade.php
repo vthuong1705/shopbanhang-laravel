@@ -62,33 +62,9 @@
                                         </li>
                                         <li><a href="#">Shop <i class="fa fa-angle-down"></i></a>
                                             <ul class="mega-menu mega-menu-width2 menu-negative-mrg2">
-                                                <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Shop Layout</a>
-                                                    <ul>
-                                                        <li><a href="shop-fullwide.html">Shop Fullwidth</a></li>
-                                                        <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
-                                                        <li><a href="shop-3col.html">Shop 03 Column</a></li>
-                                                        <li><a href="shop-4col.html">Shop 04 Column</a></li>
-                                                        <li><a href="shop-masonry.html">Shop Mansory</a></li>
-                                                        <li><a href="shop-metro.html">Shop Metro Layout</a></li>
-                                                        <li><a href="shop-instagram.html">Shop Instagram</a></li>
-                                                        <li><a href="shop-collection-classic.html">Collection Classic</a></li>
-                                                        <li><a href="shop-collection-modern.html">Collection Modern</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Product Layout</a>
-                                                    <ul>
-                                                        <li><a href="product-details.html">Simple 01</a></li>
-                                                        <li><a href="product-details-2.html">Simple 02</a></li>
-                                                        <li><a href="product-details-3.html">Simple 03</a></li>
-                                                        <li><a href="product-details-carousel.html">Product Carousel</a></li>
-                                                        <li><a href="product-details-grouped.html">Product Grouped</a></li>
-                                                        <li><a href="product-details-affiliate.html">Product Affiliate</a></li>
-                                                        <li><a href="product-details-configurable.html">Product Configurable</a></li>
-                                                    </ul>
-                                                </li>
                                                 <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Shop Page</a>
                                                     <ul>
-                                                        <li><a href="cart.html">Shopping Cart</a></li>
+                                                        <li><a href="{{route('client.show_cart')}}">Shopping Cart</a></li>
                                                         <li><a href="checkout.html">Check Out</a></li>
                                                         <li><a href="my-account.html">My Account</a></li>
                                                         <li><a href="wishlist.html">Wishlist</a></li>
@@ -252,15 +228,6 @@
                                     <ul class="dropdown">
                                         <li class="menu-item-has-children"><a href="#">Shop Layout</a>
                                             <ul class="dropdown">
-                                                <li><a href="shop-fullwide.html">Shop Fullwidth</a></li>
-                                                <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
-                                                <li><a href="shop-3col.html">Shop 03 Column</a></li>
-                                                <li><a href="shop-4col.html">Shop 04 Column</a></li>
-                                                <li><a href="shop-masonry.html">Shop Mansory</a></li>
-                                                <li><a href="shop-metro.html">Shop Metro Layout</a></li>
-                                                <li><a href="shop-instagram.html">Shop Instagram</a></li>
-                                                <li><a href="shop-collection-classic.html">Collection Classic</a></li>
-                                                <li><a href="shop-collection-modern.html">Collection Modern</a></li>
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children"><a href="#">Product Layout</a>
@@ -373,42 +340,40 @@
         <div class="sidebar-cart-active">
             <div class="sidebar-cart-all">
                 <a class="cart-close" href="#"><i class=" ti-close"></i></a>
+                @if (session()->has('cart'))
                 <div class="cart-content">
                     <h3>Shopping Cart</h3>
                     <ul>
+                        @foreach (session()->get('cart') as $item)
                         <li class="single-product-cart">
                             <div class="cart-img">
-                                <a href="#"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                                <a href="#"><img src="{{asset($item['image'])}}" alt=""></a>
                             </div>
                             <div class="cart-title">
-                                <h4><a href="#">High Collar Jacket</a></h4>
-                                <span>1 × $50.00</span>
+                                <h4><a href="#">{{$item['name']}}</a></h4>
+                                <span>{{$item['quantity'] .' x '. number_format($item['price'])}} VND</span>
                             </div>
                             <div class="cart-delete">
-                                <a href="#">×</a>
+                            <a href="#">×</a>
                             </div>
                         </li>
-                        <li class="single-product-cart">
-                            <div class="cart-img">
-                                <a href="#"><img src="assets/images/cart/cart-2.jpg" alt=""></a>
-                            </div>
-                            <div class="cart-title">
-                                <h4><a href="#">Long shirt dress</a></h4>
-                                <span>2 × $29.00</span>
-                            </div>
-                            <div class="cart-delete">
-                                <a href="#">×</a>
-                            </div>
-                        </li>
+                        @endforeach
                     </ul>
                     <div class="cart-total">
-                        <h4>Subtotal: <span>$150.00</span></h4>
+                        <h4>Subtotal: <span>{{number_format($cartHelper->into_money)}} VND</span></h4>
                     </div>
                     <div class="cart-checkout-btn">
                         <a class="btn-hover cart-btn-style" href="{{route('client.show_cart')}}">view cart</a>
                         <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
                     </div>
                 </div>
+                @else
+                <h3>Shopping Cart</h3>
+                    <div class="not-cart">
+                        <p>Không có sản phẩm nào trong giỏ hàng của bạn.</p>
+                    </div>
+                @endif
+
             </div>
         </div>
 

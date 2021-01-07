@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Helper\CartHelper;
 use App\Models\brand;
 use App\Models\Category;
 use App\Models\Size;
@@ -30,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         view()->composer('*', function ($view) {
             $view->with([
+                'cartHelper'=> new CartHelper,
                 'category' => Category::where('status', 1)->get(),
                 'brand' => brand::where('status', 1)->get(),
                 'size' => Size::where('status', 1)->get()
