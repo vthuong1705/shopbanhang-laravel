@@ -41,6 +41,20 @@
                         <li><a href="{{route('banner.create')}}">thêm banner</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> contact <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <ul class="submenu">
+                        <li><a href="{{route('contact.index')}}">danh sách contact</a></li>
+                        <li><a href="{{route('contact.create')}}">thêm contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> logo <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <ul class="submenu">
+                        <li><a href="{{route('logo.index')}}">danh sách logo</a></li>
+                        <li><a href="{{route('logo.create')}}">thêm logo</a></li>
+                    </ul>
+                </li>
             </ul>
 
         </div>

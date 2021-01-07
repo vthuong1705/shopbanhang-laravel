@@ -65,7 +65,7 @@ class CategoryController extends Controller
             Log::error('message '.$exception->getMessage(). ' line '.$exception->getLine());
             return response()->json([
                 'code'=>500,
-                'message'=>'success'
+                'message'=>'err'
             ],500);
         }
     }

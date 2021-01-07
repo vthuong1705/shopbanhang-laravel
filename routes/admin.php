@@ -23,11 +23,85 @@ Route::prefix('admin')->group(function(){
         'uses'=>'admins\HomeController@logout'
     ]);
 
+    Route::prefix('blog')->middleware('logged')->group(function(){
+        Route::get('',[
+            'as'=>'blog',
+            'uses'=>'admins\BlogController@index'
+        ]);
+        Route::get('create',[
+            'as'=>'blog',
+            'uses'=>'admins\BlogController@create'
+        ]);
+        Route::post('store',[
+            'as'=>'blog',
+            'uses'=>'admins\BlogController@store'
+        ]);
+        Route::get('edit',[
+            'as'=>'blog',
+            'uses'=>'admins\BlogController@edit'
+        ]);
+        Route::post('update',[
+            'as'=>'blog',
+            'uses'=>'admins\BlogController@update'
+        ]);
+        Route::get('delete',[
+            'as'=>'blog.delete',
+            'uses'=>'admins\BlogController@delete'
+        ]);
+    });
+
+    Route::prefix('contact')->middleware('logged')->group(function(){
+        Route::get('',[
+            'as'=>'contact.index',
+            'uses'=>'admins\ContactController@index'
+        ]);
+        Route::get('create',[
+            'as'=>'contact.create',
+            'uses'=>'admins\ContactController@create'
+        ]);
+        Route::post('store',[
+            'as'=>'contact.store',
+            'uses'=>'admins\ContactController@store'
+        ]);
+        Route::get('edit/{id}',[
+            'as'=>'contact.edit',
+            'uses'=>'admins\ContactController@edit'
+        ]);
+        Route::post('update/{id}',[
+            'as'=>'contact.update',
+            'uses'=>'admins\ContactController@update'
+        ]);
+        Route::get('delete/{id}',[
+            'as'=>'contact.delete',
+            'uses'=>'admins\ContactController@delete'
+        ]);
+    });
+
     Route::prefix('logo')->middleware('logged')->group(function(){
         Route::get('',[
             'as'=>'logo.index',
-            'uses'=>'admins\ContactController@index'
+            'uses'=>'admins\LogoController@index'
         ]);
+        Route::get('create',[
+            'as'=>'logo.create',
+            'uses'=>'admins\LogoController@create'
+        ]);
+        Route::post('store',[
+            'as'=>'logo.store',
+            'uses'=>'admins\LogoController@store'
+        ]);
+        Route::get('edit/{id}',[
+            'as'=>'logo.edit',
+            'uses'=>'admins\LogoController@edit'
+        ]);
+        Route::post('update/{id}',[
+            'as'=>'logo.update',
+            'uses'=>'admins\LogoController@update'
+            ]);
+        Route::get('delete/{id}',[
+            'as'=>'logo.delete',
+            'uses'=>'admins\LogoController@delete'
+            ]);
     });
 
     Route::prefix('banner')->middleware('logged')->group(function(){
