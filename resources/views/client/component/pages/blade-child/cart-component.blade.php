@@ -52,7 +52,6 @@
                                                     <div class="quickview-quality quality-height-dec2">
                                                         <div class="cart-plus-minus">
                                                             <div class="dec qtybutton">-</div>
-                                                            <input type="hidden" name="id" value="{{$item['id']}}">
                                                             <input class="cart-plus-minus-box" type="text" name="quantity" value="{{$item['quantity']}}">
                                                             <div class="inc qtybutton" data-qty="{{$item['total_quantity']}}">+</div>
                                                         </div>
