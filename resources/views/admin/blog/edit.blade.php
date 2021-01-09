@@ -2,6 +2,11 @@
 @section('content')
 @section('title','sửa blog')
 @section('name_page','edit blog')
+<style>
+    .thuonglone{
+        width: 240px;
+    }
+</style>
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -46,14 +51,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Người đăng</label>
-                            <input type="text" class="form-control @error('id_admin') is-invalid @enderror" name="id_admin"
-                                value="{{$blog->id_admin}}">
-                            @error('id_admin')
+                            <label for="">ảnh</label>
+                            <input type="file" class="form-control @error('img_blog') is-invalid @enderror" name="img_blog"> @error('img_blog')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-
+                        <img class="thuonglone" src="{{asset($blog->img_blog)}}" alt="">
                         <div class="radio">
                             <label>
                                 <input type="radio" name="status" id="input" value="{{$blog->status}}" {{($blog->status==1)?'checked':''}}>

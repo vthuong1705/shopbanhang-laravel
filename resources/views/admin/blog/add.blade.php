@@ -44,11 +44,16 @@
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-
+                        <div class="form-group">
+                            <label for="">ảnh</label>
+                            <input type="file" class="form-control @error('img_blog') is-invalid @enderror" name="img_blog"> @error('img_blog')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <label for="">Người đăng</label>
                             <input type="text" class="form-control @error('id_admin') is-invalid @enderror" name="id_admin"
-                                placeholder="nhập tên người viết">
+                                value={{$admin->name}} readonly>
                             @error('id_admin')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror

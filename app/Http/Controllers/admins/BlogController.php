@@ -4,31 +4,45 @@ namespace App\Http\Controllers\admins;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Traits\UploadFile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
-    public function index(){
-        $blog = Blog::paginate(10);
+    use UploadFile;
+    public function index(Blog $blog){
+        $blog = $blog->get_admin();
+        // dd($blog);
+        // $admin = Session::get('admin');
         return view('admin.blog.index',compact('blog'));
     }
 
     public function create(){
-        return view('admin.blog.add');
+        $admin = Session::get('admin');
+        return view('admin.blog.add',compact('admin'));
     }
 
     public function store(Request $request){
-        $blog = Blog::create([
+        $admin = Session::get('admin');
+        $dataUpload = $this->uploadImage($request, 'blog', 'img_blog');
+        $blog_insert =[
             'name' => $request->name,
             'title' => $request->title,
             'content' => $request->content,
             'status' => $request->status,
-            'id_admin' => $request->id_admin
-        ]);
-        // dd($blog);
+            'slug' => Str::slug($request->name, '-'),
+            'id_admin' => $admin->id
+        ];
+        $blog_insert['img_blog'] = $dataUpload;
+        // dd($blog_insert);
+        $blog = Blog::create($blog_insert);
         if($blog){
             return redirect()->route('blog.index')->with('success','thêm mới thành công');
         }
+
     }
 
     public function edit($id){
@@ -37,16 +51,24 @@ class BlogController extends Controller
     }
 
     public function update($id, Request $request){
-        $blog = Blog::find($id)->update([
+        $dataUpload = $this->uploadImage($request, 'blog', 'image');
+        $admin = session()->get('admin');
+        $blog = Blog::find($id);
+        $dataUpdate = [
             'name' => $request->name,
             'title' => $request->title,
             'content' => $request->content,
             'status' => $request->status,
-            'id_admin' => $request->id_admin
-        ]);
-        if($blog){
-            return redirect()->route('blog.index')->with('success','sửa thành công');
+            'slug' => Str::slug($request->name, '-')
+        ];
+        if($request->file('image')==null){
+            $dataUpdate['image'] = $blog->image;
+        }else{
+            File::delete($blog->image);
+            $dataUpdate['image'] = $dataUpload;
         }
+        $Blog = Blog::find($id)->update();
+            return redirect()->route('blog.index')->with('success','sửa thành công');
     }
 
     public function delete($id){

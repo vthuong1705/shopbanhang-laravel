@@ -2,6 +2,18 @@
 @section('content')
 @section('title','blog')
 @section('name_page','blog')
+<style>
+    .px{
+        width: 100px;
+    }
+  .getcontent p{
+    white-space: nowrap;
+    width: 200px;
+    height: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+</style>
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -32,28 +44,32 @@
                 <table class="table table-hover ">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>#</th>
                             <th>tên</th>
                             <th>tiêu đề</th>
                             <th>trạng thái</th>
                             <th>người viết</th>
+                            <th>ảnh</th>
                             <th>nội dung</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($blog as $value)
                         <tr>
-                            <td>
-                                <a href="{{route('blog.edit',$value->id)}}" class="btn btn-success">sửa</a>
-                                <a href="" data-url="{{route('blog.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
-                            </td>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$value->name}}</td>
                             <td>{{$value->title}}</td>
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
-                            <td>{{$value->id_admin}}</td>
-                            <td>{{$value->content}}</td>
+                            <td>{{$value->AdminName}}</td>
+                            <td><img src="{{asset($value->img_blog)}}" class="px" alt=""></td>
+                            <td class="getcontent">
+                                <p>{{$value->content}}</p>
+                            </td>
+                            <td>
+                                <a href="{{route('blog.edit',$value->id)}}" class="btn btn-success">sửa</a>
+                                <a href="" data-url="{{route('blog.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
