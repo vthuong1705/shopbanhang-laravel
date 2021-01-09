@@ -2,6 +2,18 @@
 @section('title','trang client')
 @section('name_page','')
 @section('content')
+<style>
+    .place_order{
+        background-color: black;
+        color: #fff;
+        width: 170px;
+        height: 50px;
+    }
+    .place_order:hover{
+        background-color: #ddd;
+        color: #000;
+    }
+</style>
 <div class="breadcrumb-area bg-gray-2 section-padding-1 pt-200 pb-120">
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
@@ -21,101 +33,51 @@
 <!-- checkout start -->
 <div class="checkout-main-area pt-100 pb-100">
     <div class="container">
-        <div class="customer-zone mb-30">
-            <p class="cart-page-title">Have a coupon? <a class="checkout-click" href="#">Click here to enter your code</a></p>
-            <div class="checkout-login-info">
-                <p>If you have a coupon code, please apply it below.</p>
-                <form action="#">
-                    <input type="text" placeholder="Coupon code">
-                    <input type="submit" value="Apply Coupon">
-                </form>
-            </div>
-        </div>
+
         <div class="checkout-wrap">
             <div class="row">
                 <div class="col-lg-7">
                     <div class="billing-info-wrap mr-100">
                         <h3>Billing Details</h3>
+                       <form action="{{route('client.order')}}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="billing-info mb-25">
-                                    <label>First name <abbr class="required" title="required">*</abbr></label>
-                                    <input type="text">
+                                    <label>Tên người nhận hàng <abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" name="name" value="{{$client->name}}">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="billing-info mb-25">
-                                    <label>Last name <abbr class="required" title="required">*</abbr></label>
-                                    <input type="text">
+                                    <label>Email <abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" name="email" value="{{$client->email}}">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="billing-info mb-25">
-                                    <label>Company name (optional) <abbr class="required" title="required">*</abbr></label>
-                                    <input type="text">
+                                    <label>Địa chỉ nhận hàng <abbr class="required" title="required">*</abbr></label>
+                                    <input class="billing-address" name="address" placeholder="nhập địa chỉ nhận hàng" type="text" value="{{$client->address}}">
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="billing-select mb-25">
-                                    <label>Country <abbr class="required" title="required">*</abbr></label>
-                                    <select class="select-active">
-                                        <option>Azerbaijan</option>
-                                        <option>Bahamas</option>
-                                        <option>Bahrain</option>
-                                        <option>Bangladesh</option>
-                                        <option>Barbados</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="billing-info mb-25">
-                                    <label>Street address <abbr class="required" title="required">*</abbr></label>
-                                    <input class="billing-address" placeholder="House number and street name" type="text">
-                                    <input placeholder="Apartment, suite, unit etc. (optional)" type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="billing-info mb-25">
-                                    <label>Town / City <abbr class="required" title="required">*</abbr></label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="billing-select mb-25">
-                                    <label>District <abbr class="required" title="required">*</abbr></label>
-                                    <select class="select-active">
-                                        <option>Azerbaijan</option>
-                                        <option>Bahamas</option>
-                                        <option>Bahrain</option>
-                                        <option>Bangladesh</option>
-                                        <option>Barbados</option>
-                                    </select>
-                                </div>
-                            </div>
+
                             <div class="col-lg-12 col-md-12">
                                 <div class="billing-info mb-25">
-                                    <label>Postcode / ZIP (optional) <abbr class="required" title="required">*</abbr></label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12">
-                                <div class="billing-info mb-25">
-                                    <label>Phone <abbr class="required" title="required">*</abbr></label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12">
-                                <div class="billing-info mb-25">
-                                    <label>Email Address <abbr class="required" title="required">*</abbr></label>
-                                    <input type="text">
+                                    <label>Số điện thoại nhận hàng<abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" name="phone" value="{{$client->phone}}">
                                 </div>
                             </div>
                         </div>
                         <div class="additional-info-wrap">
-                            <h3>Additional information</h3>
-                            <label>Order notes (optional)</label>
-                            <textarea placeholder="Notes about your order, e.g. special notes for delivery. " name="message"></textarea>
+                            <h3>thông tin thêm về đơn hàng</h3>
+                            <label>Ghi chú</label>
+                            <textarea placeholder="ghi chú về đơn hàng" name="note"></textarea>
                         </div>
+                        <div class="Place-order mt-30">
+                            <button type="submit" class="place_order">Thanh toán</button>
+                        </div>
+
+                       </form>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -130,35 +92,30 @@
                                 </div>
                                 <div class="your-order-middle">
                                     <ul>
-                                        <li>Product Name X 1 <span>$329 </span></li>
-                                        <li>Product Name X 1 <span>$329 </span></li>
+                                        @foreach ($cart as $item)
+                                        <li>{{$item['name'] . ' X ' .$item['quantity']}} <span>{{number_format($item['price'])}} VND</span></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="your-order-info order-subtotal">
                                     <ul>
-                                        <li>Subtotal <span>$329 </span></li>
+                                        <li>Tổng tiền: <span>{{number_format($cartHelper->total_price)}} VND</span></li>
+                                    </ul>
+                                </div>
+                                <div class="your-order-info order-subtotal">
+                                    <ul>
+                                        <li>Thuế: <span>{{$cartHelper->tax}}%</span></li>
                                     </ul>
                                 </div>
                                 <div class="your-order-info order-total">
                                     <ul>
-                                        <li>Total <span>£273.00 </span></li>
+                                        <li>Thanh toán <span>{{number_format($cartHelper->into_money)}} VND</span></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="payment-method">
-                                <h5>Direct Bank Transfer</h5>
-                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-                            </div>
                             <div class="condition-wrap">
-                                <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#">privacy policy</a></p>
-                                <div class="condition-form mb-25">
-                                    <input type="checkbox">
-                                    <span>I have read and agree to the website <a href="#">terms and conditions</a><span class="star">*</span></span>
-                                </div>
+                                <p>Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn đặt hàng, hỗ trợ trải nghiệm của bạn trên toàn bộ trang web này </p>
                             </div>
-                        </div>
-                        <div class="Place-order mt-30">
-                            <a href="#">Place Order</a>
                         </div>
                     </div>
                 </div>

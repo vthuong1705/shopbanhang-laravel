@@ -32,9 +32,15 @@
             <div class="col-lg-6 col-md-6 login">
                 <div class="login-register-wrap mr-70">
                     <h3><i class="fa fa-user-o"></i> Đăng nhập</h3>
-                    <div class="login-register-form">
+
+                        <div class="login-register-form">
+                            @if (isset($demo))
+                                <p class="text-danger">bạn cần đăng nhập để sử dụng chức năng này</p>
+                            @endif
+                        {{-- <p>{{$demo}}</p> --}}
                         <form action="{{route('client.signin')}}" method="POST">
                             @csrf
+                            <input type="hidden" name="flag" value="{{(isset($demo))?$demo:''}}">
                             <div class="sin-login-register">
                                 <label>Email <span>*</span></label>
                                 <input type="text" name="email" placeholder="nhập email">

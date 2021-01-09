@@ -89,7 +89,11 @@ class ClientController extends Controller
             if (Hash::check($request->password, $email->password)) {
                 session()->put('client', $email);
                 // dd(session()->get('client'));
-                return redirect()->route('client.index');
+                if($request->flag == 'check'){
+                    return redirect()->route('client.checkout');
+                }else{
+                    return redirect()->route('client.index');
+                }
             }else{
                 return redirect()->back()->with('err_password', 'mật khẩu không chính xác');
             }

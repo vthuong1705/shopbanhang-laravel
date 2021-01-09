@@ -605,12 +605,15 @@
         }
     });
 
+
     $(document).on('change','.cart-plus-minus-box',function(){
         var quantity = $(this).val();
         var qty = $(this).parents('tr').find('.inc').data('qty');
         if(quantity > qty){
             // console.log('123');
             quantity = $(this).val($(this).parents('tr').find('.inc').data('qty'));
+        }else if(quantity<0){
+            quantity = $(this).val(1);
         }
     });
 

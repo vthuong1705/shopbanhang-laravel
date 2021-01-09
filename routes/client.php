@@ -43,10 +43,7 @@ Route::prefix('client')->group(function(){
         'as'=>'client.delete-all',
         'uses'=>'clients\CartController@deleteAll'
     ]);
-    Route::get('checkout',[
-        'as'=>'client.checkout',
-        'uses'=>'clients\CheckoutController@index'
-    ]);
+
     Route::get('login',[
         'as'=>'client.login',
         'uses'=>'clients\ClientController@login'
@@ -78,5 +75,13 @@ Route::prefix('client')->group(function(){
     Route::get('client-logout',[
         'as'=>'client.logout',
         'uses'=>'clients\ClientController@logout'
+    ]);
+    Route::get('checkout',[
+        'as'=>'client.checkout',
+        'uses'=>'clients\CheckoutController@index'
+    ]);
+    Route::post('order',[
+        'as'=>'client.order',
+        'uses'=>'clients\CheckoutController@order'
     ]);
 });
