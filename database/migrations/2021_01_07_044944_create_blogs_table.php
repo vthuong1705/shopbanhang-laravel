@@ -18,7 +18,9 @@ class CreateBlogsTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->text('content');
+            $table->string('img_blog');
             $table->string('id_admin');
+            $table->foreign('id_admin')->references('id')->on('admins');
             $table->tinyInteger('status');
             $table->timestamps();
         });
