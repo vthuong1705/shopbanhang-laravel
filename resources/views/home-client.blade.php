@@ -351,4 +351,9 @@
         </div>
     </div>
 </div>
+@if (session()->has('success'))
+    <script>
+        alert('thay đổi thành công');
+    </script>
+@endif
 @endsection

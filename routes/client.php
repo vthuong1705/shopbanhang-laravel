@@ -47,4 +47,36 @@ Route::prefix('client')->group(function(){
         'as'=>'client.checkout',
         'uses'=>'clients\CheckoutController@index'
     ]);
+    Route::get('login',[
+        'as'=>'client.login',
+        'uses'=>'clients\ClientController@login'
+    ]);
+    Route::post('client-login', [
+        'as'=> 'client.signin',
+        'uses'=>'clients\ClientController@signin'
+    ]);
+    Route::get('register',[
+        'as'=>'client.register',
+        'uses'=>'clients\ClientController@register'
+    ]);
+    Route::post('client-dang-ky',[
+        'as'=>'client.dang_ky',
+        'uses'=>'clients\ClientController@dang_ky'
+    ]);
+    Route::get('info-client',[
+        'as'=>'client.info',
+        'uses'=>'clients\ClientController@infoClient'
+    ]);
+    Route::post('change-info/{id}',[
+        'as'=>'client.change_info_client',
+        'uses'=>'clients\ClientController@change_info'
+    ]);
+    Route::post('change-password',[
+        'as'=>'client.change_info',
+        'uses'=>'clients\ClientController@change_Password'
+    ]);
+    Route::get('client-logout',[
+        'as'=>'client.logout',
+        'uses'=>'clients\ClientController@logout'
+    ]);
 });

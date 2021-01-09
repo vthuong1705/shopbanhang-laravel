@@ -3,6 +3,7 @@
 
 
 <!-- Mirrored from demo.hasthemes.com/payna-preview/payna/shop-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Nov 2020 08:23:57 GMT -->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -62,9 +63,11 @@
                                         </li>
                                         <li><a href="#">Shop <i class="fa fa-angle-down"></i></a>
                                             <ul class="mega-menu mega-menu-width2 menu-negative-mrg2">
-                                                <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Shop Page</a>
+                                                <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Shop
+                                                        Page</a>
                                                     <ul>
-                                                        <li><a href="{{route('client.show_cart')}}">Shopping Cart</a></li>
+                                                        <li><a href="{{route('client.show_cart')}}">Shopping Cart</a>
+                                                        </li>
                                                         <li><a href="checkout.html">Check Out</a></li>
                                                         <li><a href="my-account.html">My Account</a></li>
                                                         <li><a href="wishlist.html">Wishlist</a></li>
@@ -74,7 +77,9 @@
                                                 </li>
                                                 <li class="mega-menu-sub-width37">
                                                     <div class="banner-menu-content-wrap default-overlay">
-                                                        <a href="product-details.html"><img src="assets/images/banner/banner-menu.jpg" alt="banner"></a>
+                                                        <a href="product-details.html"><img
+                                                                src="assets/images/banner/banner-menu.jpg"
+                                                                alt="banner"></a>
                                                         <div class="banner-menu-content">
                                                             <span>Hello Summer 2019</span>
                                                             <h2>New <br>arrival</h2>
@@ -83,7 +88,6 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="shop-fullwide.html">Collections </a></li>
                                         <li><a href="#">Pages <i class="fa fa-angle-down"></i></a>
                                             <ul class="sub-menu-width">
                                                 <li><a href="about-us.html">About Us</a></li>
@@ -107,7 +111,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="shop-fullwide.html">New Look </a></li>
+
                                     </ul>
                                 </nav>
                             </div>
@@ -128,6 +132,18 @@
                                         <i class=" ti-shopping-cart "></i>
                                         <span class="count-style">2</span>
                                     </a>
+                                </div>
+                                <div class="same-style dropdown cart-wrap ml-20" style="float:right;">
+                                        <a class="dropbtn"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                                        <div class="dropdown-content">
+                                           @if (session()->has('client'))
+                                            <a href="{{route('client.info')}}" class="drop-item">Thông tin tài khoản</a>
+                                            <a href="{{route('client.logout')}}" class="drop-item">Đăng xuất</a>
+                                           @else
+                                           <a href="{{route('client.login')}}" class="drop-item">Đăng nhập</a>
+                                           <a href="{{route('client.register')}}" class="drop-item">Đăng ký</a>
+                                           @endif
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +254,8 @@
                                                 <li><a href="product-details-carousel.html">Product Carousel</a></li>
                                                 <li><a href="product-details-grouped.html">Product Grouped</a></li>
                                                 <li><a href="product-details-affiliate.html">Product Affiliate</a></li>
-                                                <li><a href="product-details-configurable.html">Product Configurable</a></li>
+                                                <li><a href="product-details-configurable.html">Product Configurable</a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children"><a href="#">Shop Page </a>
@@ -354,7 +371,7 @@
                                 <span>{{$item['quantity'] .' x '. number_format($item['price'])}} VND</span>
                             </div>
                             <div class="cart-delete">
-                            <a href="#">×</a>
+                                <a href="#">×</a>
                             </div>
                         </li>
                         @endforeach
@@ -369,11 +386,10 @@
                 </div>
                 @else
                 <h3>Shopping Cart</h3>
-                    <div class="not-cart">
-                        <p>Không có sản phẩm nào trong giỏ hàng của bạn.</p>
-                    </div>
+                <div class="not-cart">
+                    <p>Không có sản phẩm nào trong giỏ hàng của bạn.</p>
+                </div>
                 @endif
 
             </div>
         </div>
-

@@ -2,6 +2,15 @@
 @section('content')
 @section('title','danh sách sản phẩm')
 @section('name_page','product')
+<style>
+    .ok p{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 200px;
+        height:18px;
+    }
+</style>
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -51,7 +60,7 @@
                             <td>{{$value->cateName}}</td>
                             <td>{{$value->brandName}}</td>
                             <td><img src="{{asset($value->avatar)}}" alt="" style="width:50px"></td>
-                            <td>{{$value->desc}}</td>
+                            <td class="ok"><p>{{$value->desc}}</p></td>
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>
                                 <a href="{{route('product_detail.index',$value->id)}}"><i class="mdi mdi-eye btn-info btn"></i></a>
