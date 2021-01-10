@@ -97,19 +97,7 @@
                                                 <li><a href="404.html">Page 404</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="blog.html">Blog <i class="fa fa-angle-down"></i></a>
-                                            <ul class="sub-menu-width">
-                                                <li><a href="blog.html">Blog Sidebar</a></li>
-                                                <li><a href="blog-no-sidebar.html">Blog No Sidebar</a></li>
-                                                <li><a href="blog-3col.html">Blog 03 Columns</a></li>
-                                                <li><a href="blog-masonry.html">Blog Mansory</a></li>
-                                                <li><a href="#">Single Post <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="lavel-menu">
-                                                        <li><a href="blog-details.html">Single Post 01</a></li>
-                                                        <li><a href="blog-details-2.html">Single Post 02</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                        <li><a href="{{route('client.blog')}}">Blog</a>
                                         </li>
 
                                     </ul>

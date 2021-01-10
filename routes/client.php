@@ -84,4 +84,12 @@ Route::prefix('client')->group(function(){
         'as'=>'client.order',
         'uses'=>'clients\CheckoutController@order'
     ]);
+    Route::get('blog',[
+        'as'=>'client.blog',
+        'uses'=>'clients\BlogController@index'
+    ]);
+    Route::get('blog-detail/{slug}/{id}.html',[
+        'as'=>'client.blog-detail',
+        'uses'=>'clients\BlogController@show'
+    ]);
 });

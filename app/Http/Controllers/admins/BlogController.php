@@ -51,8 +51,8 @@ class BlogController extends Controller
     }
 
     public function update($id, Request $request){
-        $dataUpload = $this->uploadImage($request, 'blog', 'image');
-        $admin = session()->get('admin');
+        // $admin = Session::get('admin');
+        $dataUpload = $this->uploadImage($request, 'blog', 'img_blog');
         $blog = Blog::find($id);
         $dataUpdate = [
             'name' => $request->name,
@@ -61,13 +61,13 @@ class BlogController extends Controller
             'status' => $request->status,
             'slug' => Str::slug($request->name, '-')
         ];
-        if($request->file('image')==null){
-            $dataUpdate['image'] = $blog->image;
+        if($request->file('img_blog')==null){
+            $dataUpdate['img_blog'] = $blog->img_blog;
         }else{
-            File::delete($blog->image);
-            $dataUpdate['image'] = $dataUpload;
+            File::delete($blog->img_blog);
+            $dataUpdate['img_blog'] = $dataUpload;
         }
-        $Blog = Blog::find($id)->update();
+        Blog::find($id)->update($dataUpdate);
             return redirect()->route('blog.index')->with('success','sửa thành công');
     }
 
