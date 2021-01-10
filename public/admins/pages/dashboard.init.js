@@ -58,7 +58,7 @@
 
       Dashboard.prototype.init = function () {
 
-        
+
 
 
           //creating area chart
@@ -100,7 +100,7 @@
       $.Dashboard = new Dashboard, $.Dashboard.Constructor = Dashboard
 }(window.jQuery),
 
-//initializing 
+//initializing
   function ($) {
       "use strict";
       $.Dashboard.init();

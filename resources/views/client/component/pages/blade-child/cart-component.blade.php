@@ -29,6 +29,7 @@
                                         <th></th>
                                         <th></th>
                                         <th>Product</th>
+                                        <th>Mã sản phẩm</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>total</th>
@@ -46,6 +47,7 @@
                                             <a href="#"><img src="{{asset($item['image'])}}" alt=""></a>
                                         </td>
                                         <td class="product-name"><a href="#">{{$item['name']}}</a></td>
+                                        <td class="product-name"><a href="#">{{$item['sku']}}</a></td>
                                         <td class="product-price"><span class="amount">{{number_format($item['price'])}}
                                                 VND</span></td>
                                                 <td class="cart-quality">

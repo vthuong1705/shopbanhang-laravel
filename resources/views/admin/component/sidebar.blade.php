@@ -35,6 +35,13 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Đơn hàng <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <ul class="submenu">
+                        <li><a href="{{route('order.index')}}">danh sách đơn hàng</a></li>
+                        {{-- <li><a href="{{route('product.create')}}">thêm sản phẩm</a></li> --}}
+                    </ul>
+                </li>
+                <li>
                     <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> banner <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
                         <li><a href="{{route('banner.index')}}">danh sách banner</a></li>

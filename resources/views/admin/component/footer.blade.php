@@ -17,11 +17,9 @@
 <script src="{{asset('admins/js/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('admins/js/waves.min.js')}}"></script>
 
-<!--Morris Chart-->
-<script src="../plugins/morris/morris.min.js"></script>
-<script src="../plugins/raphael/raphael.min.js"></script>
 
-<script src="{{asset('admins/pages/dashboard.init.js')}}"></script>
+
+{{-- <script src="{{asset('admins/pages/dashboard.init.js')}}"></script> --}}
 
 <!-- App js -->
 <script src="{{asset('admins/js/app.js')}}"></script>

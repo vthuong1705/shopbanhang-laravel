@@ -5,18 +5,21 @@ namespace App\Models;
 use App\Helper\CartHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable = ['id_user','address','phone','note'];
+    protected $fillable = ['id_user','address','name','phone','note','status'];
 
     public function add($request){
+        // dd($request->all());
         $cartHelper = new CartHelper;
         $client = session()->get('client');
         $cart = session()->get('cart');
         $order = Order::create([
             'id_user'=>$client->id,
+            'name'=>$request->name,
             'address'=>$request->address,
             'phone'=>$request->phone,
             'note'=>$request->note
@@ -34,5 +37,9 @@ class Order extends Model
             $pro_detail->update(['quantity'=>($pro_detail->quantity - $value['quantity'])]);
         }
         session()->pull('cart');
+    }
+
+    public function get_username(){
+        return $this->BelongsTo(User::class,'id_user','id');
     }
 }

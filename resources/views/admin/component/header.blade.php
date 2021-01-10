@@ -10,10 +10,10 @@
     <title>@yield('title')</title>
     <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
     <meta content="Themesdesign" name="author" />
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
 
     <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="../plugins/morris/morris.css">
+    {{-- <link rel="stylesheet" href="{{/plugins/morris/morris.css}}"> --}}
     <link href="{{asset('admins/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('admins/css/metismenu.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('admins/css/icons.css')}}" rel="stylesheet" type="text/css">
@@ -48,14 +48,14 @@
                     <!-- language-->
                     <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
                         <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/flags/us_flag.jpg" class="mr-2" height="12" alt="" /> English <span class="mdi mdi-chevron-down"></span>
+                            <img src="{{asset('admins/images/flags/us_flag.jpg')}}" class="mr-2" height="12" alt="" /> English <span class="mdi mdi-chevron-down"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated language-switch">
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/french_flag.jpg" alt="" height="16" /><span> French </span></a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/spain_flag.jpg" alt="" height="16" /><span> Spanish </span></a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/russia_flag.jpg" alt="" height="16" /><span> Russian </span></a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/germany_flag.jpg" alt="" height="16" /><span> German </span></a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/italy_flag.jpg" alt="" height="16" /><span> Italian </span></a>
+                            <a class="dropdown-item" href="#"><img src="{{asset('admins/images/flags/french_flag.jpg')}}" alt="" height="16" /><span> French </span></a>
+                            <a class="dropdown-item" href="#"><img src="{{asset('admins/images/flags/spain_flag.jpg')}}" alt="" height="16" /><span> Spanish </span></a>
+                            <a class="dropdown-item" href="#"><img src="{{asset('admins/images/flags/russia_flag.jpg')}}" alt="" height="16" /><span> Russian </span></a>
+                            <a class="dropdown-item" href="#"><img src="{{asset('admins/images/flags/germany_flag.jpg')}}" alt="" height="16" /><span> German </span></a>
+                            <a class="dropdown-item" href="#"><img src="{{asset('admins/images/flags/italy_flag.jpg')}}" alt="" height="16" /><span> Italian </span></a>
                         </div>
                     </li>
 

@@ -4,9 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Order_detail extends Model
 {
     use HasFactory;
     protected $fillable = ['id_order','id_pro_detail','price','quantity'];
+
+    public static function get_order_detail($id){
+        return DB::table('order_details')
+        ->join('product_details', 'order_details.id_pro_detail', '=', 'product_details.id')
+        ->join('orders', 'order_details.id_order', '=', 'orders.id')
+        ->select('order_details.*', 'product_details.sku', 'orders.name')
+        ->where('order_details.id_order',$id)
+        ->get();
+    }
 }

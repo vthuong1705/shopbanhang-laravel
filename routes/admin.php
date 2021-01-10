@@ -257,4 +257,19 @@ Route::prefix('admin')->group(function(){
             'uses' => 'admins\ProductDetailController@delete'
         ]);
     });
+
+    Route::prefix('order')->middleware('logged')->group(function(){
+        Route::get('',[
+            'as'=>'order.index',
+            'uses'=>'admins\OrderController@index'
+        ]);
+        Route::get('update_order/{id}/{status}',[
+            'as'=>'order.update',
+            'uses'=>'admins\OrderController@update'
+        ]);
+        Route::get('order-detail/{id}',[
+            'as'=>'order_detail.index',
+            'uses'=>'admins\OrderController@OrderDetail'
+        ]);
+    });
 });
