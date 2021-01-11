@@ -25,8 +25,5 @@ class Wishlist extends Model
         ->first();
     }
 
-    // public function product_details()
-    // {
-    //     return $this->belongsTo(Product_detail::class, 'id_product_detail', 'id');
-    // }
+
 }
