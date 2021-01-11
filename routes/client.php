@@ -15,6 +15,18 @@ Route::prefix('client')->group(function(){
         'as'=>'client.brand',
         'uses'=> 'clients\ProductController@get_brand'
     ]);
+    Route::get('sort-date',[
+        'as'=>'client.sort_date',
+        'uses'=> 'clients\ProductController@sort_date'
+    ]);
+    Route::get('sort-low-to-high',[
+        'as'=>'client.sort_low',
+        'uses'=> 'clients\ProductController@sort_low_to_high'
+    ]);
+    Route::get('sort-high-to-low',[
+        'as'=>'client.sort_high',
+        'uses'=> 'clients\ProductController@sort_high'
+    ]);
     Route::get('product-detail/{slug}/{id}.html',[
         'as'=>'client.product-detail',
         'uses'=> 'clients\ProductDetailController@index'
