@@ -25,7 +25,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            {{-- <th>Tên người đặt hàng</th> --}}
+                            <th>Tên người đặt hàng</th>
                             <th>Mã sản phẩm</th>
                             <th>Giá</th>
                             <th>số lượng</th>
@@ -35,6 +35,7 @@
                         @foreach ($order_detail as $value)
                         <tr>
                             <td>{{$loop->iteration}}</td>
+                            <td>{{$value->name}}</td>
                             <td>{{$value->sku}}</td>
                             <td>{{number_format($value->price)}} VND</td>
                             <td>{{$value->quantity}}</td>

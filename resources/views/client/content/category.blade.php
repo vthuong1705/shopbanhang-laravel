@@ -30,59 +30,18 @@
             <div class="col-lg-9">
                 <div class="shop-top-bar">
                     <div class="shop-top-bar-right">
-                        <div class="shop-filter">
-                            <a class="shop-filter-active" href="#">Filters <i class="fa fa-angle-down angle-down"></i> <i class="fa fa-angle-up angle-up"></i></a>
-                        </div>
                         <div class="shop-short-by ml-30">
                             <span>Sort by <i class="fa fa-angle-down angle-down"></i> <i class="fa fa-angle-up angle-up"></i></span>
                             <ul>
                                 <li class="active"><a href="#">Default sorting</a></li>
-                                <li><a href="#">Sort by popularity</a></li>
-                                <li><a href="#">Sort by average rating</a></li>
-                                <li><a href="#">Sort by latest</a></li>
-                                <li><a href="#">Sort by price: low to high</a></li>
+                                <li><a href="{{route('client.sort_date')}}">Sort by date</a></li>
+                                <li><a href="{{route('client.sort_low')}}">Sort by price: low to high</a></li>
                                 <li><a href="#">Sort by price: high to low</a></li>
                             </ul>
                         </div>
                         <div class="shop-tab nav ml-30">
                             <a href="#shop-1" class="active" data-toggle="tab"><i class=" ti-view-grid "></i></a>
                             <a href="#shop-2" data-toggle="tab"><i class=" ti-view-list-alt "></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-filter-wrapper">
-                    <div class="row">
-                        <!-- Product Filter -->
-                        <div class="col-md-3 col-sm-6 col-xs-12 mb-20">
-                            <div class="product-filter">
-                                <h5>Price</h5>
-                                <div class="price-filter">
-                                    <ul>
-                                        <li><a href="#">$0.00 - $20.00</a></li>
-                                        <li><a href="#">$20.00 - $40.00</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Filter -->
-                        <div class="col-md-3 col-sm-6 col-xs-12 mb-20">
-                            <div class="product-filter">
-                                <h5>product size</h5>
-                                <div class="fliter-size">
-                                    <ul>
-                                        @foreach ($size as $value)
-                                        <li><a href="#">{{$value->name}}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="filter-close-wrap text-center">
-                                <a class="filter-close" href="#"><i class="ti-close"></i> Clear All Filter</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -331,7 +290,7 @@
                         </div>
                     </div>
                 {{-- paginate --}}
-                    {{$product->links()}}
+                    {{-- {{$product->links()}} --}}
                 </div>
             </div>
             @include('client.component.sidebar')

@@ -20,6 +20,21 @@
         width: 50%;
         margin-bottom: 5px
     }
+    .btn-size{
+        background-color: #ddd;
+        padding: 10px 15px
+    }
+    .btn-active{
+        background-color: #e6ac50;
+        padding: 10px 15px
+    }
+    .pro-details-banner img{
+        width: 250px !important;
+        height: 300px;
+    }
+    .pro-details-banner{
+        width: 250px !important
+    }
 </style>
 
 <div class="breadcrumb-area border-top-2 pt-50 pb-50">
@@ -92,9 +107,10 @@
                     <h3>Giá: {{number_format($detail->sale_price)}} VND</h3>
                     @endif
                     <p>Còn lại: {{$detail->quantity}}sp</p>
+                    {{-- @dd($details); --}}
                     <div class="quickview-size">
                         @foreach ($details as $item)
-                            <a href="{{route('client.product-detail',[$item->slug,$item->id])}}">{{$item->nameSize}}</a>
+                            <a href="{{route('client.product-detail',[$item->slug,$item->id])}}" class="{{$item->id_size == $detail->id_size ? 'btn-active': 'btn-size'}}">{{$item->nameSize}}</a>
                         @endforeach
                     </div>
                     <div class="quickview-action-wrap">
@@ -139,26 +155,20 @@
                 <div class="description-review-wrapper">
                     <div class="description-review-topbar nav">
                         <a class="active" data-toggle="tab" href="#des-details1">Description</a>
-                        <a data-toggle="tab" href="#des-details2">Reviews (1)</a>
-                        <a data-toggle="tab" href="#des-details3">About Brand</a>
-                        <a data-toggle="tab" href="#des-details4">Shipping & Delivery</a>
+                        <a data-toggle="tab" href="#des-details2">Reviews</a>
                     </div>
                     <div class="tab-content description-review-bottom">
                         <div id="des-details1" class="tab-pane active">
                             <div class="product-description-wrapper">
                                 <div class="row">
-                                    <div class="col-38">
+                                    <div class="col-30">
                                         <div class="pro-details-banner banner-zoom default-overlay">
-                                            <a href="#"><img src="assets/images/product-details/pro-details-banner.jpg" alt=""></a>
+                                            <a href="#"><img src="{{asset($product->avatar)}}" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="col-62">
                                         <div class="product-dec-content">
-                                            <p>Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales orci. Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque. Vestibulum ut sem laoreet, feugiat tellus at, hendrerit arcu..</p>
-                                            <ul>
-                                                <li>Maecenas eu ante a elit tempus fermentum. Aliquam <br>commodo tincidunt semper</li>
-                                                <li>Aliquam est et tempus. Eaecenas libero ante, tincidunt vel</li>
-                                            </ul>
+                                            <p>{{$product->desc}}</p>
                                             <img src="assets/images/icon-img/pro-dec-icon.jpg" alt="">
                                         </div>
                                     </div>
@@ -250,30 +260,6 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div id="des-details3" class="tab-pane">
-                            <div class="about-shiping-content">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                <p>Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales orci. Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque. Vestibulum ut sem laoreet, feugiat tellus at, hendrerit arcu..</p>
-                                <ul>
-                                    <li>Maecenas eu ante a elit tempus fermentum. Aliquam commodo tincidunt semper</li>
-                                    <li>Aliquam est et tempus. Eaecenas libero ante, tincidunt vel</li>
-                                </ul>
-                                <p>Nunc lacus elit, faucibus ac laoreet sed, dapibus ac mi. Maecenas eu ante a elit tempus fermentum. Aliquam commodo tincidunt semper. Phasellus accumsan, justo ac mollis pharetra,.</p>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt</p>
-                            </div>
-                        </div>
-                        <div id="des-details4" class="tab-pane">
-                            <div class="about-shiping-content">
-                                <p>Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales orci. Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque. Vestibulum ut sem laoreet, feugiat tellus at, hendrerit arcu..</p>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                <ul>
-                                    <li>Maecenas eu ante a elit tempus fermentum. Aliquam commodo tincidunt semper</li>
-                                    <li>Aliquam est et tempus. Eaecenas libero ante, tincidunt vel</li>
-                                </ul>
-                                <p>Nunc lacus elit, faucibus ac laoreet sed, dapibus ac mi. Maecenas eu ante a elit tempus fermentum. Aliquam commodo tincidunt semper. Phasellus accumsan, justo ac mollis pharetra,.</p>
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt</p>
                             </div>
                         </div>
                     </div>
