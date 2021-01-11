@@ -92,4 +92,12 @@ Route::prefix('client')->group(function(){
         'as'=>'client.blog-detail',
         'uses'=>'clients\BlogController@show'
     ]);
+    Route::get('wishlist/{id}',[
+        'as'=>'client.wishlist',
+        'uses'=>'clients\WishlistController@index'
+    ]);
+    Route::get('add-wishlist/{id}',[
+        'as'=>'client.wishlist_add',
+        'uses'=>'clients\WishlistController@add'
+    ]);
 });

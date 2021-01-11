@@ -19,6 +19,9 @@
         width: 200px !important;
         height: 280px;
     }
+    .product-wrap .product-img .product-action .Wishlist {
+        background-color: #e77878;
+    }
 </style>
 <div class="breadcrumb-area breadcrumb-bg-3 section-padding-1 pt-200 pb-120">
     <div class="container-fluid">
@@ -113,9 +116,10 @@
                                             <span class="price-dec">{{$value->discount}}%</span>
                                             @endif
                                         </a>
+                                        {{-- @dd($wishlist) --}}
                                         <div class="product-action">
                                             <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-zoom-in"></i><span>Quick Shop</span></a>
-                                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                            <a title="Wishlist" class="{{($wishlist->id_pro == $value->id ? 'wishlist' : '')}}" href="{{route('client.wishlist_add',$value->id)}}"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
                                             <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
                                         </div>
                                         <div class="product-action-2">

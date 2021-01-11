@@ -32,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $view->with([
                 'cartHelper'=> new CartHelper,
+                'client'=>session()->get('client'),
                 'category' => Category::where('status', 1)->get(),
                 'brand' => brand::where('status', 1)->get(),
                 'size' => Size::where('status', 1)->get()
