@@ -104,7 +104,7 @@ Route::prefix('client')->group(function(){
         'as'=>'client.blog-detail',
         'uses'=>'clients\BlogController@show'
     ]);
-    Route::get('wishlist/{id}',[
+    Route::get('wishlist',[
         'as'=>'client.wishlist',
         'uses'=>'clients\WishlistController@index'
     ]);

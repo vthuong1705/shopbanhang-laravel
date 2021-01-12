@@ -6,11 +6,13 @@ use App\Helper\CartHelper;
 use App\Models\brand;
 use App\Models\Category;
 use App\Models\Size;
+use App\Models\Wishlist;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Register any application services.
      *

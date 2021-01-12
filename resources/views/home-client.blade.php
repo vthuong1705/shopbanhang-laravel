@@ -1,3 +1,4 @@
+{{-- @dd($wishlist) --}}
 @extends('client.master')
 @section('title','trang client')
 @section('name_page','')
@@ -47,7 +48,7 @@
                 <div class="shop-top-bar">
                     <div class="shop-top-bar-right">
                         <div class="shop-short-by ml-30">
-                            <span>Sort by <i class="fa fa-angle-down angle-down"></i> <i class="fa fa-angle-up angle-up"></i></span>
+                            <span>Sort by<i class="fa fa-angle-down angle-down"></i> <i class="fa fa-angle-up angle-up"></i></span>
                             <ul>
                                 <li class="active"><a href="{{route('client.index')}}">Default sorting</a></li>
                                 <li><a href="{{route('client.sort_date')}}">Sort by date</a></li>
@@ -78,7 +79,7 @@
                                         {{-- @dd($wishlist) --}}
                                         <div class="product-action">
                                             <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-zoom-in"></i><span>Quick Shop</span></a>
-                                            <a title="Wishlist" class="{{($wishlist->id_pro == $value->id ? 'wishlist' : '')}}" href="{{route('client.wishlist_add',$value->id)}}"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                            <a title="Wishlist" class="" href="{{route('client.wishlist_add',$value->id)}}"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
                                             <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
                                         </div>
                                         <div class="product-action-2">

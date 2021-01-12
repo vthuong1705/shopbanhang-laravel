@@ -70,7 +70,7 @@
                                                         </li>
                                                         <li><a href="checkout.html">Check Out</a></li>
                                                         <li><a href="my-account.html">My Account</a></li>
-                                                        <li><a href="{{route('client.wishlist',$client->id)}}">Wishlist</a></li>
+                                                        <li><a href="{{route('client.wishlist')}}">Wishlist</a></li>
                                                         <li><a href="compare.html">Compare</a></li>
                                                         <li><a href="order-tracking.html">Order Tracking</a></li>
                                                     </ul>

@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\product_detail;
 use App\Models\Size;
 use App\Models\User;
+use App\Models\Wishlist;
 use Illuminate\Contracts\Pipeline\Hub;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -26,8 +27,10 @@ class ClientController extends Controller
     public function index()
     {
         $product = Product::where('status', 1)->paginate(10);
+        // $wishlist = [];
         foreach ($product as $value) {
             $product_detail = isset($value->find_info_product) ? $value->find_info_product : [];
+            // $wishlist = Wishlist::get_wishlist($value->id);
             if (isset($product_detail[0])) {
                 $value->setAttribute('price', $product_detail[0]['price']);
                 $value->setAttribute('discount', $product_detail[0]['discount']);
@@ -39,6 +42,7 @@ class ClientController extends Controller
                 $value->setAttribute('id_detail', 0);
                 $value->setAttribute('sale_price', 0);
             }
+            // dd($wishlist);
         }
 
         return view('home-client', compact('product'));
@@ -91,7 +95,10 @@ class ClientController extends Controller
                 // dd(session()->get('client'));
                 if($request->flag == 'check'){
                     return redirect()->route('client.checkout');
-                }else{
+                }else if($request->flag == 'get_wishlist'){
+                    return redirect()->route('client.wishlist');
+                }
+                else{
                     return redirect()->route('client.index');
                 }
             }else{
