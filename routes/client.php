@@ -112,6 +112,10 @@ Route::prefix('client')->group(function(){
         'as'=>'client.wishlist_add',
         'uses'=>'clients\WishlistController@add'
     ]);
+    Route::get('delete-wishlist/{id}',[
+        'as'=>'client.delete-wishlist',
+        'uses'=>'clients\WishlistController@remove'
+    ]);
     Route::post('feedback/{id}',[
         'as'=>'client.feedback',
         'uses'=>'clients\FeedbackController@index'
