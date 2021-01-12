@@ -35,6 +35,9 @@
     .pro-details-banner{
         width: 250px !important
     }
+    i.ti-heart.wishlist {
+    color: #e77878 !important;
+}
 </style>
 
 <div class="breadcrumb-area border-top-2 pt-50 pb-50">
@@ -85,21 +88,6 @@
                         <a href="#"><i class=" ti-arrow-right "></i></a>
                     </div>
                     <h2>{{$product->name}}</h2>
-                    <div class="quickview-ratting-review">
-                        <div class="quickview-ratting-wrap">
-                            <div class="quickview-ratting">
-                                <i class="yellow fa fa-star"></i>
-                                <i class="yellow fa fa-star"></i>
-                                <i class="yellow fa fa-star"></i>
-                                <i class="yellow fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <a href="#"> (1 customer review)</a>
-                        </div>
-                        <div class="quickview-stock">
-                            <span><i class="fa fa-check-circle-o"></i> in stock</span>
-                        </div>
-                    </div>
                     @if ($detail->discount)
                     <h3>Giá: <span>{{number_format($detail->price)}} VND</span></h3>
                     <h3>Giá khuyến mại: {{number_format($detail->sale_price)}} VND</h3>
@@ -124,7 +112,11 @@
                         </div>
                     </form>
                         <div class="quickview-wishlist">
-                            <a title="Add to wishlist" href="#"><i class=" ti-heart "></i></a>
+                           @if ($wishlist)
+                           <a title="Add to wishlist" href="{{route('client.delete-wishlist',$wishlist->id)}}"><i class=" ti-heart {{$wishlist->id_pro == $detail->id ? 'wishlist': ''}}" ></i></a>
+                           @else
+                           <a title="Add to wishlist" href="{{route('client.wishlist_add',$detail->id)}}"><i class=" ti-heart "></i></a>
+                           @endif
                         </div>
                         <div class="quickview-compare">
                             <a title="Add to compare" href="#"><i class="ti-bar-chart-alt"></i></a>

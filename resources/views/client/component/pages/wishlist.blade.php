@@ -29,37 +29,29 @@
                                 <tr>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
                                     <th>Product</th>
                                     <th> Price</th>
-                                    <th>Quantity</th>
                                     <th>Add To Cart</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($wishlist as $value)
-                        {{-- @dd($value) --}}
-                                @foreach ($product as $a)
+
                                 {{-- @dd($a->name) --}}
                                 <tr>
                                     <td class="product-remove">
                                         <a href="{{route('client.delete-wishlist',$value->id)}}"><i class=" ti-close"></i></a>
                                     </td>
-                                    <td>{{$loop->index+1}}</td>
-                                    <td class="product-name"><a href="#">{{$value->proName}}</a></td>
                                     <td class="product-img">
-                                        <a href="#"><img src="" width="100px" alt=""></a>
+                                        <a href="#"><img src="{{asset($value->avatar)}}" width="100px" alt=""></a>
                                     </td>
-                                    <td class="product-price"><span class="amount"></span></td>
-                                    <td class="cart-quality">
-                                        <div class="quickview-quality quality-height-dec2">
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="product-wishlist-cart"><a href="{{route('client.cart',$a->id_detail)}}">add to cart</a></td>
+                                    <td>{{$loop->index+1}}</td>
+                                    <td class="product-name"><a href="{{route('client.product-detail',[$value->slug,$value->id])}}">{{$value->name}}</a></td>
+
+                                    <td class="product-price"><span class="amount">{{$value->price}}</span></td>
+                                    <td class="product-wishlist-cart"><a href="{{route('client.cart',$value->id)}}">add to cart</a></td>
                                 </tr>
-                                @endforeach
                                 @endforeach
                             </tbody>
                         </table>

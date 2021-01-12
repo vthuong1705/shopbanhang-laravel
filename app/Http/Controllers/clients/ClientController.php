@@ -43,8 +43,8 @@ class ClientController extends Controller
                 $value->setAttribute('sale_price', 0);
             }
         };
-
-        return view('home-client', compact('product'));
+        $wishlist = Wishlist::all();
+        return view('home-client', compact('product','wishlist'));
     }
 
     public function login()

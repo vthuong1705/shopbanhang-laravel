@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\product_detail;
 use App\Models\Product_image;
 use App\Models\Size;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 
 class ProductDetailController extends Controller
@@ -39,8 +40,10 @@ class ProductDetailController extends Controller
             }
         }
         $feedback = Feedback::get_feedback($pro->id);
+        $wishlist = Wishlist::get_wishlist($id);
+        // dd($wishlist);
         // dd($feedback);
-        return view('client.content.product-detail',compact('product','pro_detail','img_pro','detail','size','details','feedback'));
+        return view('client.content.product-detail',compact('product','pro_detail','img_pro','detail','size','details','feedback','wishlist'));
     }
 
 }
