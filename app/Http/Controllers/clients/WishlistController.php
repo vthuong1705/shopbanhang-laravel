@@ -29,16 +29,17 @@ class WishlistController extends Controller
         if ($client) {
             $wishlist = Wishlist::where('id_pro', $id)->get();
             // dd(count($wishlist));
-             if(count($wishlist) == 0){
-                wishlist::create([
+            wishlist::create([
                     'id_user' => $client->id,
                     'id_pro' => $id
                 ]);
+             if(count($wishlist)){
+
              }
              $products = Product::where('status',1)->get();
              $product =  Product:: add_attr_pro($products);
             $wishlist = Wishlist::get_wishlist($id);
-            return view('home-client',compact('product'));
+            return back();
 
         } else {
             return view('client.content.login',compact('demo'));

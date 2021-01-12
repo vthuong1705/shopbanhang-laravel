@@ -30,11 +30,11 @@ class ClientController extends Controller
         // $wishlist = [];
         foreach ($product as $value) {
             $product_detail = isset($value->find_info_product) ? $value->find_info_product : [];
-            // $wishlist = Wishlist::get_wishlist($value->id);
             if (isset($product_detail[0])) {
                 $value->setAttribute('price', $product_detail[0]['price']);
                 $value->setAttribute('discount', $product_detail[0]['discount']);
                 $value->setAttribute('id_detail', $product_detail[0]['id']);
+                $value->setAttribute('sale_price', $product_detail[0]['sale_price']);
                 $value->setAttribute('sale_price', $product_detail[0]['sale_price']);
             } else {
                 $value->setAttribute('price', 0);
@@ -42,8 +42,7 @@ class ClientController extends Controller
                 $value->setAttribute('id_detail', 0);
                 $value->setAttribute('sale_price', 0);
             }
-            // dd($wishlist);
-        }
+        };
 
         return view('home-client', compact('product'));
     }

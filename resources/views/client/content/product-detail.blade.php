@@ -183,73 +183,27 @@
                                         <img src="assets/images/product-details/client-1.jpg" alt="">
                                     </div>
                                     <div class="review-content">
+                                        @foreach ($feedback as $item)
                                         <div class="review-top-wrap">
                                             <div class="review-name">
-                                                <h5><span>John Snow</span> - March 14, 2019</h5>
-                                            </div>
-                                            <div class="review-rating">
-                                                <i class="yellow fa fa-star"></i>
-                                                <i class="yellow fa fa-star"></i>
-                                                <i class="yellow fa fa-star"></i>
-                                                <i class="yellow fa fa-star"></i>
-                                                <i class=" fa fa-star"></i>
+                                                <h5><span>{{$item->username}}</span> - {{$item->created_at}}</h5>
                                             </div>
                                         </div>
-                                        <p>Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales orci. Aliquam egestas libero ac turpis pharetra</p>
+                                        <p>{{$item->content}}</p>
+                                        <hr>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
                             <div class="ratting-form-wrapper">
-                                <span>Add a Review</span>
-                                <p>Your email address will not be published. Required fields are marked <span>*</span></p>
                                 <div class="ratting-form">
-                                    <form action="#">
+                                    <form action="{{route('client.feedback',$product->id)}}" method="POST">
+                                        @csrf
                                         <div class="row">
-                                            <div class="col-lg-3 col-md-6">
-                                                <div class="rating-form-style mb-20">
-                                                    <label>Name <span>*</span></label>
-                                                    <input type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-6">
-                                                <div class="rating-form-style mb-20">
-                                                    <label>Email <span>*</span></label>
-                                                    <input type="email">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="star-box-wrap">
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                    </div>
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                    </div>
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                    </div>
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                    </div>
-                                                    <div class="single-ratting-star">
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="col-md-12">
                                                 <div class="rating-form-style mb-20">
-                                                    <label>Your review <span>*</span></label>
-                                                    <textarea name="Your Review"></textarea>
+                                                    <label>Nhận xét <span>*</span></label>
+                                                    <textarea name="content"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
@@ -407,4 +361,9 @@
         })
     });
 </script>
+@if (session()->has('message'))
+    <script>
+        alert('nhận xét của bạn đã được gửi đến quản trị viên')
+    </script>
+@endif
 @endsection

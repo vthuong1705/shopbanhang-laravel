@@ -112,4 +112,8 @@ Route::prefix('client')->group(function(){
         'as'=>'client.wishlist_add',
         'uses'=>'clients\WishlistController@add'
     ]);
+    Route::post('feedback/{id}',[
+        'as'=>'client.feedback',
+        'uses'=>'clients\FeedbackController@index'
+    ]);
 });
