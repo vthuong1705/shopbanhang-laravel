@@ -124,4 +124,12 @@ Route::prefix('client')->group(function(){
         'as'=>'client.feedback',
         'uses'=>'clients\FeedbackController@index'
     ]);
+    Route::get('contact',[
+        'as'=>'client.contact',
+        'uses'=>'clients\ContactController@index'
+    ]);
+    Route::post('post-contact',[
+        'as'=>'client.contact_post',
+        'uses'=>'clients\ContactController@index_post'
+    ]);
 });

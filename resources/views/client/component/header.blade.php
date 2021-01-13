@@ -86,14 +86,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Pages <i class="fa fa-angle-down"></i></a>
-                                            <ul class="sub-menu-width">
-                                                <li><a href="about-us.html">About Us</a></li>
-                                                <li><a href="contact-us.html">Contact Us</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                                <li><a href="comming-soon.html">Comming Soon</a></li>
-                                                <li><a href="404.html">Page 404</a></li>
-                                            </ul>
+                                        <li><a href="{{route('client.contact')}}">Contact</i></a>
                                         </li>
                                         <li><a href="{{route('client.blog')}}">Blog</a>
                                         </li>

@@ -19,7 +19,7 @@ class CheckoutController extends Controller
             if($cart){
                 return view('client.content.checkout',compact('client','cart','cartHelper'));
             }else{
-                return redirect()->route('client.index');
+                return view('client.content.cart',compact('cart'));
             }
         }else{
             return view('client.content.login',compact('demo'));

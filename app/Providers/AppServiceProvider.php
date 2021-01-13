@@ -5,6 +5,9 @@ namespace App\Providers;
 use App\Helper\CartHelper;
 use App\Models\brand;
 use App\Models\Category;
+use App\Models\Contact;
+use App\Models\Contact_user;
+use App\Models\Order;
 use App\Models\Size;
 use App\Models\Wishlist;
 use Illuminate\Pagination\Paginator;
@@ -37,7 +40,10 @@ class AppServiceProvider extends ServiceProvider
                 'client'=>session()->get('client'),
                 'category' => Category::where('status', 1)->get(),
                 'brand' => brand::where('status', 1)->get(),
-                'size' => Size::where('status', 1)->get()
+                'size' => Size::where('status', 1)->get(),
+                'contact'=> Contact::where('name','bkap')->first(),
+                'order'=>Order::all(),
+                'contact_user'=>Contact_user::all()
             ]);
         });
     }

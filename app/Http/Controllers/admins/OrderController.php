@@ -24,10 +24,12 @@ class OrderController extends Controller
         ],200);
     }
 
-    public function OrderDetail(Order_detail $order,$id){
+    public function OrderDetail($id){
         // dd($id);
+        $order = Order::get_order($id);
+        dd($order);
         $order_detail = Order_detail::get_order_detail($id);
         // dd($order_detail);
-        return view('admin.order.order-detail',compact('order_detail'));
+        return view('admin.order.order-detail',compact('order_detail','order'));
     }
 }

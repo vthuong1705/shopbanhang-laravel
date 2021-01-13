@@ -45,4 +45,7 @@ class Order extends Model
         return $this->BelongsTo(User::class,'id_user','id');
     }
 
+    public static function get_order($id){
+        return DB::table('orders')->where('id',$id)->first();
+    }
 }

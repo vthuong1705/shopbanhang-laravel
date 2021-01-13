@@ -14,8 +14,10 @@ class Order_detail extends Model
     public static function get_order_detail($id){
         return DB::table('order_details')
         ->join('product_details', 'order_details.id_pro_detail', '=', 'product_details.id')
+        ->join('products', 'product_details.id_pro', '=', 'products.id')
+        ->join('sizes', 'product_details.id_size', '=', 'sizes.id')
         ->join('orders', 'order_details.id_order', '=', 'orders.id')
-        ->select('order_details.*', 'product_details.sku', 'orders.name')
+        ->select('order_details.*', 'product_details.sku', 'orders.name','products.name as proName','sizes.name as sizeName')
         ->where('order_details.id_order',$id)
         ->get();
     }

@@ -72,7 +72,7 @@
             </div>
             <div class="d-felx justify-content-center">
 
-            {{ $contact->links() }}
+            {{-- {{ $contact->links() }} --}}
 
             </div>
 

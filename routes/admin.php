@@ -272,4 +272,11 @@ Route::prefix('admin')->group(function(){
             'uses'=>'admins\OrderController@OrderDetail'
         ]);
     });
+
+    Route::prefix('contact-user')->middleware('logged')->group(function(){
+        Route::get('',[
+            'as'=>'contact-user.index',
+            'uses'=>'admins\ContactUserController@index'
+        ]);
+    });
 });

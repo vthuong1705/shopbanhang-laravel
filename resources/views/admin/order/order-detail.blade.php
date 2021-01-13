@@ -21,12 +21,23 @@
             </div>
             <!-- end page-title -->
             <div class="row">
-                <table class="table table-hover ">
+
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">Người mua hàng: {{$order->name}}</h3>
+                      </div>
+                      <div class="panel-body">
+                            Mã đơn hàng: {{$order->id}}
+                      </div>
+                </div>
+
+                <table class="table table-hover " style="margin-top: 10px;">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Tên người đặt hàng</th>
+                            <th>Tên sản phẩm</th>
                             <th>Mã sản phẩm</th>
+                            <th>size</th>
                             <th>Giá</th>
                             <th>số lượng</th>
                         </tr>
@@ -35,8 +46,9 @@
                         @foreach ($order_detail as $value)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$value->name}}</td>
+                            <td>{{$value->proName}}</td>
                             <td>{{$value->sku}}</td>
+                            <td>{{$value->sizeName}}</td>
                             <td>{{number_format($value->price)}} VND</td>
                             <td>{{$value->quantity}}</td>
                         </tr>
