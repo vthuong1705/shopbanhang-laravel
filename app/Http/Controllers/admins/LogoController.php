@@ -13,9 +13,8 @@ class LogoController extends Controller
     Use UploadFile;
     public function index(){
         $get = Logo::get_logo();
-        $logo = $get[0];
         $getlogo = Logo::paginate(5);
-        return view('admin.logo.index',compact('getlogo','logo'));
+        return view('admin.logo.index',compact('getlogo'));
     }
 
     public function create(){

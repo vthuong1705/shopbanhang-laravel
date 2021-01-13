@@ -19,4 +19,13 @@ class Order_detail extends Model
         ->where('order_details.id_order',$id)
         ->get();
     }
+
+    public static function get_order(){
+        return DB::table('order_details')
+        ->join('product_details', 'order_details.id_pro_detail', '=', 'product_details.id')
+        ->join('orders', 'order_details.id_order', '=', 'orders.id')
+        ->select('order_details.*', 'product_details.sku', 'orders.name','orders.status','orders.total_price')
+        // ->where('order_details.id_order',$id)
+        ->get();
+    }
 }

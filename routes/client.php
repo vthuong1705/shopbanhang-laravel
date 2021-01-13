@@ -76,6 +76,10 @@ Route::prefix('client')->group(function(){
         'as'=>'client.info',
         'uses'=>'clients\ClientController@infoClient'
     ]);
+    Route::get('order-detail/{id}',[
+        'as'=>'client.order_detail',
+        'uses'=>'clients\ClientController@order_detail'
+    ]);
     Route::post('change-info/{id}',[
         'as'=>'client.change_info_client',
         'uses'=>'clients\ClientController@change_info'

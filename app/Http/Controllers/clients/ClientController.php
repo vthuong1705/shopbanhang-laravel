@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\clients;
 
 use App\Http\Controllers\Controller;
+use App\Models\banner;
 use App\Models\brand;
 use App\Models\Category;
+use App\Models\Order;
+use App\Models\Order_detail;
 use App\Models\Product;
 use App\Models\product_detail;
 use App\Models\Size;
@@ -44,7 +47,8 @@ class ClientController extends Controller
             }
         };
         $wishlist = Wishlist::all();
-        return view('home-client', compact('product','wishlist'));
+        $banner = banner::where('name','banner')->first();
+        return view('home-client', compact('product','wishlist','banner'));
     }
 
     public function login()
@@ -111,7 +115,15 @@ class ClientController extends Controller
     public function infoClient()
     {
         $client = session()->get('client');
-        return view('client.content.account', compact('client'));
+        $order = Order::all();
+        // dd($order);
+        return view('client.content.account', compact('client','order'));
+    }
+
+    public function order_detail($id){
+        $order = Order_detail::get_order_detail($id);
+        // dd($order);
+        return view('client.content.order-details',compact('order'));
     }
 
     public function change_info(Request $request,$id)

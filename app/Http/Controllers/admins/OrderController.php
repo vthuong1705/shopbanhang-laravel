@@ -28,6 +28,6 @@ class OrderController extends Controller
         // dd($id);
         $order_detail = Order_detail::get_order_detail($id);
         // dd($order_detail);
-        return view('client.content.order-detail',compact('order_detail'));
+        return view('admin.order.order-detail',compact('order_detail'));
     }
 }
