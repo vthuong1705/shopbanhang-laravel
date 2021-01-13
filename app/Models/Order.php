@@ -6,11 +6,12 @@ use App\Helper\CartHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
 
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable = ['id_user','address','name','phone','note','status'];
+    protected $fillable = ['id_user','address','name','phone','total_price','note','status'];
 
     public function add($request){
         // dd($request->all());
@@ -22,6 +23,7 @@ class Order extends Model
             'name'=>$request->name,
             'address'=>$request->address,
             'phone'=>$request->phone,
+            'total_price'=>$cartHelper->into_money,
             'note'=>$request->note
         ]);
 
@@ -42,4 +44,5 @@ class Order extends Model
     public function get_username(){
         return $this->BelongsTo(User::class,'id_user','id');
     }
+
 }

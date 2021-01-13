@@ -79,13 +79,33 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($order as $item)
                                         <tr>
                                             <td></td>
-                                            <td>Aug 22, 2018</td>
-                                            <td>Pending</td>
-                                            <td>$3000</td>
-                                            <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
+                                            <td>{{$item->created_at}}</td>
+                                            <td>
+                                                @switch($item->status)
+                                                    @case(0)
+                                                        đang chờ
+                                                        @break
+                                                    @case(1)
+                                                        đã duyệt
+                                                        @break
+                                                    @case(2)
+                                                        đang giao hàng
+                                                        @break
+                                                    @case(3)
+                                                        đã giao hàng
+                                                        @break
+                                                    @default
+                                                        hủy đơn hàng
+                                                @endswitch
+                                            </td>
+                                            <td>{{$item->total_price}}</td>
+                                            <td><a href="{{route('client.order_detail',$item->id)}}" class="check-btn sqr-btn ">View</a></td>
                                         </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

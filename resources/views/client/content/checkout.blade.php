@@ -91,11 +91,13 @@
                                     </ul>
                                 </div>
                                 <div class="your-order-middle">
+                                    @if (isset($cart))
                                     <ul>
                                         @foreach ($cart as $item)
                                         <li>{{$item['name'] . ' X ' .$item['quantity']}} <span>{{number_format($item['price'])}} VND</span></li>
                                         @endforeach
                                     </ul>
+                                    @endif
                                 </div>
                                 <div class="your-order-info order-subtotal">
                                     <ul>

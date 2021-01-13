@@ -16,7 +16,11 @@ class CheckoutController extends Controller
         $cartHelper = new CartHelper;
         $demo = 'check';
         if($client){
-            return view('client.content.checkout',compact('client','cart','cartHelper'));
+            if($cart){
+                return view('client.content.checkout',compact('client','cart','cartHelper'));
+            }else{
+                return redirect()->route('client.index');
+            }
         }else{
             return view('client.content.login',compact('demo'));
         }

@@ -36,7 +36,7 @@
                                 <li class="active"><a href="#">Default sorting</a></li>
                                 <li><a href="{{route('client.sort_date')}}">Sort by date</a></li>
                                 <li><a href="{{route('client.sort_low')}}">Sort by price: low to high</a></li>
-                                <li><a href="#">Sort by price: high to low</a></li>
+                                <li><a href="{{route('client.sort_high')}}">Sort by price: high to low</a></li>
                             </ul>
                         </div>
                         <div class="shop-tab nav ml-30">
@@ -52,24 +52,19 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                                 <div class="product-wrap mb-40">
                                     <div class="product-img default-overlay mb-20">
-                                        <a href="product-details.html">
+                                        <a href="{{route('client.product-detail',[$value->slug,$value->id_detail])}}">
                                             <img class="default-img" src="{{asset($value->avatar)}}" alt="">
                                             <img class="hover-img" src="assets/images/product/hm-4-pro-1-2.jpg" alt="">
                                             @if ($value->discount>0)
                                             <span class="price-dec">{{$value->discount}}%</span>
                                             @endif
                                         </a>
-                                        <div class="product-action">
-                                            <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-zoom-in"></i><span>Quick Shop</span></a>
-                                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-                                            <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-                                        </div>
                                         <div class="product-action-2">
                                             <a title="Buy on Themeforest" href="#">mua hàng</a>
                                         </div>
                                     </div>
                                     <div class="product-content">
-                                        <h3><a href="product-details.html">{{$value->name}}</a></h3>
+                                        <h3><a href="{{route('client.cart',$value->id)}}">{{$value->name}}</a></h3>
                                         <div class="product-price">
                                             @if ($value->discount>0)
                                             <span >đ {{number_format($value->sale_price)}}</span>

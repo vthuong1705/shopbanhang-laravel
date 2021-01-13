@@ -59,20 +59,18 @@
                             <div class="main-menu menu-lh-1">
                                 <nav>
                                     <ul>
-                                        <li><a class="active" href="index.html">Home</i></a>
+                                        <li><a class="active" href="{{route('client.index')}}">Home</i></a>
                                         </li>
                                         <li><a href="#">Shop <i class="fa fa-angle-down"></i></a>
                                             <ul class="mega-menu mega-menu-width2 menu-negative-mrg2">
-                                                <li class="mega-menu-sub-width20"><a class="menu-title" href="#">Shop
-                                                        Page</a>
+                                                <li class="mega-menu-sub-width20">Shop
+                                                    Page
                                                     <ul>
                                                         <li><a href="{{route('client.show_cart')}}">Shopping Cart</a>
                                                         </li>
-                                                        <li><a href="checkout.html">Check Out</a></li>
-                                                        <li><a href="my-account.html">My Account</a></li>
+                                                        <li><a href="{{route('client.checkout')}}">Check Out</a></li>
+                                                        <li><a href="{{route('client.info')}}">My Account</a></li>
                                                         <li><a href="{{route('client.wishlist')}}">Wishlist</a></li>
-                                                        <li><a href="compare.html">Compare</a></li>
-                                                        <li><a href="order-tracking.html">Order Tracking</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="mega-menu-sub-width37">

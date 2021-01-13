@@ -24,6 +24,7 @@ class ProductDetailController extends Controller
         $img_pro = Product_image::get_image_detail($pro->id);
         $size = Size::all();
         $detail = product_detail::find($id);
+        // dd($detail);
         $product_new = Product::where('status',1)->paginate(10);
         foreach($product_new as $value){
             $product_detail = isset($value->find_info_product)?$value->find_info_product:[];

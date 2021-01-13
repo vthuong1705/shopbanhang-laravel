@@ -24,7 +24,7 @@
         background-color: #e77878;
     }
 </style>
-<div class="breadcrumb-area breadcrumb-bg-3 section-padding-1 pt-200 pb-120">
+<div class="breadcrumb-area breadcrumb-bg-3 section-padding-1 pt-200 pb-120" >
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
             <div class="breadcrumb-title">
@@ -34,8 +34,8 @@
                 <li>
                     <a href="index.html">Home </a>
                 </li>
-                <li><span> > </span></li>
-                <li class="active"> shop page</li>
+                {{-- <li><span> > </span></li> --}}
+                <li class="active"> {{$banner->content}}</li>
             </ul>
         </div>
     </div>
