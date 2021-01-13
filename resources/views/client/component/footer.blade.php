@@ -8,11 +8,14 @@
                             <a href="index.html"><img src="assets/images/logo/logo-white.png" alt="logo"></a>
                         </div>
                         <div class="footer-info">
+                            @foreach ($contact as $item)
                             <ul>
-                                <li><a href="#"> info@example.com </a></li>
-                                <li> +54.854.854.6666 </li>
-                                <li> 035 Virginia Plaza Suite 331 </li>
+                                <li><a href="#">{{$item->name}}</a></li>
+                                <li>{{$item->email}}</li>
+                                <li>{{$item->address}}</li>
+                                <li>{{$item->phone}}</li>
                             </ul>
+                            @endforeach
                         </div>
                         <div class="footer-social">
                             <ul>

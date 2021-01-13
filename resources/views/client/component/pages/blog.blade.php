@@ -2,7 +2,11 @@
 @section('title','trang blog')
 @section('name_page','')
 @section('content')
-
+<style>
+    .blog-img img{
+        width: 100px;
+    }
+</style>
 <div class="breadcrumb-area bg-gray-2 section-padding-1 pt-200 pb-120">
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
@@ -27,7 +31,7 @@
             <div class="col-lg-12">
                 <div class="blog-wrap mb-20">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{$value->img_blog}}" alt="blog"></a>
+                        <a href="{{route('client.blog-detail',[$value->slug,$value->id])}}"><img src="{{asset($value->img_blog)}}" alt="blog"></a>
                     </div>
                     <div class="blog-content-4 blog-no-sidebar">
                         <div class="blog-tag">

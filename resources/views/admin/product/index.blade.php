@@ -3,12 +3,13 @@
 @section('title','danh sách sản phẩm')
 @section('name_page','product')
 <style>
-    .ok p{
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        width: 200px;
-        height:18px;
+    .getcontent p{
+    white-space: nowrap;
+    margin: 0;
+    width: 200px;
+    height: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
     }
 </style>
 <div class="content-page">
@@ -54,13 +55,13 @@
                     </thead>
                     <tbody>
                         @foreach ($product as $value)
-                        <tr>
+                        <tr class="getcontent">
                             <td>{{$loop->iteration}}</td>
                             <td>{{$value->name}}</td>
                             <td>{{$value->cateName}}</td>
                             <td>{{$value->brandName}}</td>
                             <td><img src="{{asset($value->avatar)}}" alt="" style="width:50px"></td>
-                            <td class="ok"><p>{{$value->desc}}</p></td>
+                            <td><p>{{$value->desc}}</p></td>
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>
                                 <a href="{{route('product_detail.index',$value->id)}}"><i class="mdi mdi-eye btn-info btn"></i></a>

@@ -1,6 +1,14 @@
 @extends('client.master')
 @section('content')
+<style>
+    .table-wishlist{
+        width: 100%;
+    }
+    .table-wishlist td{
+        width: 100px;
+    }
 
+</style>
 <div class="breadcrumb-area bg-gray-2 section-padding-1 pt-200 pb-120">
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
@@ -24,10 +32,9 @@
             <div class="ml-auto mr-auto col-lg-8 col-md-12 col-sm-12 col-12">
                 <form action="#">
                     <div class="table-content table-responsive cart-table-content">
-                        <table>
+                        <table class="table-wishlist">
                             <thead>
                                 <tr>
-                                    <th></th>
                                     <th></th>
                                     <th></th>
                                     <th>Product</th>
@@ -46,7 +53,7 @@
                                     <td class="product-img">
                                         <a href="#"><img src="{{asset($value->avatar)}}" width="100px" alt=""></a>
                                     </td>
-                                    <td>{{$loop->index+1}}</td>
+
                                     <td class="product-name"><a href="{{route('client.product-detail',[$value->slug,$value->id])}}">{{$value->name}}</a></td>
 
                                     <td class="product-price"><span class="amount">{{$value->price}}</span></td>

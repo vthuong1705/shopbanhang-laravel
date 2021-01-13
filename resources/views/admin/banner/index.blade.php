@@ -2,6 +2,16 @@
 @section('content')
 @section('title','banner')
 @section('name_page','banner')
+<style>
+    .getcontent p{
+    white-space: nowrap;
+    margin: 0;
+    width: 200px;
+    height: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    }
+</style>
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -43,11 +53,11 @@
                     </thead>
                     <tbody>
                         @foreach ($banner as $value)
-                        <tr>
+                        <tr class="getcontent">
                             <td>{{$loop->iteration}}</td>
                             <td>{{$value->name}}</td>
-                            <td>{{$value->title}}</td>
-                            <td>{{$value->content}}</td>
+                            <td><p>{{$value->title}}</p></td>
+                            <td><p>{{$value->content}}</p></td>
                             <td><img src="{{asset($value->img_banner)}}" alt="" style="width:100px"></td>
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>

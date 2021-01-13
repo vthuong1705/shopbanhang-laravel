@@ -7,6 +7,7 @@
         width: 100px;
     }
   .getcontent p{
+    margin: 0;
     white-space: nowrap;
     width: 200px;
     height: 100%;
@@ -56,14 +57,14 @@
                     </thead>
                     <tbody>
                         @foreach ($blog as $value)
-                        <tr>
+                        <tr class="getcontent">
                             <td>{{$loop->iteration}}</td>
                             <td>{{$value->name}}</td>
-                            <td>{{$value->title}}</td>
+                            <td><p>{{$value->title}}</p></td>
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>{{$value->AdminName}}</td>
                             <td><img src="{{asset($value->img_blog)}}" class="px" alt=""></td>
-                            <td class="getcontent">
+                            <td>
                                 <p>{{$value->content}}</p>
                             </td>
                             <td>

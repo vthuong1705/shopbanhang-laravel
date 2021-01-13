@@ -5,6 +5,7 @@ namespace App\Http\Controllers\clients;
 use App\Http\Controllers\Controller;
 use App\Models\brand;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Product;
 use App\Models\product_detail;
 use App\Models\Size;
@@ -26,6 +27,7 @@ class ClientController extends Controller
 
     public function index()
     {
+
         $product = Product::where('status', 1)->paginate(10);
         // $wishlist = [];
         foreach ($product as $value) {
@@ -43,8 +45,10 @@ class ClientController extends Controller
                 $value->setAttribute('sale_price', 0);
             }
         };
+        $contact = Contact::all();
+        // dd($contact);
         $wishlist = Wishlist::all();
-        return view('home-client', compact('product','wishlist'));
+        return view('home-client', compact('product','wishlist','contact'));
     }
 
     public function login()

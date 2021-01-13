@@ -2,6 +2,16 @@
 @section('content')
 @section('title','thương hiệu')
 @section('name_page','brand')
+<style>
+     .getcontent p{
+    white-space: nowrap;
+    margin: 0;
+    width: 200px;
+    height: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    }
+</style>
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -41,10 +51,10 @@
                     </thead>
                     <tbody>
                         @foreach ($brands as $value)
-                        <tr>
+                        <tr class="getcontent">
                             <td>{{$loop->iteration}}</td>
                             <td>{{$value->name}}</td>
-                            <td>{{$value->desc}}</td>
+                            <td><p>{{$value->desc}}</p></td>
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>
                                 <a href="{{route('brand.edit',$value->id)}}" class="btn btn-success">sửa</a>
