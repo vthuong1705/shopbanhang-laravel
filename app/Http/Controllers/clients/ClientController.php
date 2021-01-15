@@ -183,4 +183,11 @@ class ClientController extends Controller
     session()->pull('client');
     return redirect()->back();
    }
+
+//    public function get_search(Request $request){
+//         $listProducts = Product::where('name', 'like', '%'.$request->keyword . '%')->where('status',1)->get();
+//         return view('home-client',[
+//             'listProduct' => $listProducts
+//         ]);
+//    }
 }

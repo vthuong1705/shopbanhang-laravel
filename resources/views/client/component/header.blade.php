@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('clients/images/favicon.png')}}">
 
     <!-- CSS
 	============================================ -->
@@ -48,7 +48,7 @@
                         <div class="col-lg-3">
                             <div class="logo-header-about-wrap">
                                 <div class="logo logo-width">
-                                    <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo"></a>
+                                    <a href="index.html"><img src="{{asset('clients/images/logo/logo.png')}}" alt="logo"></a>
                                 </div>
                                 <div class="header-about-icon ml-35">
                                     <a class="quickinfo-button-active" href="#"><i class=" ti-align-left "></i></a>
@@ -73,17 +73,6 @@
                                                         <li><a href="{{route('client.wishlist')}}">Wishlist</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="mega-menu-sub-width37">
-                                                    <div class="banner-menu-content-wrap default-overlay">
-                                                        <a href="product-details.html"><img
-                                                                src="assets/images/banner/banner-menu.jpg"
-                                                                alt="banner"></a>
-                                                        <div class="banner-menu-content">
-                                                            <span>Hello Summer 2019</span>
-                                                            <h2>New <br>arrival</h2>
-                                                        </div>
-                                                    </div>
-                                                </li>
                                             </ul>
                                         </li>
                                         <li><a href="{{route('client.contact')}}">Contact</i></a>
@@ -100,7 +89,7 @@
                                 <div class="language mr-55">
                                     <ul>
                                         <li><a class="active" href="#">English</a></li>
-                                        <li><a href="#">Italy</a></li>
+                                        <li><a href="#">Vietnamese</a></li>
                                     </ul>
                                 </div>
                                 <div class="same-style header-search">
@@ -135,7 +124,7 @@
                         <div class="col-6">
                             <div class="mobile-logo logo-width">
                                 <a href="index.html">
-                                    <img alt="" src="assets/images/logo/logo.png">
+                                    <img alt="" src="{{asset('clients/images/logo/logo.png')}}">
                                 </a>
                             </div>
                         </div>
@@ -162,15 +151,15 @@
                 <div class="quickinfo-menu">
                     <nav>
                         <ul>
-                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="{{route('client.index')}}">Home</a></li>
                             <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="{{route('client.blog')}}">Blog</a></li>
+                            <li><a href="{{route('client.contact')}}">Contact Us</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="quickinfo-banner default-overlay">
-                    <a href="#"><img src="assets/images/banner/quick-info-banner.jpg" alt="quick-info"></a>
+                    <a href="#"><img src="{{asset('clients/images/banner/quick-info-banner.jpg')}}" alt="quick-info"></a>
                     <div class="quickinfo-banner-content">
                         <h3>new</h3>
                     </div>
@@ -195,7 +184,7 @@
                     </ul>
                 </div>
                 <div class="quickinfo-payment">
-                    <img src="assets/images/icon-img/payment-info.png" alt="payment">
+                    <img src="{{asset('clients/images/icon-img/payment-info.png')}}" alt="payment">
                 </div>
                 <div class="quickinfo-copyright">
                     <p>© 2019 <a href="#">Payna</a> Shop. All rights reserved</p>
@@ -326,8 +315,9 @@
             <a class="search-close"><i class=" ti-close "></i></a>
             <div class="search-content">
                 <p>Start typing and press Enter to search</p>
-                <form class="search-form" action="#">
-                    <input type="text" placeholder="Search">
+                <form class="search-form" action="">
+                {{-- <form class="search-form" action="{{route('client.search')}}"> --}}
+                    <input type="text" placeholder="Search" name="keyword" class="form-control">
                     <button class="button-search"><i class="ti-search"></i></button>
                 </form>
             </div>

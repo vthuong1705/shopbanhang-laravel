@@ -6,7 +6,7 @@
                 <div class="footer-widget mb-40">
                     <div class="footer-about">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="assets/images/logo/logo-white.png" alt="logo"></a>
+                            <a href="index.html"><img src="{{asset('clients/images/logo/logo-white.png')}}" alt="logo"></a>
                         </div>
                         <div class="footer-info">
                             <ul>
@@ -69,7 +69,7 @@
                             <li><a href="#">Size Guide</a></li>
                             <li><a href="compare.html">Compare</a></li>
                             <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="wishlist.html">My Account</a></li>
+                            <li><a href="wishlist.html">Wishlist</a></li>
                         </ul>
                     </div>
                 </div>

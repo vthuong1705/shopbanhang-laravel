@@ -132,4 +132,8 @@ Route::prefix('client')->group(function(){
         'as'=>'client.contact_post',
         'uses'=>'clients\ContactController@index_post'
     ]);
+    // Route::get('search',[
+    //     'as'=>'client.search',
+    //     'uses'=>'clients\ClientController@get_search'
+    // ]);
 });
