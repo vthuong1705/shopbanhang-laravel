@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','sửa danh mục')
-@section('name_page','edit category')
+@section('title','Sửa danh mục')
+@section('name_page','Edit category')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -26,10 +26,10 @@
                 <div class="col-md-6">
                     <form action="{{route('category.update',$cate->id)}}" method="POST" role="form">
                         @csrf
-                        <legend>chỉnh sửa danh mục</legend>
+                        <legend>Chỉnh sửa danh mục</legend>
 
                         <div class="form-group">
-                            <label for="">tên danh mục</label>
+                            <label for="">Tên danh mục</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                                 placeholder="Input field" value="{{$cate->name}}">
                             @error('name')
@@ -37,7 +37,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">mô tả</label>
+                            <label for="">Mô tả</label>
                             <textarea type="text" class="form-control @error('desc') is-invalid @enderror" name="desc"
                                 placeholder="Input field" rows="4">{{$cate->desc}}</textarea>
                             @error('desc')
@@ -48,15 +48,15 @@
                         <div class="radio">
                             <label>
                                 <input type="radio" name="status" id="input" value="1" {{$cate->status==1?'checked':''}}>
-                                hiện
+                                Hiện
                             </label>
                             <label>
                                 <input type="radio" name="status" id="input" value="0" {{$cate->status==0?'checked':''}}>
-                                ẩn
+                                Ẩn
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">thêm mới</button>
+                        <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </form>
                 </div>
 

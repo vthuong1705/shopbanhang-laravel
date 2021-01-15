@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','thêm blog')
-@section('name_page','add blog')
+@section('title','Thêm blog')
+@section('name_page','Add blog')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -26,10 +26,10 @@
                 <div class="col-md-3">
                     <form action="{{route('blog.store')}}" method="POST" role="form" enctype="multipart/form-data">
                         @csrf
-                        <legend>thêm mới blog</legend>
+                        <legend>Thêm mới blog</legend>
 
                         <div class="form-group">
-                            <label for="">tên blog</label>
+                            <label for="">Tên blog</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                                 placeholder="nhập tên blog">
                             @error('name')
@@ -37,7 +37,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">tiêu đề</label>
+                            <label for="">Tiêu đề</label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
                                 placeholder="nhập tiêu đề blog">
                             @error('title')
@@ -45,7 +45,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">ảnh</label>
+                            <label for="">Ảnh</label>
                             <input type="file" class="form-control @error('img_blog') is-invalid @enderror" name="img_blog"> @error('img_blog')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -62,19 +62,19 @@
                         <div class="radio">
                             <label>
                                 <input type="radio" name="status" id="input" value="1" checked="checked">
-                                hiện
+                                Hiện
                             </label>
                             <label>
                                 <input type="radio" name="status" id="input" value="0">
-                                ẩn
+                                Ẩn
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">thêm mới</button>
+                        <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </div>
                     <div class="col-md-9">
                         <div class="form-group">
-                            <label for="">nội dung</label>
+                            <label for="">Nội dung</label>
                             <textarea type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content"
                             placeholder="nhập nội dung blog" rows="20"></textarea>
                             @error('content')

@@ -13,60 +13,65 @@
                 </li>
 
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> danh mục sản phẩm <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-book"></i><span> Danh mục sản phẩm <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="{{route('category.index')}}">danh sách danh mục</a></li>
-                        <li><a href="{{route('category.create')}}">thêm danh mục</a></li>
+                        <li><a href="{{route('category.index')}}"><i class="far fa-list-alt"></i> Danh sách danh mục</a></li>
+                        <li><a href="{{route('category.create')}}"><i class="fas fa-plus-square"></i> Thêm danh mục</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> thương hiệu <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Thương hiệu <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="{{route('brand.index')}}">danh sách thương hiệu</a></li>
-                        <li><a href="{{route('brand.create')}}">thêm thương hiệu</a></li>
+                        <li><a href="{{route('brand.index')}}"><i class="far fa-list-alt"></i> Danh sách thương hiệu</a></li>
+                        <li><a href="{{route('brand.create')}}"><i class="fas fa-plus-square"></i> Thêm thương hiệu</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> sản phẩm <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fab fa-product-hunt"></i><span> Sản phẩm <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="{{route('product.index')}}">danh sách sản phẩm</a></li>
-                        <li><a href="{{route('product.create')}}">thêm sản phẩm</a></li>
+                        <li><a href="{{route('product.index')}}"><i class="far fa-list-alt"></i> Danh sách sản phẩm</a></li>
+                        <li><a href="{{route('product.create')}}"><i class="fas fa-plus-square"></i> Thêm sản phẩm</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Đơn hàng <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-truck"></i><span> Đơn hàng <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="{{route('order.index')}}">danh sách đơn hàng</a></li>
-                        {{-- <li><a href="{{route('product.create')}}">thêm sản phẩm</a></li> --}}
+                        <li><a href="{{route('order.index')}}"><i class="far fa-list-alt"></i> Danh sách đơn hàng</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> banner <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fab fa-slideshare"></i><span> Banner <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="{{route('banner.index')}}">danh sách banner</a></li>
-                        <li><a href="{{route('banner.create')}}">thêm banner</a></li>
+                        <li><a href="{{route('banner.index')}}"><i class="far fa-list-alt"></i> Danh sách Banner</a></li>
+                        <li><a href="{{route('banner.create')}}"><i class="fas fa-plus-square"></i> Thêm Banner</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> contact <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-id-card"></i><span> Contact <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="{{route('contact.index')}}">danh sách contact</a></li>
-                        <li><a href="{{route('contact.create')}}">thêm contact</a></li>
+                        <li><a href="{{route('contact.index')}}"><i class="far fa-list-alt"></i> Danh sách Contact</a></li>
+                        <li><a href="{{route('contact.edit',$contact->id)}}"><i class="fas fa-plus-square"></i> Thêm Contact</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> logo <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-id-card"></i><span> Contact_user <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="{{route('logo.index')}}">danh sách logo</a></li>
-                        <li><a href="{{route('logo.create')}}">thêm logo</a></li>
+                        <li><a href="{{route('contact-user.index')}}"><i class="far fa-list-alt"></i> Danh sách Contact_user</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> blog <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-biohazard"></i><span> Logo <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                     <ul class="submenu">
-                        <li><a href="{{route('blog.index')}}">danh sách blog</a></li>
-                        <li><a href="{{route('blog.create')}}">thêm blog</a></li>
+                        <li><a href="{{route('logo.index')}}"><i class="far fa-list-alt"></i> Danh sách Logo</a></li>
+                        <li><a href="{{route('logo.create')}}"><i class="fas fa-plus-square"></i> Thêm Logo</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-blog"></i><span> Blog <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                    <ul class="submenu">
+                        <li><a href="{{route('blog.index')}}"><i class="far fa-list-alt"></i> Danh sách Blog</a></li>
+                        <li><a href="{{route('blog.create')}}"><i class="fas fa-plus-square"></i> Thêm Blog</a></li>
                     </ul>
                 </li>
             </ul>

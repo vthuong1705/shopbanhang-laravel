@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','sửa blog')
-@section('name_page','edit blog')
+@section('title','Sửa blog')
+@section('name_page','Edit blog')
 <style>
     .thuonglone{
         width: 240px;
@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-md-3">
                     <form action="{{route('blog.update',$blog->id)}}" method="POST" role="form" enctype="multipart/form-data">
                         @csrf
-                        <legend>sửa blog</legend>
+                        <legend>Sửa blog</legend>
 
                         <div class="form-group">
                             <label for="">tên blog</label>
@@ -42,7 +42,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">tiêu đề</label>
+                            <label for="">Tiêu đề</label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
                                 value="{{$blog->title}}">
                             @error('title')
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">ảnh</label>
+                            <label for="">Ảnh</label>
                             <input type="file" class="form-control @error('img_blog') is-invalid @enderror" name="img_blog"> @error('img_blog')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -60,18 +60,18 @@
                         <div class="radio">
                             <label>
                                 <input type="radio" name="status" id="input" value="{{$blog->status}}" {{($blog->status==1)?'checked':''}}>
-                                hiện
+                                Hiện
                             </label>
                             <label>
                                 <input type="radio" name="status" id="input" value="{{$blog->status}}" {{($blog->status==0)?'checked':''}}>
-                                ẩn
+                                Ẩn
                             </label>
                         </div>
 
                     </div>
                     <div class="col-md-9">
                         <div class="form-group">
-                            <label for="">nội dung</label>
+                            <label for="">Nội dung</label>
                             <textarea type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content"
                              rows="20">{{$blog->content}}</textarea>
                             @error('content')
@@ -79,7 +79,7 @@
                             @enderror
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">thêm mới</button>
+                    <button type="submit" class="btn btn-primary">Thêm mới</button>
                 </form>
 
             </div>

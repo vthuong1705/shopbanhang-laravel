@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','danh sách sản phẩm')
-@section('name_page','product')
+@section('title','Danh sách sản phẩm')
+@section('name_page','Product')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -34,7 +34,7 @@
                     <hr>
                     <form action="{{route('product_detail.update',$product_detail->id)}}" method="POST" role="form">
                         @csrf
-                        <legend>thêm sản phẩm mới</legend>
+                        <legend>Thêm sản phẩm mới</legend>
                         <div class="row">
                             <div class="form-group col">
                                 <label for="">Mã sản phẩm</label>
@@ -42,21 +42,21 @@
                                     placeholder="nhập mã sản phẩm">
                             </div>
                             <div class="form-group col">
-                                <label for="">giá</label>
+                                <label for="">Giá</label>
                                 <input type="number" class="form-control" name="price"  value="{{$product_detail->price}}"
                                     placeholder="nhập giá sản phẩm">
                             </div>
                             <div class="form-group col">
-                                <label for="">discount</label>
+                                <label for="">Discount</label>
                                 <input type="number" class="form-control" name="discount" value="{{$product_detail->discount}}"
                                     placeholder="discount">
                             </div>
                             <div class="form-group col">
-                                <label for="">số lượng</label>
+                                <label for="">Số lượng</label>
                                 <input type="number" class="form-control" name="quantity" placeholder="nhập số lượng" value="{{$product_detail->quantity}}">
                             </div>
                             <div class="form-group col">
-                                <label for="">size</label>
+                                <label for="">Size</label>
                                 <select name="id_size" id="input" class="form-control">
                                     @foreach ($size as $value)
                                     <option value="{{$value->id}}" {{$product_detail->id_size==$value->id?'selected':''}}>{{$value->name}}</option>
@@ -65,15 +65,15 @@
 
                             </div>
                             <div class="form-group col">
-                                <label for="">trạng thái</label>
+                                <label for="">Trạng thái</label>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="status" id="input" value="1" checked="checked" {{$product_detail->status==1?'checked':''}}>
-                                        hiện
+                                        Hiện
                                     </label>
                                     <label>
                                         <input type="radio" name="status" id="input" value="0" {{$product_detail->status==0?'checked':''}}>
-                                        ẩn
+                                        Ẩn
                                     </label>
                                 </div>
                             </div>

@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','banner')
-@section('name_page','banner')
+@section('title','Banner')
+@section('name_page','Banner')
 <style>
     .getcontent p{
     white-space: nowrap;
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -38,16 +38,16 @@
             @endif
             <div class="row">
 
-                <a href="{{route('banner.create')}}" class="btn btn-success m-2">thêm banner</a>
+                <a href="{{route('banner.create')}}" class="btn btn-success m-2">Thêm banner</a>
                 <table class="table table-hover ">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>tên</th>
-                            <th>tiêu đề</th>
-                            <th>nội dung</th>
-                            <th>ảnh</th>
-                            <th>trạng thái</th>
+                            <th>Tên</th>
+                            <th>Tiêu đề</th>
+                            <th>Nội dung</th>
+                            <th>Ảnh</th>
+                            <th>Trạng thái</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -61,8 +61,8 @@
                             <td><img src="{{asset($value->img_banner)}}" alt="" style="width:100px"></td>
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>
-                                <a href="{{route('banner.edit',$value->id)}}" class="btn btn-success">sửa</a>
-                                <a href="" data-url="{{route('banner.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
+                                <a href="{{route('banner.edit',$value->id)}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="" data-url="{{route('banner.delete',$value->id)}}" class="btn btn-danger action_delete"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         @endforeach

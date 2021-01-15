@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -39,8 +39,8 @@
                             <th>Tên người nhận</th>
                             <th>Địa chỉ nhận hàng</th>
                             <th>Số điện thoại</th>
-                            <th>trạng thái</th>
-                            <th>ghi chú</th>
+                            <th>Trạng thái</th>
+                            <th>Ghi chú</th>
                             <th>Ngày đặt</th>
                             <th></th>
                         </tr>

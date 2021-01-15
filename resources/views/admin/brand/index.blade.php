@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','thương hiệu')
-@section('name_page','brand')
+@section('title','Thương hiệu')
+@section('name_page','Brand')
 <style>
      .getcontent p{
     white-space: nowrap;
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -38,14 +38,14 @@
             @endif
             <div class="row">
 
-                <a href="{{route('brand.create')}}" class="btn btn-success m-2">thêm thương hiệu</a>
+                <a href="{{route('brand.create')}}" class="btn btn-success m-2">Thêm thương hiệu</a>
                 <table class="table table-hover ">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>tên danh mục</th>
-                            <th>mô tả</th>
-                            <th>trạng thái</th>
+                            <th>Tên danh mục</th>
+                            <th>Mô tả</th>
+                            <th>Trạng thái</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -57,8 +57,8 @@
                             <td><p>{{$value->desc}}</p></td>
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>
-                                <a href="{{route('brand.edit',$value->id)}}" class="btn btn-success">sửa</a>
-                                <a href="" data-url="{{route('brand.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
+                                <a href="{{route('brand.edit',$value->id)}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="" data-url="{{route('brand.delete',$value->id)}}" class="btn btn-danger action_delete"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         @endforeach

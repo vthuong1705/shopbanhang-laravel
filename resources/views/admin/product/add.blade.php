@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','thêm sản phẩm')
-@section('name_page','add product')
+@section('title','Thêm sản phẩm')
+@section('name_page','Add product')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -26,17 +26,17 @@
                 <div class="col-md-6">
                     <form action="{{route('product.store')}}" method="POST" role="form" enctype="multipart/form-data">
                         @csrf
-                        <legend>thêm mới sản phẩm</legend>
+                        <legend>Thêm mới sản phẩm</legend>
 
                         <div class="form-group">
-                            <label for="">tên sản phẩm</label>
+                            <label for="">Tên sản phẩm</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="nhập tên sản phẩm"> @error('name')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="">mã sản phẩm</label>
+                            <label for="">Mã sản phẩm</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="sku" placeholder="nhập mã sản phẩm"> @error('name')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -44,7 +44,7 @@
 
 
                         <div class="form-group">
-                            <label for="">danh mục sản phẩm</label>
+                            <label for="">Danh mục sản phẩm</label>
                             <select name="cat_id" id="input" class="form-control">
                                 @foreach ($cate as $value)
                                 <option value="{{$value->id}}">{{$value->name}}</option>
@@ -54,7 +54,7 @@
 
 
                         <div class="form-group">
-                            <label for="">thương hiệu</label>
+                            <label for="">Thương hiệu</label>
                             <select name="brand_id" id="input" class="form-control">
                                 @foreach ($brand as $value)
                                 <option value="{{$value->id}}">{{$value->name}}</option>
@@ -63,21 +63,21 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">ảnh đại diện</label>
+                            <label for="">Ảnh đại diện</label>
                             <input type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar"> @error('avatar')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="">ảnh mô tả</label>
+                            <label for="">Ảnh mô tả</label>
                             <input type="file" multiple class="form-control @error('image') is-invalid @enderror" name="image[]"> @error('image')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="">mô tả</label>
+                            <label for="">Mô tả</label>
                             <textarea type="text" class="form-control @error('desc') is-invalid @enderror" name="desc" placeholder="mô tả" rows="4"></textarea> @error('desc')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -86,21 +86,21 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>trạng thái</label>
+                                <label>Trạng thái</label>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="status" id="input" value="1" checked="checked">
-                                        hiện
+                                        Hiện
                                     </label>
                                     <label>
                                         <input type="radio" name="status" id="input" value="0">
-                                        ẩn
+                                        Ẩn
                                     </label>
                                 </div>
                             </div>
 
 
-                            <button type="submit" class="btn btn-primary">thêm mới</button>
+                            <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </form>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','thêm contact')
-@section('name_page','add contact')
+@section('title','Thêm contact')
+@section('name_page','Add contact')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -26,10 +26,10 @@
                 <div class="col-md-6">
                     <form action="{{route('contact.store')}}" method="POST" role="form" enctype="multipart/form-data">
                         @csrf
-                        <legend>thêm mới contact</legend>
+                        <legend>Thêm mới contact</legend>
 
                         <div class="form-group">
-                            <label for="">tên contact</label>
+                            <label for="">Tên contact</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                                 placeholder="nhập tên banner">
                             @error('name')
@@ -37,7 +37,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">địa chỉ</label>
+                            <label for="">Địa chỉ</label>
                             <input type="text" class="form-control @error('address') is-invalid @enderror" name="address"
                                 placeholder="nhập địa chỉ">
                             @error('address')
@@ -45,7 +45,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">email</label>
+                            <label for="">Email</label>
                             <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                                 placeholder="nhập email">
                             @error('email')
@@ -53,7 +53,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">phone</label>
+                            <label for="">Phone</label>
                             <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
                                 placeholder="nhập số điện thoại">
                             @error('phone')
@@ -63,15 +63,15 @@
                         <div class="radio">
                             <label>
                                 <input type="radio" name="status" id="input" value="1" checked="checked">
-                                hiện
+                                Hiện
                             </label>
                             <label>
                                 <input type="radio" name="status" id="input" value="0">
-                                ẩn
+                                Ẩn
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">thêm mới</button>
+                        <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </form>
                 </div>
 

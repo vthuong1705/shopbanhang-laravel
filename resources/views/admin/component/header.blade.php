@@ -19,7 +19,7 @@
     <link href="{{asset('admins/css/icons.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('admins/css/style.css')}}" rel="stylesheet" type="text/css">
     <script src="https://cdn.tiny.cloud/1/7n911a9591bkn5pif0epywc9rve5lcsebttcp927m18ebabh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
 
 <body>

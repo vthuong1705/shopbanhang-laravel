@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
 @section('title','Quản lý đơn hàng')
-@section('name_page','order')
+@section('name_page','Order')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -39,7 +39,7 @@
                             <th>Mã sản phẩm</th>
                             <th>size</th>
                             <th>Giá</th>
-                            <th>số lượng</th>
+                            <th>Số lượng</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -26,10 +26,10 @@
                 <div class="col-md-6">
                     <form action="{{route('profile.update_password',$admin->id)}}" method="POST" role="form">
                         @csrf
-                        <legend>đổi mật khẩu</legend>
+                        <legend>Đổi mật khẩu</legend>
 
                         <div class="form-group">
-                            <label for="">mật khẩu hiện tại</label>
+                            <label for="">Mật khẩu hiện tại</label>
                             <input type="password" class="form-control @error('name') is-invalid @enderror"
                                 name="password" placeholder="nhập mật khẩu hiện tại">
                             @if (Session::has('err_pass'))
@@ -37,7 +37,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="">mật khẩu mới</label>
+                            <label for="">Mật khẩu mới</label>
                             <input type="password" class="form-control @error('email') is-invalid @enderror"
                                 name="new_pass" placeholder="nhập mật khẩu mới">
                             @error('email')
@@ -45,7 +45,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">nhập lại mật khẩu mới</label>
+                            <label for="">Nhập lại mật khẩu mới</label>
                             <input type="password" class="form-control @error('phone') is-invalid @enderror"
                                 name="r_pass" placeholder="mật khẩu mới">
                             @if (Session::has('err_rpass'))
@@ -53,7 +53,7 @@
                             @endif
                         </div>
 
-                        <button type="submit" class="btn btn-primary">đổi mật khẩu</button>
+                        <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
                     </form>
                 </div>
 

@@ -38,34 +38,35 @@
             @endif
             <div class="row">
 
-                <a href="{{route('contact.create')}}" class="btn btn-success m-2">thêm contact</a>
+                {{-- <a href="{{route('contact.create')}}" class="btn btn-success m-2">thêm contact</a> --}}
                 <table class="table table-hover ">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>tên</th>
-                            <th>điện thoại</th>
-                            <th>địa chỉ</th>
-                            <th>email</th>
-                            <th>status</th>
+                            {{-- <th>#</th> --}}
+                            <th>Tên</th>
+                            <th>Điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Email</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($contact as $value)
+                        {{-- @foreach ($contact as $value) --}}
+                        {{-- @dd($contact) --}}
                         <tr class="getcontent">
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$value->name}}</td>
-                            <td>{{$value->phone}}</td>
-                            <td><p>{{$value->address}}</p></td>
-                            <td>{{$value->email}}</td>
-                            <td>{{$value->status==1?'hiện':'ẩn'}}</td>
+                            <td>{{$contact->index+1}}</td>
+                            <td>{{$contact->name}}</td>
+                            <td>{{$contact->phone}}</td>
+                            <td><p>{{$contact->address}}</p></td>
+                            <td>{{$contact->email}}</td>
+                            <td>{{$contact->status==1?'hiện':'ẩn'}}</td>
                             <td>
-                                <a href="{{route('contact.edit',$value->id)}}" class="btn btn-success">sửa</a>
-                                <a href="" data-url="{{route('contact.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
+                                <a href="{{route('contact.edit',$contact->id)}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="" data-url="{{route('contact.delete',$contact->id)}}" class="btn btn-danger action_delete"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
-                        @endforeach
+                        {{-- @endforeach --}}
                     </tbody>
                 </table>
 

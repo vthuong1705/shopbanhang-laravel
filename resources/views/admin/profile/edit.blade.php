@@ -25,10 +25,10 @@
 
                 <form action="{{route('profile.update',$admin->id)}}" method="POST" role="form">
                     @csrf
-                    <legend>chỉnh sửa thông tin cá nhân</legend>
+                    <legend>Chỉnh sửa thông tin cá nhân</legend>
 
                     <div class="form-group">
-                        <label for="">tên tài khoản</label>
+                        <label for="">Tên tài khoản</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror"
                             value="{{$admin->name}}" name="name" placeholder="nhập tên tài khoản">
                         @error('name')
@@ -36,7 +36,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="">email</label>
+                        <label for="">Email</label>
                         <input type="text" class="form-control @error('email') is-invalid @enderror" value="{{$admin->email}}" name="email"
                             placeholder="nhập email">
                             @error('email')
@@ -44,7 +44,7 @@
                             @enderror
                     </div>
                     <div class="form-group">
-                        <label for="">số điện thoại</label>
+                        <label for="">Số điện thoại</label>
                         <input type="tel" class="form-control @error('phone') is-invalid @enderror" value="{{$admin->phone}}" name="phone"
                             placeholder="nhập số điện thoại">
                             @error('phone')
@@ -52,7 +52,7 @@
                             @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary">cập nhật</button>
+                    <button type="submit" class="btn btn-primary">Cập nhật</button>
                 </form>
 
             </div>

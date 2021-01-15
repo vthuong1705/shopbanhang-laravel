@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','blog')
-@section('name_page','blog')
+@section('title','Blog')
+@section('name_page','Blog')
 <style>
     .px{
         width: 100px;
@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -41,17 +41,17 @@
             @endif
             <div class="row">
 
-                <a href="{{route('blog.create')}}" class="btn btn-success m-2">thêm blog</a>
+                <a href="{{route('blog.create')}}" class="btn btn-success m-2">Thêm blog</a>
                 <table class="table table-hover ">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>tên</th>
-                            <th>tiêu đề</th>
-                            <th>trạng thái</th>
-                            <th>người viết</th>
-                            <th>ảnh</th>
-                            <th>nội dung</th>
+                            <th>Tên</th>
+                            <th>Tiêu đề</th>
+                            <th>Trạng thái</th>
+                            <th>Người viết</th>
+                            <th>Ảnh</th>
+                            <th>Nội dung</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -68,8 +68,8 @@
                                 <p>{{$value->content}}</p>
                             </td>
                             <td>
-                                <a href="{{route('blog.edit',$value->id)}}" class="btn btn-success">sửa</a>
-                                <a href="" data-url="{{route('blog.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
+                                <a href="{{route('blog.edit',$value->id)}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="" data-url="{{route('blog.delete',$value->id)}}" class="btn btn-danger action_delete"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         @endforeach

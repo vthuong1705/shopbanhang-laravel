@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','danh sách sản phẩm')
-@section('name_page','product')
+@section('title','Danh sách sản phẩm')
+@section('name_page','Product')
 <style>
     .getcontent p{
     white-space: nowrap;
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -38,18 +38,18 @@
             @endif
             <div class="row">
 
-                <a href="{{route('product.create')}}" class="btn btn-success m-2">thêm sản phẩm</a>
+                <a href="{{route('product.create')}}" class="btn btn-success m-2">Thêm sản phẩm</a>
                 <table class="table table-hover ">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>tên sản phẩm</th>
+                            <th>Tên sản phẩm</th>
                             <th>Mã sản phẩm</th>
-                            <th>danh mục</th>
-                            <th>thương hiệu</th>
-                            <th>ảnh đại diện</th>
-                            <th>mô tả</th>
-                            <th>trạng thái</th>
+                            <th>Danh mục</th>
+                            <th>Thương hiệu</th>
+                            <th>Ảnh đại diện</th>
+                            <th>Mô tả</th>
+                            <th>Trạng thái</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -65,8 +65,8 @@
                             <td>{{$value->status==1?'hiện':'ẩn'}}</td>
                             <td>
                                 <a href="{{route('product_detail.index',$value->id)}}"><i class="mdi mdi-eye btn-info btn"></i></a>
-                                <a href="{{route('product.edit',$value->id)}}" class="btn btn-success">sửa</a>
-                                <a href="" data-url="{{route('product.delete',$value->id)}}" class="btn btn-danger action_delete">xóa</a>
+                                <a href="{{route('product.edit',$value->id)}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="" data-url="{{route('product.delete',$value->id)}}" class="btn btn-danger action_delete"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                         @endforeach

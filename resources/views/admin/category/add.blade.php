@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','thêm danh mục')
-@section('name_page','add category')
+@section('title','Thêm danh mục')
+@section('name_page','Add Category')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -26,10 +26,10 @@
                 <div class="col-md-6">
                     <form action="{{route('category.store')}}" method="POST" role="form">
                         @csrf
-                        <legend>thêm mới danh mục</legend>
+                        <legend>Thêm mới danh mục</legend>
 
                         <div class="form-group">
-                            <label for="">tên danh mục</label>
+                            <label for="">Tên danh mục</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                                 placeholder="nhập tên danh mục">
                             @error('name')
@@ -37,7 +37,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">mô tả</label>
+                            <label for="">Mô tả</label>
                             <textarea type="text" class="form-control @error('desc') is-invalid @enderror" name="desc"
                                 placeholder="mô tả" rows="4"></textarea>
                             @error('desc')
@@ -48,15 +48,15 @@
                         <div class="radio">
                             <label>
                                 <input type="radio" name="status" id="input" value="1" checked="checked">
-                                hiện
+                                Hiện
                             </label>
                             <label>
                                 <input type="radio" name="status" id="input" value="0">
-                                ẩn
+                                Ẩn
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">thêm mới</button>
+                        <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </form>
                 </div>
 

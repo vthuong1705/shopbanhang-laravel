@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
-@section('title','sửa sản phẩm')
-@section('name_page','edit product')
+@section('title','Sửa sản phẩm')
+@section('name_page','Edit product')
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">shop bán hàng</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Shop bán hàng</a></li>
                             <li class="breadcrumb-item active">@yield('name_page')</li>
                         </ol>
                     </div>
@@ -26,10 +26,10 @@
                 <div class="col-md-6">
                     <form action="{{route('product.update',$product->id)}}" method="POST" role="form" enctype="multipart/form-data">
                         @csrf
-                        <legend>sửa sản phẩm</legend>
+                        <legend>Sửa sản phẩm</legend>
 
                         <div class="form-group">
-                            <label for="">tên sản phẩm</label>
+                            <label for="">Tên sản phẩm</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                                 placeholder="nhập tên sản phâm" value="{{$product->name}}">
                             @error('name')
@@ -39,7 +39,7 @@
 
 
                         <div class="form-group">
-                            <label for="">danh mục sản phẩm</label>
+                            <label for="">Danh mục sản phẩm</label>
                             <select name="cat_id" id="input" class="form-control" required="required">
                                 @foreach ($cate as $value)
                                 <option value="{{$value->id}}" {{($value->id==$product->cat_id)?'selected':''}}>{{$value->name}}</option>
@@ -49,7 +49,7 @@
 
 
                         <div class="form-group">
-                            <label for="">thương hiệu</label>
+                            <label for="">Thương hiệu</label>
                             <select name="brand_id" id="input" class="form-control" required="required">
                                 @foreach ($brand as $value)
                                 <option value="{{$value->id}}" {{($value->id==$product->brand_id)?'selected':''}}>{{$value->name}}</option>
@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">ảnh đại diện</label>
+                            <label for="">Ảnh đại diện</label>
                             <input type="file" class="form-control @error('avatar') is-invalid @enderror"
                                 name="avatar">
                             @error('avatar')
@@ -68,7 +68,7 @@
                         <img src="{{asset($product->avatar)}}" alt="" style="width: 100px">
 
                         <div class="form-group">
-                            <label for="">ảnh mô tả</label>
+                            <label for="">Ảnh mô tả</label>
                             <input type="file" multiple class="form-control @error('image') is-invalid @enderror"
                                 name="image[]">
                             @error('image')
@@ -80,7 +80,7 @@
                         @endforeach
 
                         <div class="form-group">
-                            <label for="">mô tả</label>
+                            <label for="">Mô tả</label>
                             <textarea type="text" class="form-control @error('desc') is-invalid @enderror" name="desc"
                                 placeholder="mô tả" rows="4">{{$product->desc}}</textarea>
                             @error('desc')
@@ -88,18 +88,18 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>trạng thái</label>
+                            <label>Trạng thái</label>
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="status" id="input" value="1" {{$product->status==1?'checked':''}}>
-                                    hiện
+                                    Hiện
                                 </label>
                                 <label>
                                     <input type="radio" name="status" id="input" value="0" {{$product->status==0?'checked':''}}>
-                                    ẩn
+                                    Ẩn
                                 </label>
                             </div>
-                        <button type="submit" class="btn btn-primary">thêm mới</button>
+                        <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </form>
                 </div>
 

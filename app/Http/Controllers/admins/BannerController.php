@@ -27,7 +27,6 @@ class BannerController extends Controller
 
     public function store(AddBannerRequest $request)
     {
-        // dd('123');
         $dataUpload = $this->uploadImage($request, 'banner', 'img_banner');
         $dataInsert = [
             'name' => $request->name,
@@ -36,7 +35,6 @@ class BannerController extends Controller
             'status' => $request->status,
         ];
         $dataInsert['img_banner'] = $dataUpload;
-        // dd($dataInsert);
         $banner = banner::create($dataInsert);
         if ($banner) {
             return redirect()->route('banner.index')->with('success', 'thêm mới thành công');
@@ -67,12 +65,6 @@ class BannerController extends Controller
             $dataUpdate['img_banner'] = $dataUpload;
         }
         banner::find($id)->update($dataUpdate);
-        // dd($bann->img_banner);
-        // $banner = banner::find($id);
-
-        // if ($request->hasFile('img_banner')) {
-        //     banner::delete_image($id);
-        // }
         return redirect()->route('banner.index')->with('success', 'sửa thành công');
     }
 
